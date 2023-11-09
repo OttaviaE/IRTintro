@@ -1,0 +1,1466 @@
+---
+title: "Item Response Theory for beginners"
+subtitle: "Introduction to IRT models"
+institute: "Rovereto (TN)"
+author: "Dr. Ottavia M. Epifania"
+date: "University of Trento, \\ 17 November 2023"
+output: 
+  beamer_presentation: 
+    theme: metropolis
+    highlight: haddock
+    toc: true
+    slide_level: 3
+header-includes:
+    - \usepackage{graphicx} 
+    - \usepackage{setspace}
+    - \usepackage{tabularx}
+    - \usepackage[english]{babel}
+    - \usepackage{tikzsymbols}
+    - \usepackage{subcaption}
+    - \usepackage{tikz}
+    - \usepackage[absolute,overlay]{textpos}
+    - \usepackage{spot}
+    - \usepackage{tabularx}
+    - \usepackage[absolute,overlay]{textpos}
+    - \usepackage{booktabs}
+    - \setbeamertemplate{navigation symbols}{}
+    - \newcommand\Factor{1.2}
+    - \setbeamerfont{subtitle}{size=\large, series=\bfseries}
+    - \useinnertheme{circles}
+    - \useoutertheme{smoothbars}
+    - \definecolor{latenti}{RGB}{54, 114, 89}
+    - \definecolor{manifeste}{RGB}{179, 7, 27}
+    - \definecolor{background}{RGB}{251, 251, 251}
+    - \setbeamercolor{frametitle}{bg=background}
+    - \setbeamertemplate{frametitle}[default][center]
+    - \AtBeginSubsection{\frame{\subsectionpage}}
+    - \setbeamercolor{section name}{fg=white}
+    - \setbeamertemplate{titlepage}{\frame[plain]{\titlepage}}
+    - \setbeamersize{text margin left=5mm,text margin right=5mm} 
+    - \def\tikzoverlay{\tikz[remember picture, overlay]\node[every overlay node]}
+    - \definecolor{person}{RGB}{33, 113, 181}
+    - \definecolor{question}{RGB}{181, 102, 33}
+    - \newcommand*{\sbj}[1]{\textcolor{person}{#1}}
+    - \newcommand*{\colit}[1]{\textcolor{question}{#1}}
+    - \definecolor{highlight}{RGB}{18, 10, 143}    
+    - \newcommand*{\high}[1]{\textcolor{highlight}{#1}}
+
+---
+
+<!-- \frame[plain]{\titlepage}  -->
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F, 
+                      warning = F, 
+                      message = F, 
+                      fig.align = "center", 
+                      out.width = "90%")
+IRT <- function(theta, a = 1, b = 0, c = 0,e = 1) {
+  y <- c + (e - c) * exp(a * (theta - b)) / (1 + exp(a * (theta - b)))
+  y[is.na(y)] = 1
+  return(y)
+}
+
+i_info <- function(b, a=1,c=0, theta = seq(-5,5,length.out=1000)){
+ 
+P <- NULL 
+Q <- NULL
+Ii <- NULL
+for(i in 1:1000){
+  P[i] <- 1/(1+ exp (-a*(theta[i] - b)))
+  Q[i]= 1-P[i]
+  Ii[i] =(a*Q[i]*(P[i]-c)^2)/(P[i]*((1-c)^2)) # (3PL)
+   }
+return(Ii)
+}
+# Function to get all item information
+item_info <- function(b,a=1, c= 0){
+item <- NULL
+  for(i in 1:length(b)){
+  item[[i]] <- i_info(b[i],a[i])
+  }
+return(item)
+}
+
+set.seed(999)
+
+theta = seq(-4,4,length.out=1000)
+library(xtable)
+library(sirt)
+library(TAM)
+
+```
+
+
+
+# Introduction
+
+## Latent variables
+
+### 
+
+\vspace{5mm}
+
+- Variables that \color{latenti} cannot be directly observed \normalcolor $\rightarrow$ **\color{latenti} Latent variables** (e.g., Intelligence)
+
+- Inferred from \color{manifeste} directly observed  indicators \normalcolor $\rightarrow$ **\color{manifeste} Observed variables** (e.g., the response to the Raven's matrices)
+
+- \emph{Operazionalization of the latent variable} is crucial 
+
+
+### Esempio 
+
+Let's say we have a friend, Giorgio, and after observing what he does usually, we see that:
+
+- He has a lot of friends
+
+- He feels comfortable in social situations involving many people  
+
+- He goes the extra mile to stay in touch with people 
+
+- $\ldots$
+
+Giorgio's behaviors (\color{manifeste}**observed variables**\normalcolor) can be explained by considering the latent variable ***\color{latenti}extraversion*** 
+
+
+## Modelling latent variables
+
+### 
+
+The \color{latenti}latent variables\normalcolor must be linked to the \color{manifeste}observed variables\normalcolor $\rightarrow$ mathematical and statistical models
+
+
+\small
+Assumptions: 
+
+-  The \color{latenti}latent variables \normalcolor are the underlying cause of the \color{manifeste}observed variables \normalcolor 
+
+- *Local independence*: The correlation between the \color{manifeste}observed variables \normalcolor after controlling for the influence of the \color{latenti}latent variable\normalcolor
+
+\vspace{3mm}
+
+```{r echo = F, out.width="60%"}
+knitr::include_graphics("img/latent.png")
+```
+
+
+### To each its own
+
+```{r out.width="80%", echo = F}
+knitr::include_graphics("img/mavl1.png")
+```
+
+IRT models and Rasch model $\rightarrow$ **Models for latent trait** 
+
+
+## IRT vs. CTT
+
+### 
+
+IRT models and Classical Test Theory (CTT) models have the same aim $\rightarrow$ "measuring" people $\rightarrow$ locate the position of each person on a latent trait
+
+
+::: columns
+
+:::: column
+\begin{center}
+\textbf{\large\high{IRT}}
+\end{center}
+
+Focus $\rightarrow$ \high{Items}
+::::
+
+:::: column
+\begin{center}
+\textbf{\large\high{CTT}}
+\end{center}
+
+Focus $\rightarrow$ \high{Test}
+::::
+
+:::
+
+
+## Basics of IRT
+
+### 
+
+The probability of an observed response (\color{manifeste}observed variable\normalcolor) depends on the characteristics of both the \sbj{person} and the \colit{item}
+
+The characteristics of the \sbj{person} can be described by a parameter of the person  $\rightarrow$ \color{latenti} latent trait \normalcolor (e.g., intelligence, self-esteem, extroversion etc.)
+
+
+
+The characteristics of the \colit{item} can be described by one or more parameters, (\textbf{difficulty}, \textbf{discrimination}, \textbf{guessing}, \textbf{careless error})
+
+The item, the person and their characteristics are located on the same latent trait
+
+### 
+
+
+\begin{minipage}{.20\textwidth}
+	\begin{figure}
+				\centering
+				\includegraphics[width=\linewidth]{img/lisa.png}
+			\end{figure}
+
+			\centering
+			\sbj{$A_\text{Lisa}$}
+			
+\end{minipage}
+\begin{minipage}{.25\textwidth}
+\begin{center}
+\textbf{Q1}
+
+$3 + 2 = ?$
+
+\colit{$d_{\text{Q1}}$}
+\end{center}
+\end{minipage}
+\begin{minipage}{.25\textwidth}
+\begin{center}
+\textbf{Q2}
+
+$3x - 2y + 4 = ?$
+
+\colit{$d_{\text{Q2}}$}
+\end{center}
+\end{minipage}
+\begin{minipage}{.20\textwidth}
+	\begin{figure}
+				\centering
+				\includegraphics[width=\linewidth]{img/bart.png}
+			\end{figure}
+
+			\centering
+			\sbj{$A_\text{Bart}$}
+			
+\end{minipage}
+
+### To each its own IRT model 
+
+Different IRT models according to:
+
+1. Latent trait: 
+
+  - Unidimensional model
+  - Multidimensional model
+  
+2. Response categories: 
+
+  - Dichotomous items (Two response categories, e.g., true/falso, agree/disagree)
+  - Polytomous items (at least 3 response categories, e.g., Likert-type scale)
+  
+### Models for dichotomous items
+
+These models can be distinguinshed according to the number of parameters describing the charcateristics of the items. 
+
+- One-Parameter Logistic Model (1-PL)
+
+- Two-Parameter Logistic Model (2-PL)
+
+- Three-Parameter Logistic Model (3-PL)
+
+- Four-Parameter Logistic Model (4-PL)
+
+### In general
+
+- Person and items parameters are on the same latent trait 
+
+- As the distance on the latent trait between the person parameter and the item parameter increases, the probability of a correct response changes 
+
+- When the parameter of the person matches the parameter of the item, then the probability of observing a correct response is 50% (Only for the 1-PL)
+
+# 1-PL
+
+
+## Item Response Function
+
+###
+
+The probability that person $p$ responds correctly to item $i$ is formalized ad
+
+
+$$P(x_{pi} = 1| \theta_p, b_i) = \dfrac{\exp(\theta_p - b_i)}{1 + \exp(\theta_p - b_i)}$$
+
+
+$\theta_p$: Ability of the person (i.e., latent trait level of the person) $\rightarrow$ The value of $\theta_p$, the higher the amount of latent trait of $p$
+      
+$b_i$; difficulty of item $i$ (location of the item on the latent trait) $\rightarrow$ The higher the value of  $b_i$, the most difficult the item is
+
+
+
+## Item Charcteristic Curve 
+
+###
+
+```{r echo = F, out.width = "100%"}
+par(mar = c(5,7,4,2) + 0.1) 
+plot(theta, IRT(theta, b = 1, a = 1),
+     cex.lab= 2.5, 
+     cex.axis =1.5, cex.main = 3,
+       xlab = expression(theta), ylab = "Probability of \n endorsing the item",
+       xlim = c(-4, 4), ylim = c(0, 1), 
+     type = "l", lwd = 3, 
+     col = "royalblue", main = "Item Charcteristic Curve (ICC)")
+
+mtext("b = 1", side = 1, at = 1, cex = 2, padj = 1)
+
+segments(-7, 0.5, 
+         1, 0.5, 
+         col = "red", lty = 3, lwd = 3)
+segments(1, -0.5, 
+         1, 0.5, 
+         col = "red", lty = 3, lwd = 3)
+```
+
+### Item with different locations: ICC
+
+\vspace*{-15mm}
+
+```{r, out.width = "90%"}
+b = seq(-2.5, 2.5, length = 5)
+a = rep(1, length(b))
+
+my_colors <- RColorBrewer::brewer.pal(6, "Blues")[2:6]
+
+par(mar = c(5,7,4,2) + 0.1) 
+plot(theta, IRT(theta, b = b[1], a = a[1]),
+     cex.lab= 2.5, 
+     cex.axis =1.5,cex.main = 3,
+       xlab = expression(theta), ylab = "Probability of \n endorsing the item", 
+     main = "ICC - Different locations",
+       xlim = c(-4, 4), ylim = c(0, 1), 
+     type = "l", lwd = 3, 
+     col = my_colors[1])
+  
+segments(-7, 0.5, 
+         b[1], 0.5, 
+         col = "red", lty = 3, lwd = 3)
+segments(b[1], -0.5, 
+         b[1], 0.5, 
+         col = "red", lty = 3, lwd = 3)
+
+si = data.frame(item1 = b[1], item2 = b[2], item3 = b[3], 
+                item4 = b[4], item5 = b[5])
+rownames(si) = "b"
+text(x= -2, y = 0.8, colnames(si)[1], col = my_colors[1], cex = 2)
+
+
+
+for ( i in 2:length(b)) {
+  lines(theta, IRT(theta, b=b[i], 
+                a = 1), 
+      lty = 1, lwd=3, col = my_colors[i])
+  segments(-7, 0.5, 
+         b[i], 0.5, 
+         col = "red", lty = 3, lwd = 3)
+segments(b[i], -0.5, 
+         b[i], 0.5, 
+         col = "red", lty = 3, lwd = 3)
+text(x= b[i] +.5, 
+     y = 0.8, colnames(si)[i], col = my_colors[i], cex = 2)
+
+}
+
+
+
+
+```
+
+\centering 
+
+```{r results='asis'}
+print(xtable(si), comment = FALSE, include.rownames=T)
+```
+
+
+
+## Item Information Function
+
+###
+
+Measure of the precision with which the item assesses different levels of the latent trait $\rightarrow$ \emph{Item Information Function}: 
+
+$$I_I = P_i(\theta, b_i)Q_i(\theta, b_i)$$
+
+$Q = 1- P_i(\theta_p, b_i)$ is the probability of choosing the incorrect response
+
+###
+
+The IIFis maximized when $\theta_p = b_i$ $\rightarrow$ $P(x_{pi}=1) = P(x_{pi}=0) =0.50$ $\rightarrow$ $I_i = .25$
+
+\vspace{-2mm}
+
+```{r prova}
+b <- 1
+a <- rep(1, length(b))
+# Get all item information
+c <- item_info(b,a)
+Theta <- matrix(seq(-4,4, length.out=1000))
+check <- data.frame(Theta, 
+                    item_info = c[[1]])
+d <- do.call('cbind',c)
+sum_info1 <- rowSums(d)
+
+plot(check$Theta, check$item_info, ylim= c(0, 1), cex.lab= 2, 
+     cex.axis =1.5, cex.main = 3,
+       xlab = expression(theta), ylab = "Information", 
+     type = "l", lwd =2, 
+     col = "royalblue", main = "Item Information Function - IIF")
+segments(-7, 0.25, 
+         1, 0.25, 
+         col = "red", lty = 3, lwd = 3)
+segments(1, -0.25, 
+         1, 0.25, 
+         col = "red", lty = 3, lwd = 3)
+
+lines(theta, IRT(theta, b=1, 
+                a = 1), 
+      lty = 2, lwd=3, col = "grey")
+```
+
+### 
+
+The item is mostly informative for subjects with a latent trait level close to the location of the item $\rightarrow$ the higher the distance between the latent trait level of the person and the location of the item, the lower the IFF
+
+High variability in the latent trait levels of the respondents $\rightarrow$ items with locations spread along the entire latent trait 
+
+::: columns
+
+:::: column
+
+\begin{center}
+\large{\textbf{\high{IRT}}} 
+\end{center}
+
+The more the item locations are spread along the trait, the merrier
+
+::::
+
+:::: column
+\begin{center}
+\large{\textbf{\high{CTT}}} 
+\end{center}
+
+Items should be as homogeneous as possible
+
+::::
+
+
+:::
+
+
+### Items with difference locations: IIF
+
+\vspace*{-15mm}
+
+```{r}
+
+b = seq(-2.5, 2.5, length = 5)
+a = rep(1, length(b))
+
+my_colors <- RColorBrewer::brewer.pal(6, "Blues")[2:6]
+a <- rep(1, length(b))
+# Get all item information
+c <- item_info(b,a)
+Theta <- matrix(seq(-4,4, length.out=1000))
+check = data.frame(theta = Theta)
+temp = NULL
+for (i in 1:length(c)) {
+  temp = cbind( temp, c[[i]])
+}
+
+check = cbind(check, temp)
+colnames(check)[2:ncol(check)] = paste0("item_info", 1:(ncol(check)-1))
+
+d <- do.call('cbind',c)
+sum_info <- rowSums(d)
+
+check$theta = NULL
+
+plot(Theta, check[, 1], ylim= c(0, 1), cex.lab= 2, 
+     cex.axis =1.5, cex.main =3,
+       xlab = expression(theta), ylab = "Information", 
+     type = "l", lwd =2, 
+     col = my_colors[1], main = "IIF- Item with different locations")
+segments(-7, 0.25, 
+         b[1], 0.25, 
+         col = "red", lty = 3, lwd = 3)
+segments(b[1], -0.25, 
+         b[1], 0.25, 
+         col = "red", lty = 3, lwd = 3)
+
+
+text(x= -2, y = 0.4, colnames(si)[1], col = my_colors[1], cex = 2)
+
+
+
+for ( i in 2:length(b)) {
+  lines(theta, check[, i], 
+      lty = 1, lwd=3, col = my_colors[i])
+  segments(-7, 0.25, 
+         b[i], 0.25, 
+         col = "red", lty = 3, lwd = 3)
+segments(b[i], -0.25, 
+         b[i], 0.25, 
+         col = "red", lty = 3, lwd = 3)
+text(x= b[i] +.5, 
+     y = 0.4, colnames(si)[i], col = my_colors[i], cex = 2)
+
+}
+
+for ( i in 2:length(b)) {
+  lines(theta, IRT(theta, b=b[i], 
+                a = 1), 
+      lty = 1, lwd=2, col = "grey")
+}
+
+si = data.frame(item1 = b[1], item2 = b[2], item3 = b[3], 
+                item4 = b[4], item5 = b[5])
+rownames(si) = "b"
+```
+
+\centering 
+
+```{r results='asis'}
+print(xtable(si), comment = FALSE, include.rownames=T)
+```
+
+## Test Information Function
+
+###
+
+Measure of the precision with which the test assesses the latent trait:
+
+$$I(\theta) = \sum I_i(\theta, b_i) = $$
+
+
+
+### 
+
+<!-- \vspace*{-5mm} -->
+
+```{r}
+plot(theta, sum_info, cex.lab= 2, 
+     cex.axis =1.5,
+       xlab = expression(theta), ylab = "Information", 
+     type = "l", lwd =2, 
+     col = "black", ylim = c(0,1))
+
+for ( i in 1:length(b)) {
+  lines(theta, check[, i], 
+      lty = 1, lwd=3, col = my_colors[i])
+}
+```
+\centering 
+\small
+\vspace{-3mm}
+```{r results='asis'}
+print(xtable(si), comment = FALSE, include.rownames=T)
+```
+
+
+### Standard Error of Measurement (SEM)
+
+
+$$SEM(\theta) = \sqrt{\dfrac{1}{I(\theta)}} = \sqrt{\dfrac{1}{P_i(\theta, b_i)Q_i(\theta, b_i)}} $$
+The higher the information, the lower the SEM
+
+The lower the information, the higher the SEM
+
+Differently from CTT $\rightarrow$ the error of measuremt can vary for different levels of the latent trait
+
+
+### 
+
+<!-- \vspace*{-5mm} -->
+
+```{r}
+
+
+
+
+
+par(mar = c(5, 4, 4, 4) + 0.3)  # Leave space for z axis
+plot(theta, sqrt(1/sum_info), cex.lab= 2, 
+     cex.axis =1.5,
+       xlab = expression(theta), ylab = "SEM", 
+     type = "l", lwd =2, 
+     col = "firebrick")
+text("SEM", x =-3, y = 3.0, col = "firebrick", cex = 2)
+par(new = TRUE)
+plot(theta, sum_info, type = "l", axes = FALSE,
+     bty = "n", xlab = "", ylab = "", ylim = c(0,1))
+text("TIF", x = 0, y = .7, cex = 2)
+axis(side=4, at = pretty(range(sum_info)), cex = 1.5)
+mtext("Informazione", side=4, line=3, cex = 2)
+
+```
+
+\centering 
+\small
+\vspace{-3mm}
+
+```{r results='asis'}
+print(xtable(si), comment = FALSE, include.rownames=T)
+```
+
+# 2PL
+
+## Item Response Function
+
+###
+
+$$P(x_{pi} = 1| \theta_p, b_i, a_i) = \dfrac{\exp[a_i(\theta_p - b_i)]}{1+\exp[a_i(\theta_p - b_i)]}$$
+Dove: 
+
+$\theta_p$: Ability of the person (i.e., latent trait level of the person)
+      
+$b_i$; difficulty of item $i$ (location of the item on the latent trait) $\rightarrow$
+
+$a_i$: Discrimination of the item $\rightarrow$ ability of the item to tell apart subjects with different levels of the latent trait
+
+### Maybe better
+
+\vspace*{-10mm}
+\begin{overprint}
+	
+\onslide<1>
+
+```{r}
+library(png)
+# lisa = readPNG(paste0(getwd(), "/intro/img/lisa.png"))
+# bart =readPNG(paste0(getwd(), "/intro/img/bart.png"))
+
+lisa = readPNG( "img/lisa.png")
+bart = readPNG( "img/bart.png")
+
+plot(theta, IRT(theta, a = 0.5, b = 1), 
+     type = "l", 
+     ylab = "P(x = 1)", ylim = c(0,1 ), cex.lab= 2, 
+     cex.axis =1.5, xlab = expression(theta), lwd = 3)
+
+
+rasterImage(lisa, 0.6, -0.10, 1.5, 0.15)
+rasterImage(bart, -1.5, -0.10, -0.5, 0.15)
+
+text(x= 3.2, 
+     y = 0.95, expression(paste(a[1], "= 0.50")), 
+     col = "black", cex = 2)
+
+
+```
+
+\vspace{-3mm}
+\begin{columns}[T]
+
+\begin{column}{.50\linewidth}
+
+Item 1 ($a_1 = 0.50$): 
+
+$2 + 2= ?$
+\end{column}
+
+\begin{column}{.50\linewidth}
+
+\end{column}
+
+\end{columns}
+
+
+
+\onslide<2>
+
+```{r}
+plot(theta, IRT(theta, a = 0.5, b = 0), 
+     type = "l", 
+     ylab = "P(x = 1)", ylim = c(0,1 ), cex.lab= 2, 
+     cex.axis =1.5, xlab = expression(theta), lwd = 3)
+text(x= 3.2, 
+     y = 0.95, expression(paste(a[1], "= 0.50")), 
+     col = "black", cex = 2)
+
+segments(-7, exp(0.5 *(1))/(1+exp(0.5 *(1))), 
+         1, exp(0.5 *(1))/(1+exp(0.5 *(1))), 
+         col = "red", lty = 3, lwd = 3)
+segments(1, -exp(0.5 *(1))/(1+exp(0.5 *(1))), 
+        1, exp(0.5 *(1))/(1+exp(0.5 *(1))), 
+         col = "red", lty = 3, lwd = 3)
+
+segments(-7, exp(0.5 *(-1))/(1+exp(0.5 *(-1))), 
+         -1, exp(0.5 *(-1))/(1+exp(0.5 *(-1))), 
+         col = "royalblue4", lty = 3, lwd = 3)
+segments(-1, -exp(0.5 *(-1))/(1+exp(0.5 *(-1))), 
+        -1, exp(0.5 *(-1))/(1+exp(0.5 *(-1))), 
+         col = "royalblue4", lty = 3, lwd = 3)
+rasterImage(lisa, 0.6, -0.10, 1.5, 0.15)
+rasterImage(bart, -1.5, -0.10, -0.5, 0.15)
+
+```
+
+\vspace{-3mm}
+\begin{columns}[T]
+
+\begin{column}{.50\linewidth}
+
+Item 1 ($a_1 = 0.50$): 
+
+$2 + 2= ?$
+\end{column}
+
+\begin{column}{.50\linewidth}
+
+\end{column}
+
+\end{columns}
+
+
+\onslide<3>
+
+```{r}
+
+plot(theta, IRT(theta, a = 0.5, b = 0), 
+     type = "l", 
+     ylab = "P(x = 1)", ylim = c(0,1 ), cex.lab= 2, 
+     cex.axis =1.5, xlab = expression(theta), lwd = 3)
+text(x= 3.2, 
+     y = 0.95, expression(paste(a[1], "= 0.50")), 
+     col = "black", cex = 2)
+
+segments(-7, exp(0.5 *(1))/(1+exp(0.5 *(1))), 
+         1, exp(0.5 *(1))/(1+exp(0.5 *(1))), 
+         col = "red", lty = 3, lwd = 3)
+
+
+segments(-7, exp(0.5 *(-1))/(1+exp(0.5 *(-1))), 
+         -1, exp(0.5 *(-1))/(1+exp(0.5 *(-1))), 
+         col = "royalblue4", lty = 3, lwd = 3)
+
+ lines(theta, IRT(theta, a = 2.5, b = 0), 
+      lty = 1, lwd=3, col = "springgreen")
+text(x= -0.8, 
+     y = 0.75, expression(paste(a[2], "= 2.50")), 
+     col = "springgreen", cex = 2)
+
+segments(-7, exp(2.5 *(1))/(1+exp(2.5 *(1))), 
+         1, exp(2.5 *(1))/(1+exp(2.5 *(1))), 
+         col = "red", lty = 3, lwd = 3)
+segments(1, -exp(2.5 *(1))/(1+exp(2.5 *(1))), 
+        1, exp(2.5 *(1))/(1+exp(2.5 *(1))), 
+         col = "red", lty = 3, lwd = 3)
+
+segments(-7, exp(2.5 *(-1))/(1+exp(2.5 *(-1))), 
+         -1, exp(2.5 *(-1))/(1+exp(2.5 *(-1))), 
+         col = "royalblue4", lty = 3, lwd = 3)
+segments(-1, -exp(0.5 *(-1))/(1+exp(0.5 *(-1))), 
+        -1, exp(0.5 *(-1))/(1+exp(0.5 *(-1))), 
+         col = "royalblue4", lty = 3, lwd = 3)
+rasterImage(lisa, 0.6, -0.10, 1.5, 0.15)
+rasterImage(bart, -1.5, -0.10, -0.5, 0.15)
+
+
+
+```
+	
+	\vspace{-3mm}
+\begin{columns}[T]
+
+\begin{column}{.50\linewidth}
+
+Item 1 ($a_1 = 0.50$): 
+
+$2 + 2= ?$
+\end{column}
+
+\begin{column}{.50\linewidth}
+
+Item 2 ($a_2 = 2.50$): 
+
+$5 + 14 = ?$
+
+\end{column}
+
+\end{columns}
+
+	
+\end{overprint}
+
+
+### Negative discrimination
+
+\vspace*{-10mm}
+
+```{r out.width ="70%"}
+plot(theta, IRT(theta, a = -0.5, b = 0), 
+     type = "l", cex.main = 3, 
+     ylab = "P(x = 1)", ylim = c(0,1 ), cex.lab= 2, 
+     cex.axis =1.5, xlab = expression(theta), lwd = 3, main = "Negative discrimination")
+text(x= 3.2, 
+     y = 0.95, expression(paste(a[1], "= -0.50")), 
+     col = "black", cex = 2)
+
+segments(-7, 0.5, 
+         0, 0.5, 
+         col = "red", lty = 3, lwd = 3)
+segments(0, -0.5, 
+        0, 0.5, 
+         col = "red", lty = 3, lwd = 3)
+
+```
+
+\footnotesize
+
+The higher the level of the latent trait... the lower the probability of responding correctly! 
+
+
+
+### 
+\vspace*{-5mm}
+
+```{r}
+a = c(0.5, 0.9, 1.5, 1.5)
+b = c(rep(0, (length(a) -1)), 2)
+
+my_colors <- RColorBrewer::brewer.pal(6, "Blues")[2:6]
+my_col = c(my_colors[1:2], my_colors[5], my_colors[5])
+
+par(mar = c(5,7,4,2) + 0.1) 
+plot(theta, IRT(theta, b = b[1], a = a[1]),
+     cex.lab= 2.5, 
+     cex.axis =1.5,
+       xlab = expression(theta), ylab = "Probability of \n endorsing the item",
+       xlim = c(-4, 4), ylim = c(0, 1), 
+     type = "l", lwd = 3, 
+     col = my_colors[1])
+  
+segments(-7, 0.5, 
+         b[1], 0.5, 
+         col = "red", lty = 3, lwd = 3)
+segments(b[1], -0.5, 
+         b[1], 0.5, 
+         col = "red", lty = 3, lwd = 3)
+
+si = data.frame(item1 = c(b[1], a[1]), 
+                item2 = c(b[2], a[2]), 
+                item3 = c(b[3], a[3]), 
+                item4 = c(b[4], a[4]))
+rownames(si) = c("b", "a")
+
+text(x= -2, y = 0.3, colnames(si)[1], col = my_col[1], cex = 2)
+
+
+
+for ( i in 2:length(b)) {
+  lines(theta, IRT(theta, b=b[i], 
+                a = a[i]), 
+      lty = 1, lwd=3, col = my_col[i])
+  segments(-7, 0.5, 
+         b[i], 0.5, 
+         col = "red", lty = 3, lwd = 3)
+segments(b[i], -0.5, 
+         b[i], 0.5, 
+         col = "red", lty = 3, lwd = 3)
+
+
+}
+
+text(x= b[2] -.5, 
+     y = 0.6,  colnames(si)[2], col = my_col[2], cex = 2)
+
+text(x= b[3] +.7, 
+     y = 0.8,  colnames(si)[3], col = my_col[3], cex = 2)
+text(x= b[4] +.7, 
+     y = 0.8,  colnames(si)[4], col = my_col[4], cex = 2)
+```
+
+\centering 
+\small
+\vspace{-3mm}
+
+```{r results='asis'}
+print(xtable(si), comment = FALSE, include.rownames=T)
+```
+
+## Item Information Function
+
+###
+
+$$I_i(\theta, b_i, a_i) = a_i^2P_i(\theta, b_i, a_i)Q_i(\theta, b_i, a_i)$$
+
+$Q_i = 1 - P_i(\theta, b_i, a_i)$ is the probability of giving the incorrect response
+
+### 
+
+\vspace*{-5mm}
+
+```{r}
+a = c(0.5, 0.9, 1.5, 1.5)
+b = c(rep(0, (length(a) -1)), 2)
+# my_colors <- RColorBrewer::brewer.pal(6, "Blues")[2:6]
+
+par(mar = c(5,7,4,2) + 0.1) 
+
+si = data.frame(item1 = c(b[1], a[1]), 
+                item2 = c(b[2], a[2]), 
+                item3 = c(b[3], a[3]), 
+                item4 = c(b[4], a[4]))
+rownames(si) = c("b", "a")
+
+
+c <- item_info(b,a)
+Theta <- matrix(seq(-4,4, length.out=1000))
+check = data.frame(theta = Theta)
+temp = NULL
+for (i in 1:length(c)) {
+  temp = cbind( temp, c[[i]])
+}
+
+check = cbind(check, temp)
+colnames(check)[2:ncol(check)] = paste0("item_info", 1:(ncol(check)-1))
+
+d <- do.call('cbind',c)
+sum_info <- rowSums(d)
+
+check$theta = NULL
+
+plot(Theta, check[, 1], ylim= c(0, 1), cex.lab= 2, 
+     cex.axis =1.5,
+       xlab = expression(theta), ylab = "Informazione", 
+     type = "l", lwd =2, 
+     col = my_col[1])
+
+
+#text(x= -2, y = 0.4, colnames(si)[1], col = my_col[1], cex = 2)
+
+for ( i in 2:length(b)) {
+  lines(theta, check[, i], 
+      lty = 1, lwd=3, col = my_col[i])
+
+
+}
+
+for ( i in 1:length(b)) {
+  lines(theta, IRT(theta, b=b[i], 
+                a = a[i]), 
+      lty = 1, lwd=2, col = "grey")
+}
+
+
+# text(x= b[2] -.5, 
+#      y = 0.4,  colnames(si)[2], col = my_colors[2], cex = 2)
+# 
+# text(x= b[3] +.1, 
+#      y = 0.4,  colnames(si)[3], col = my_colors[3], cex = 2)
+# text(x= b[4] +.7, 
+#      y = 0.4,  colnames(si)[4], col = my_colors[4], cex = 2)
+```
+
+\vspace{-3mm}
+\centering
+\small
+
+```{r results='asis'}
+print(xtable(si), comment = F)
+```
+
+
+## Test Information Function
+
+###
+
+
+$$I(\theta) = \sum I_i(\theta, b_i, a_i)  $$
+
+### 
+
+\vspace*{-5mm}
+
+```{r}
+plot(theta, sum_info, cex.lab= 2, 
+     cex.axis =1.5,
+       xlab = expression(theta), ylab = "Informazione", 
+     type = "l", lwd =2, 
+     col = "black", ylim = c(0,1))
+
+for ( i in 1:length(b)) {
+  lines(theta, check[, i], 
+      lty = 1, lwd=3, col = my_colors[i])
+}
+```
+
+\centering 
+\vspace{-3mm}
+\small
+```{r results='asis'}
+print(xtable(si), comment = FALSE, include.rownames=T)
+```
+
+
+### Standard Error of Measurement (SEM)
+
+
+$$SEM(\theta) = \sqrt{\dfrac{1}{I(\theta)}} = \sqrt{\dfrac{1}{a^2 P_i(\theta, b_i)Q_i(\theta, b_i)}} $$
+
+### 
+
+\vspace*{-5mm}
+
+```{r}
+
+par(mar = c(5, 4, 4, 4) + 0.3)  # Leave space for z axis
+plot(theta, sqrt(1/sum_info), cex.lab= 2, 
+     cex.axis =1.5,
+       xlab = expression(theta), ylab = "SEM", 
+     type = "l", lwd =2, 
+     col = "firebrick")
+text("SEM", cex = 2, x = -2.5, y = 3, col = "firebrick")
+par(new = TRUE)
+plot(theta, sum_info, type = "l", axes = FALSE,
+     bty = "n", xlab = "", ylab = "", ylim = c(0,1))
+text("TIF", x = 0, y = .7, cex = 2)
+axis(side=4, at = pretty(range(sum_info)), cex = 1.5)
+mtext("Informazione", side=4, line=3, cex = 2)
+
+```
+
+\centering 
+\small
+\vspace{-3mm}
+```{r results='asis'}
+print(xtable(si), comment = FALSE, include.rownames=T)
+```
+
+# 3PL 
+
+## Item Response Function
+
+### 
+
+The lower asymptote is moved upward by adding a third item parameter, the pseudo-guessing ($c_i$):
+
+$$P(x_{pi} = 1| \theta_p, b_i, a_i) = c_i + (1 - c_i) \dfrac{\exp[a_i(\theta_p - b_i)]}{1+\exp[a_i(\theta_p - b_i)]}$$
+
+
+$\theta_p$: Ability of the person (i.e., latent trait level of the person)
+      
+$b_i$; difficulty of item $i$ (location of the item on the latent trait) $\rightarrow$
+
+$a_i$: Discrimination of the item $\rightarrow$ ability of the item to tell apart subjects with different levels of the latent trait
+
+$c_i$: pseudo-guessing of item $i$ $\rightarrow$ probability of giving the correct response even if the latent trait approaches $-\infty$
+
+
+### Maybe better
+
+\vspace*{-10mm}
+\small
+
+Item 1: $b_1 = 0$, $a_1 = 1.4$ e $c_1 = 0.2$, Item 2: $b_1 = 0$, $a_1 = 1.4$ e $c_1 = 0.3$ (item 2)
+
+```{r, out.width="70%"}
+b = c(0, 1)
+a = c(1.4, 1.4)
+g = c(0.20, 0.30)
+
+plot(theta, IRT(theta, a = a[1], b = b[1], c= g[1]), 
+     type = "l", 
+     ylab = "P(x = 1)", ylim = c(0,1 ), cex.lab= 2, 
+     cex.axis =1.5, 
+     xlab = expression(theta), lwd = 3, col = my_colors[1])
+text(x= -0.4, 
+     y = 0.90, "item1", 
+     col = my_colors[1], cex = 2)
+
+abline(h = .20, lty = 2, lwd = 2, col = "red")
+abline(h = .30, lty = 2, lwd = 2, col = "red")
+lines(theta, IRT(theta, a = a[2], b = b[2], c= g[2]), 
+     col = my_colors[5], lwd = 3)
+text(x= 3.2, 
+     y = 0.90, "item2", 
+     col = my_colors[5], cex = 2)
+
+```
+
+The probability of responding correctly is approximately $c$ (0.20, 0.30) for low levels of the latent trait
+
+
+###
+
+\small
+
+
+```{r out.width="70%"}
+b = c(0, 1)
+a = c(1.4, 1.4)
+g = c(0.20, 0.30)
+
+plot(theta, IRT(theta, a = a[1], b = b[1], c= g[1]), 
+     type = "l", 
+     ylab = "P(x = 1)", ylim = c(0,1 ), cex.lab= 2, 
+     cex.axis =1.5, 
+     xlab = expression(theta), lwd = 3, col = my_colors[1])
+text(x= -0.4, 
+     y = 0.90, "item1", 
+     col = my_colors[1], cex = 2)
+
+abline(h = .20, lty = 2, lwd = 2, col = "red")
+abline(h = .30, lty = 2, lwd = 2, col = "red")
+lines(theta, IRT(theta, a = a[2], b = b[2], c= g[2]), 
+     col = my_colors[5], lwd = 3)
+text(x= 3.2, 
+     y = 0.90, "item2", 
+     col = my_colors[5], cex = 2)
+
+
+```
+
+The probability of responding correctly when $\theta_p = b_i$ is higher than $.50$
+($P(x_{pi} = 1) = c + (1 - c)/2$)
+
+### 
+
+In multiple-choice items $\rightarrow$ subjects with low levels of the latent trait might try to guess the correct response
+
+If there $k$ response options that are all equally plausible, then $c \cong \dfrac{1}{k}$
+
+\begin{alertblock}{WARNING}
+
+Assumption: All the response options are equally plausible
+\end{alertblock}
+
+
+## Item Information Function
+
+### 
+
+
+
+$$I_i(\theta, b_i, a_i, c_i) = a^2 \dfrac{P_i(\theta, b_i, a_i, c_i)}{Q_i(\theta, b_i, a_i, c_i)} \left[\dfrac{P_i(\theta, b_i, a_i, c_i) -c_i}{1 -c_i}\right]$$
+
+The higher the guessing, the lower the IIF
+
+
+ $Q_i = 1 - P_i(\theta, b_i, a_i, c_i)$ è la probabilità di osservare una risposta errata 
+
+### 
+\vspace*{-5mm}
+
+```{r}
+i_info <- function(b = 0, a=1,g=0, guessing = F, theta=seq(-4,4,length.out=1000)){
+ 
+P <- NULL 
+Q <- NULL
+Ii <- NULL
+
+for(i in 1:1000){
+  P[i] <- g + (1 -g) * (exp(a *(theta[i] - b))/(1 + exp(a *(theta[i] - b))))
+  Q[i]= 1-P[i]
+  
+  if (guessing == F) {
+    Ii[i] = a^2 *P[i]*Q[i]
+  } else {
+    Ii[i] = a^2 *(Q[i]/P[i]) * ((P[i] - g)/(1-g))^2
+  }
+   }
+return(Ii)
+}
+
+item_info <- function(b,a=1,g = 0, guessing = NULL){
+item <- NULL
+  for(i in 1:length(b)){
+  item[[i]] <- i_info(b[i],a[i], g[i], guessing = guessing)
+  }
+return(item)
+}
+
+par(mar = c(5,7,4,2) + 0.1) 
+
+
+
+si = data.frame(item1 = c(b[1], a[1], g[1]), 
+                item2 = c(b[2], a[2], g[2]))
+rownames(si) = c("b", "a", "c")
+
+
+c <- item_info(b,a, g, guessing = T)
+Theta <- matrix(seq(-4,4, length.out=1000))
+check = data.frame(theta = Theta)
+temp = NULL
+for (i in 1:length(c)) {
+  temp = cbind( temp, c[[i]])
+}
+
+check = cbind(check, temp)
+colnames(check)[2:ncol(check)] = paste0("item_info", 1:(ncol(check)-1))
+
+d <- do.call('cbind',c)
+sum_info <- rowSums(d)
+
+
+check$theta = NULL
+
+plot(Theta, check[, 1], ylim= c(0, 1), cex.lab= 2, 
+     cex.axis =1.5,
+       xlab = expression(theta), ylab = "Information", 
+     type = "l", lwd =2, 
+     col = my_colors[1])
+
+text(x= 0, y = 0.4, colnames(si)[1], col = my_colors[1], cex = 2)
+
+for ( i in 2:length(b)) {
+  lines(theta, check[, i], 
+      lty = 1, lwd=3, col = my_colors[i])
+}
+text(x= 2, y = 0.2, colnames(si)[2], col = my_colors[2], cex = 2)
+
+
+
+for ( i in 1:length(b)) {
+  lines(theta, IRT(theta, b=b[i], 
+                a = a[i], c=g[i]), 
+      lty = 1, lwd=2, col = "grey")
+}
+
+
+```
+
+\centering
+\small
+\vspace{-5mm}
+
+```{r results='asis'}
+print(xtable(si), comment = F)
+```
+
+
+## Test Information Function
+
+###
+
+
+$$I(\theta) = \sum I_i(\theta, b_i, a_i, c_i) $$
+
+### 
+
+\vspace*{-10mm}
+
+```{r}
+plot(theta, sum_info, cex.lab= 2, 
+     cex.axis =1.5,
+       xlab = expression(theta), ylab = "Informazione", 
+     type = "l", lwd =2, 
+     col = "black", ylim = c(0,1))
+
+for ( i in 1:length(b)) {
+  lines(theta, check[, i], 
+      lty = 1, lwd=3, col = my_colors[i])
+}
+```
+\centering
+\small
+\vspace{-3mm}
+
+```{r results='asis'}
+print(xtable(si), comment = FALSE)
+```
+
+
+### Standard Error of Measurement (SEM)
+
+
+$$SEM(\theta) = \sqrt{\dfrac{1}{I(\theta)}} = \sqrt{\dfrac{1}{a^2 P_i(\theta, b_i, a_i, c_i)Q_i(\theta, b_i, a_i, c_i)}} $$
+
+### 
+
+\vspace*{-10mm}
+
+```{r}
+
+par(mar = c(5, 4, 4, 4) + 0.3)  # Leave space for z axis
+plot(theta, sqrt(1/sum_info), cex.lab= 2, 
+     cex.axis =1.5,
+       xlab = expression(theta), ylab = "SEM", 
+     type = "l", lwd =2, 
+     col = "firebrick")
+text("SEM", col = "firebrick", cex =2, x = -2.5, y = 80)
+par(new = TRUE)
+plot(theta, sum_info, type = "l", axes = FALSE,
+     bty = "n", xlab = "", ylab = "", ylim = c(0,1))
+text("TIF", x = 1, y = .5, cex = 2)
+axis(side=4, at = pretty(range(sum_info)), cex = 1.5)
+mtext("Informazione", side=4, line=3, cex = 2)
+
+```
+
+\centering 
+\small
+\vspace{-3mm}
+```{r results='asis'}
+print(xtable(si), comment = FALSE, include.rownames=T)
+```
+
+
+# 4PL
+
+## Item Response Function
+
+### 
+
+Lower the upper asymptote by adding a \textbf{careless error} parameter
+
+$$P(x_{pi} = 1| \theta_p, b_i. a_i) = c_i + (d_i - c_i) \dfrac{\exp[a_i(\theta_p - b_i)]}{1+\exp[a_i(\theta_p - b_i)]}$$
+Dove: 
+
+$\theta_p$: Ability of the person (i.e., latent trait level of the person)
+
+$b_i$, $a_i$, $c_i$; Difficulty, discrimination, and pseduo-guessing of item $i$
+
+$d_i$: careless-error, probability of endorsing the item when the latent trait approaches $+ \infty$
+
+
+The lower then value of $d_i$, the lower the probability that a person with high level of the latent trait gives the correct response to item $i$
+
+
+###
+
+\begin{columns}[T]
+\begin{column}{.50\linewidth}
+Item 1: $b = 0$, $a = 1.4$, $c=0.20$, $d = .9$
+\end{column}
+\begin{column}{.50\linewidth}
+Item 2: $b = 0$, $a = 1.4$, $c=0.30$, $d = .7$
+\end{column}
+\end{columns}
+
+
+
+```{r}
+b = rep(0, 2)
+a = c(1.4, 1.4)
+g = c(0.20, 0.30)
+d = c(.9, .7)
+
+plot(theta, IRT(theta, a = a[1], b = b[1], c= g[1], e = d[1]), 
+     type = "l", 
+     ylab = "P(x = 1)", ylim = c(0,1 ), cex.lab= 2, 
+     cex.axis =1.5, 
+     xlab = expression(theta), lwd = 3, col = my_colors[1])
+text(x= -0.4, 
+     y = 0.90,  "item1", 
+     col = my_colors[1], cex = 2)
+
+abline(h = .90, lty = 2, lwd = 2, col = "red")
+abline(h = .70, lty = 2, lwd = 2, col = "red")
+abline(h = .20, lty = 2, lwd = 2, col = "red")
+abline(h = .30, lty = 2, lwd = 2, col = "red")
+lines(theta, IRT(theta, a = a[2], b = b[2], c= g[2], e = d[2]), 
+     col = my_colors[5], lwd = 3)
+text(x= 3.2, 
+     y = 0.80, "item2", 
+     col = my_colors[5], cex = 2)
+```
+
+
+# Relazione tra i modelli
+
+
+
+### 
+
+- Constraining the $d_i$ parameters of all items to be 1 $\rightarrow$ from 4-PL to 3-PL
+
+- Constraining the $c_i$ parameters of all items to be 0 $\rightarrow$ from 3-PL to 2-PL
+
+- Constraining the $a_i$ parameters of all items to be 1 $\rightarrow$ from 2-PL to 1_PL
+
+### The Rasch Model?
+
+Formally, the Rasch model and the 1-PL are the same model
+
+
+::: columns
+
+:::: column
+
+\begin{center}
+\high{IRT}
+
+
+\end{center}
+\high{Fit of the \textbf{models} to the data} 
+
+The model that fit better the data is chosen
+
+::::
+
+:::: column
+\begin{center}
+\high{Rasch}
+\end{center}
+
+\high{Fit of the data to the \textbf{model}} 
+
+The data are modified as long as they don't fit to the model
+
+\vspace{5mm}
+
+```{r fig.align='right', out.width="50%"}
+knitr::include_graphics("img/procuste.jpg")
+```
+
+:::
+
+
+:::
+
+## All models are wrong...
+
+The model can be chosen
+
+- A priori: 
+
+  - Theoretical considerations
+  - Item characteristics
+
+- A posteriori: 
+  
+  - Estimation of all the IRT models
+  - Model comparison
+
+
+### A posteriori 
+
+Comparative fit indexes
+
+- $-$\emph{2loglikelihood} $\rightarrow$ nested models only
+
+- Akaike's Information Criterion (AIC)
+
+- Bayesian Information Criterion (BIC)
+
+
+### $-$\emph{2loglikelihood}
+
+It is the difference between the \emph{LogLikelihood}  of two nested models (multiplied by $-2$). 
+
+The significance of the difference between the \emph{LogLikelihood} can be tested considering a $\chi^2$ distribution with degrees of freedom equal to the difference in the degrees of freedom of the two nested models:
+
+- Significant difference: The most complex model is the best one 
+
+- Non significant difference: The simplest model is the best one
+
+### Entropy
+
+AIC and BIC are entropy indexes $\rightarrow$ the lower the better
+
+AIC penalizes most complex models regardless of the sample size
+
+$$AIC = -2logLik + 2p$$
+
+
+BIC penalizes most complex models also accounting for the  sample size
+
+$$BIC = -2logLik + p \cdot log(N)$$
+
+
