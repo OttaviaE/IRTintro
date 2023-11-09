@@ -151,8 +151,8 @@ return(info_tot)
 }
 
 
-## ----r eval = F---------------------------------------------------------------
-#  data = read.csv("data/dataClass.csv", header = T, sep = ",")
+## ----r eval = T---------------------------------------------------------------
+data = read.csv("data/dataClass.csv", header = T, sep = ",")
 
 ## ----r echo = FALSE-----------------------------------------------------------
 vis_data = data

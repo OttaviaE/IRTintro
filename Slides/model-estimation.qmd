@@ -251,7 +251,7 @@ Download the file  `dataClass.csv` from this shared folder [Dati](https://drive.
 
 Store the downloaded file in the `Data` sub folder of your newly created project and run this code: 
 
-```{r eval = F}
+```{r eval = T}
 data = read.csv("data/dataClass.csv", header = T, sep = ",")
 ```
 
