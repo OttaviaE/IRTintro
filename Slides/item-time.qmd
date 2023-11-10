@@ -105,12 +105,17 @@ library(xtable)
 # Item fit 
 
 ## 
+<br>
 
 The fit of each item to the model can be evaluated: 
 
-- $S - X^2$ (Orland & Thissen, 2000): Statistics based on the $\chi^2$. If significant, the item does not fit to the model
+- $S - X^2$ (Orland & Thissen, 2000): Statistics based on the $\chi^2$. If significant, the item does not fit to the model (not suggested)
+
+<br>
 
 - *Root Mean Squared Deviation* (RMSD): Difference between what expected under the model and reala data (the lower the better). Values under $.15$ define an acceptable fit of the item to the model, values under $.10$ are optimal 
+
+<br>
 
 - Rasch model only $\rightarrow$ Infit and outfit statistics
 
@@ -199,7 +204,7 @@ fit_m1pl$statlist
 :::
 
 
-## Evaluating item fit II
+## Evaluating item fit II {.scrollable}
 
 :::{.panel-tabset}
 
@@ -297,21 +302,37 @@ text(x= 1.5, y = 0.6, "F", col = "magenta", cex = 2)
 
 ## 
 
+
+<br>
+
+<br>
+
 The same item presented to two different groups paired for their level of latent trait... does not have the same probability of being endorsed!
 
+<br>
 The subjects are paired according to their level of the latent trait. **Are there any differences in the performance to the item**?
 
+<br>
 Theoretically: Different subjects but with the same level of the latent trait (i.e., **paired**) should have similar performances on the item
 
 
+<br>
 If this expectation is not met $\rightarrow$ **Differential Item Functioning** (**DIF**)
 
 
 ## Reference vs. focal group
 
+<br>
+
+<br>
+
 The comparison to investigate items with DIF is between two groups: 
 
+<br>
+
 - **Reference group**: It is the "baseline" group. For instance, if the test/questionnaire has been validated in a second language, the reference group is the original group
+
+<br>
 
 - **Focal group**: It is the focus of the DIF investigation, where we suepct the items of the test might be working differently 
 
@@ -372,7 +393,9 @@ Score-based methods: Subjects are paired to the the *observed score*
 
 ::: {.column}
 
+<div style="text-align: center;">
 Uniform DIF 
+</div>
 
 - 1PL
 
@@ -386,7 +409,9 @@ Uniform DIF
 
 ::: {.column}
 
-Non-Uniform DIF 
+<div style="text-align: center;">
+Non-uniform DIF 
+</div>
 
 - 2PL 
 
@@ -406,7 +431,10 @@ Two IRT models:
 
 2. A "DIF" model $\rightarrow$ parameters are left free to vary between the two groups 
 
+. . .
+
 It is like the LRT on a linear model where the group belonging (Focal Vs. Reference) is used as a predictor or not
+
 
 ## Lord 
 
@@ -428,10 +456,239 @@ Beyond significance: Lord's $\Delta$:
 
 Raju (1988)
 
+<br>
+
 It considers the DIF as the area between the ICCs of the items
+
+<br>
 
 If the area between the ICCs is 0, then the item presents no DIF
 
 
+## A note on Lord and Raju 
 
+The parameters estimated in the focal and reference groups cannot be directly compared $\rightarrow$ the parameters in one of the groups **must** be rescaled.
+
+. . .
+
+The rescaling can be done according to the *equal means anchoring* (Cook & Eignor, 1991)
+
+. . .
+
+This method is already applied by the `difR` package 
+
+## Equal means anchoring
+
+First, a constant must be computed: 
+
+$$c = \bar{b}_R - \bar{b}_F$$
+
+Then, it is substracted from the estimates of the items in the **reference group**:
+
+$$b' = b_Ri - c$$
+
+## DIF -- Import data {.scrollable}
+
+The dataset is the `difClass.csv` dataset 
+
+<details><summary>Show data & code </summary>
+```{r}
+data = read.csv("data/difClass.csv", header = T, sep = ",")
+head(data)
+```
+</details>
+
+
+::: {.panel-tabset}
+
+## Look at the data 
+```{r eval = T, echo = FALSE}
+long = pivot_longer(data, !1:2, names_to = "item", 
+             values_to = "correct")
+prop_gender = long %>% 
+  group_by(item, gender) %>%  
+  summarise(prop = mean(correct), sd = sd(correct))
+
+ggplot(prop_gender, 
+       aes( x = item, y= prop, fill = gender)) + 
+  geom_bar(stat = "identity", position = position_dodge()) + ylim(0,1) + 
+  theme_light() + ylab("Item probability") + 
+  theme(legend.direction="horizontal", 
+        legend.position = c(.5,.9), 
+        legend.title = element_blank(), 
+        axis.text = element_text(size = 10), 
+        axis.title = element_text(size = 12), 
+        axis.title.x = element_blank(), 
+        legend.text = element_text(size = 12)) + 
+  geom_hline(yintercept = .25, linetype = 2) +
+  geom_hline(yintercept = .5, linetype = 2) +
+  geom_hline(yintercept = .75, linetype = 2)
+
+```
+
+<details><summary>Show code</summary>
+```{r eval = F, echo = TRUE}
+long = pivot_longer(data, !1:2, names_to = "item", 
+             values_to = "correct")
+prop_gender = long %>% 
+  group_by(item, gender) %>%  
+  summarise(prop = mean(correct), sd = sd(correct))
+
+ggplot(prop_gender, 
+       aes( x = item, y= prop, fill = gender)) + geom_bar(stat = "identity", position = position_dodge()) + ylim(0,1)
+
+```
+</details>
+
+## Fit & Choose a model 
+
+
+```{r}
+m1pl = tam.mml(data[, grep("item", colnames(data))], verbose = F)
+m2pl = tam.mml.2pl(data[, grep("item", colnames(data))], irtmodel = "2PL", verbose = F)
+m3pl = tam.mml.3pl(data[, grep("item", colnames(data))], est.guess = grep("item", colnames(data)),
+                     verbose = F)
+IRT.compareModels(m1pl, m2pl, m3pl)
+```
+
+
+## Model fit 
+
+```{r}
+fit_m1pl = tam.modelfit(m1pl, progress = F)
+fit_m1pl$statlist
+
+```
+
+
+## Item fit 
+
+```{r}
+item_fit_1pl = IRT.itemfit(m1pl)
+item_fit_1pl$RMSD_summary
+ fit_m1pl$Q3_summary
+```
+
+
+::: 
+
+## DIF -- LRT {.scrollable}
+
+This is not properly the LRT but an approximation. 
+
+```{r eval = FALSE }
+#| code-line-numbers: "|1|2-3|4|5|6-7"
+est_theta = IRT.factor.scores(m1pl)$EAP
+lrt_dif = difGenLogistic(data[, !colnames(data) %in% c("id", "gender")],
+                           group = as.factor(data$gender), focal.names = "f",
+                           type = "udif",
+                           alpha = .001, p.adjust.method = "BH",
+                           match = est_theta,
+                           criterion = "LRT")
+```
+
+
+. . .
+
+```{r echo = FALSE}
+est_theta = IRT.factor.scores(m1pl)$EAP
+lrt_dif = difGenLogistic(data[, !colnames(data) %in% c("id", "gender")],
+                           group = as.factor(data$gender), focal.names = "f",
+                           type = "udif",
+                           alpha = .001, p.adjust.method = "BH",
+                           match = est_theta,
+                           criterion = "LRT")
+lrt_dif
+```
+
+
+
+## DIF -- Raju 
+
+```{r}
+rajDif = difRaju(data[, !colnames(data) %in% c("id")], 
+                  group = "gender",  focal.name = "f", 
+                  model = "1PL", 
+                  alpha = .001, p.adjust.method = "BH")
+rajDif
+
+```
+
+
+## DIF -- Lord 
+
+```{r}
+lordDif = difLord(data[, !colnames(data) %in% "id"], 
+                  group = "gender",  focal.name = "f", 
+                  model = "1PL", 
+                   alpha = .001, p.adjust.method = "BH")
+```
+
+## Details Raju and Lord 
+
+`mF-mR`: Difference between the focal and reference group (the estimates in the reference group are already rescaled)
+
+`deltaLord`: effect-size, it is obtained by multiplying `mF-mR` $\times -2.35$ (Penfield & Camilli, 2007)
+
+The size of the effect can be interpreted according to the values reported in the `R` output 
+
+The item parameters can be obtained as: 
+
+```{r eval = FALSE}
+lordDif$itemParInit
+```
+
+## Caution advised!
+
+The object obtained from `lordDif$itemParInit` has a number of rows equal 2 times the number of items: 
+
+- rows $i, 1\ldots, I$: Estimates of the items in the **REFERENCE GROUP**
+
+- rows $i+1, \ldots 2I$: Estimates of the items in the **FOCAL GROUP**
+
+::: {.panel-tabset}
+
+## Item estimates: Reference group 
+
+Rows $i, 1\ldots, I$. These estimates **are not** rescaled
+
+```{r}
+item_par = lordDif$itemParInit
+item_par[1:10, ]
+```
+
+
+## Item estimates: Focus group 
+
+Rows $i+1, \ldots 2I$
+
+```{r}
+item_par[11:nrow(item_par), ]
+```
+
+
+::: 
+
+## Rescaling -- Practice
+```{r eval = FALSE}
+#| code-line-numbers: "|1-2|3|4|5|6"
+itemFR = data.frame(cbind(item_par[11:nrow(item_par), ], item_par[1:10, ]))
+colnames(itemFR)[c(1,3)] = paste0(rep("b",2),  c("F", "R"))
+itemFR$constant = mean(itemFR$bR) - mean(itemFR$bF)
+itemFR$new_bR = itemFR$bR - itemFR$constant
+itemFR$DIF_correct = itemFR$bF- itemFR$new_bR
+itemFR
+```
+
+. . .
+
+```{r eval = TRUE, echo = FALSE}
+#| code-line-numbers: "|1-2|3|4|5|6"
+itemFR = data.frame(cbind(item_par[11:nrow(item_par), ], item_par[1:10, ]))
+colnames(itemFR)[c(1,3)] = paste0(rep("b",2),  c("F", "R"))
+itemFR$constant = mean(itemFR$bR) - mean(itemFR$bF)
+itemFR$new_bR = itemFR$bR - itemFR$constant
+itemFR$DIF_correct = itemFR$bF- itemFR$new_bR
+itemFR
+```
 

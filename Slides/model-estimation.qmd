@@ -481,9 +481,8 @@ mono_check = check.monotonicity(data)
 summary(mono_check)
 ```
 </details>
-
----
-
+ 
+ 
 ## Local independence 
 
 
