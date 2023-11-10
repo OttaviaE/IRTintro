@@ -106,22 +106,14 @@ ggplot(prop_item,
 
 ## ----r echo = FALSE-----------------------------------------------------------
 m1pl = tam.mml(data[, grep("item", colnames(data))], verbose = F)
-
 m2pl = tam.mml.2pl(data[, grep("item", colnames(data))], irtmodel = "2PL", verbose = F)
-
-m3pl = tam.mml.3pl(data[, grep("item", colnames(data))], est.guess = grep("item", colnames(data)),
-                     verbose = F)
-
+m3pl = tam.mml.3pl(data[, grep("item", colnames(data))], est.guess = grep("item", colnames(data)), verbose = F)
 IRT.compareModels(m1pl, m2pl, m3pl) 
 
 ## ----r eval =FALSE, echo = TRUE-----------------------------------------------
 #  m1pl = tam.mml(data[, grep("item", colnames(data))], verbose = F)
-#  
 #  m2pl = tam.mml.2pl(data[, grep("item", colnames(data))], irtmodel = "2PL", verbose = F)
-#  
-#  m3pl = tam.mml.3pl(data[, grep("item", colnames(data))], est.guess = grep("item", colnames(data)),
-#                       verbose = F)
-#  
+#  m3pl = tam.mml.3pl(data[, grep("item", colnames(data))], est.guess = grep("item", colnames(data)), verbose = F)
 #  IRT.compareModels(m1pl, m2pl, m3pl)
 #  
 

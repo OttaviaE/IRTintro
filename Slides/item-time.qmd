@@ -15,6 +15,7 @@ format:
       side: left
       width: normal
 editor: source
+fontsize: 20pt
 execute: 
   eval: true
   echo: false
@@ -113,11 +114,11 @@ The fit of each item to the model can be evaluated:
 
 - Rasch model only $\rightarrow$ Infit and outfit statistics
 
-## Evaluating item fit I
+## Evaluating item fit I {.scrollable}
 
 :::{.panel-tabset}
 
-## Look at the data
+## Look at the data 
 
 
 ```{r eval =T, echo = FALSE}
@@ -159,12 +160,8 @@ ggplot(prop_item,
 
 ```{r echo = FALSE}
 m1pl = tam.mml(data[, grep("item", colnames(data))], verbose = F)
-
 m2pl = tam.mml.2pl(data[, grep("item", colnames(data))], irtmodel = "2PL", verbose = F)
-
-m3pl = tam.mml.3pl(data[, grep("item", colnames(data))], est.guess = grep("item", colnames(data)),
-                     verbose = F)
-
+m3pl = tam.mml.3pl(data[, grep("item", colnames(data))], est.guess = grep("item", colnames(data)), verbose = F)
 IRT.compareModels(m1pl, m2pl, m3pl) 
 ```
 
@@ -172,13 +169,9 @@ IRT.compareModels(m1pl, m2pl, m3pl)
 <details><summary>Show code</summary>
 ```{r eval =FALSE, echo = TRUE}
 m1pl = tam.mml(data[, grep("item", colnames(data))], verbose = F)
-
 m2pl = tam.mml.2pl(data[, grep("item", colnames(data))], irtmodel = "2PL", verbose = F)
-
-m3pl = tam.mml.3pl(data[, grep("item", colnames(data))], est.guess = grep("item", colnames(data)),
-                     verbose = F)
-
-IRT.compareModels(m1pl, m2pl, m3pl)
+m3pl = tam.mml.3pl(data[, grep("item", colnames(data))], est.guess = grep("item", colnames(data)), verbose = F)
+IRT.compareModels(m1pl, m2pl, m3pl) 
 
 ```
 </details>
@@ -252,14 +245,26 @@ item_fit_1pl$RMSD %>% kable(aling = "c", digits = 2)
 
 :::
 
+
 # Differential Item Functioning 
 
 
 ## An example 
 
+<br>
+
+<br>
+
 The mass of Iodine 131 decreases by 1/2 every 8 days because of radioactive decay. 
 
 In a laboratory, there are 2grams of Iodine 131. How many grams there would be after 16 days? 
+
+<br>
+
+<br>
+
+<br>
+
 
 <details><summary>Correct response</summary>
 0.5grams
