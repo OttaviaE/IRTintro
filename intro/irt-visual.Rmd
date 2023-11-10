@@ -77,13 +77,7 @@ shiny::shinyApp(
 
   # Sidebar layout with input and output definitions ----
   verticalLayout(
-      # App title ----
-
-    # Sidebar to demonstrate various slider options ----
     wellPanel(
-
-
-      # Input: Decimal interval with step value ----
       fluidRow(
         column(6, div(style="height: 20px;",
                       sliderInput("b", "Difficulty:",
@@ -103,8 +97,6 @@ shiny::shinyApp(
 
 
     ),
-
-
       plotOutput("plot", height = "250px")
   )
 ),
@@ -125,7 +117,7 @@ IRT <- function(theta, a = 1, b = 0, c = 0,e = 1) {
  plot(theta, IRT(theta, b = 0, a = 1),
      cex.lab= 2,
      cex.axis =1.5,
-       xlab = expression(theta), ylab = bquote(.("P(x = 1)")),
+       xlab = expression(theta), ylab = expression(theta),
        xlim = c(-5, 5), ylim = c(0, 1),
      type = "l", lwd = 1, lty = 2,
      col = "royalblue")
