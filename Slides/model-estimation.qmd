@@ -158,7 +158,11 @@ library("ggplot2")
 
 ::::
 
-## Useful code 
+## Useful code {.scrollable}
+
+::: {.panel-tabset}
+
+## `IRT`
 
 ```{r}
 # probability of a correct response given theta and item parameters
@@ -171,7 +175,7 @@ IRT <- function(theta, a = 1, b = 0, c = 0,e = 1) {
 ```
 
 
-## Useful code II 
+## `ICC`
 
 
 ```{r}
@@ -213,9 +217,7 @@ return(object)
 }
 ```
 
-
-
-## Useful code III 
+## `IIF`
 
 ```{r}
 irt_iif = function(model) {
@@ -243,6 +245,13 @@ return(info_tot)
 }
 
 ```
+
+
+
+:::
+
+
+
 
 
 ## Import data 
@@ -382,7 +391,7 @@ CFA models that force a one-factor solution to the data:
 
 - If the one-factor model presents a good fit to the data $\rightarrow$ it is reasonable to assume the unidimensionality
 
-- If the one-factor model presents does not present a good fit to the data $\rightarrow$ unidimensionality is not supporteed, it is best to first understand the latent structure of the data
+- If the one-factor model presents does not present a good fit to the data $\rightarrow$ unidimensionality is not supported, it is best to first understand the latent structure of the data
 
 . . .
 
@@ -451,7 +460,7 @@ The probability of responding correctly increases as the the level of the latent
 
 . . .
 
-Monotonicitiy is evaluated at the item level with $H$ coefficient by Mokken: 
+Monotonicitiy is evaluated at the item level with $H$ coefficient by Mokken (1971): 
 
 > $H \leq .30$ $\rightarrow$ The item is not monotone, should be discarded
 >   
@@ -464,7 +473,7 @@ Monotonicitiy is evaluated at the item level with $H$ coefficient by Mokken:
 If violated $\rightarrow$ Issues on the reliability and validity of the measure 
 
 
-## Monotonicity in R
+## Monotonicity in `R`
 
 Monotonicity is checked with the `mokken` package in `R`:
 

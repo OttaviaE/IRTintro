@@ -1302,8 +1302,12 @@ Dr. Ottavia M. Epifania
 </div>
 </div>
 </section>
-<section id="useful-code" class="slide level2">
+<section id="useful-code" class="slide level2 scrollable">
 <h2>Useful code</h2>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default href="#tabset-2-1"><code>IRT</code></a></li><li><a href="#tabset-2-2"><code>ICC</code></a></li><li><a href="#tabset-2-3"><code>IIF</code></a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># probability of a correct response given theta and item parameters</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a>IRT <span class="ot">&lt;-</span> <span class="cf">function</span>(theta, <span class="at">a =</span> <span class="dv">1</span>, <span class="at">b =</span> <span class="dv">0</span>, <span class="at">c =</span> <span class="dv">0</span>,<span class="at">e =</span> <span class="dv">1</span>) {</span>
@@ -1312,9 +1316,8 @@ Dr. Ottavia M. Epifania
 <span id="cb3-5"><a href="#cb3-5"></a>  <span class="fu">return</span>(y)</span>
 <span id="cb3-6"><a href="#cb3-6"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="useful-code-ii" class="slide level2">
-<h2>Useful code II</h2>
+</div>
+<div id="tabset-2-2">
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># function for plotting the ICCs of the items </span></span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="co"># returns a list with a ggplot graph (icc_graph) and a data set with the data </span></span>
@@ -1353,9 +1356,8 @@ Dr. Ottavia M. Epifania
 <span id="cb4-35"><a href="#cb4-35"></a><span class="fu">return</span>(object)</span>
 <span id="cb4-36"><a href="#cb4-36"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="useful-code-iii" class="slide level2">
-<h2>Useful code III</h2>
+</div>
+<div id="tabset-2-3">
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>irt_iif <span class="ot">=</span> <span class="cf">function</span>(model) {</span>
 <span id="cb5-2"><a href="#cb5-2"></a>  est_theta <span class="ot">=</span> <span class="fu">IRT.factor.scores</span>(model, </span>
@@ -1381,6 +1383,9 @@ Dr. Ottavia M. Epifania
 <span id="cb5-22"><a href="#cb5-22"></a><span class="fu">return</span>(info_tot)</span>
 <span id="cb5-23"><a href="#cb5-23"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</div>
+</div>
+</div>
 </section>
 <section id="import-data" class="slide level2">
 <h2>Import data</h2>
@@ -1393,9 +1398,9 @@ Dr. Ottavia M. Epifania
 <section id="look-at-the-data" class="slide level2 scrollable">
 <h2>Look at the data!</h2>
 <div class="panel-tabset">
-<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default href="#tabset-2-1">The items</a></li><li><a href="#tabset-2-2">The respondents</a></li></ul>
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default href="#tabset-3-1">The items</a></li><li><a href="#tabset-3-2">The respondents</a></li></ul>
 <div class="tab-content">
-<div id="tabset-2-1">
+<div id="tabset-3-1">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -1432,7 +1437,7 @@ Show code
 </div>
 </details>
 </div>
-<div id="tabset-2-2">
+<div id="tabset-3-2">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -1515,9 +1520,9 @@ Show code
 <h2>Unidimensionality - Practice</h2>
 <p>The CFA model is fitted with the <code>lavaan</code> package:</p>
 <div class="panel-tabset">
-<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default href="#tabset-3-1">Define the model</a></li><li><a href="#tabset-3-2">Fit the model</a></li></ul>
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default href="#tabset-4-1">Define the model</a></li><li><a href="#tabset-4-2">Fit the model</a></li></ul>
 <div class="tab-content">
-<div id="tabset-3-1">
+<div id="tabset-4-1">
 <div class="cell" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
 <div class="sourceCode" id="cb9"><pre class="sourceCode numberSource scroll-100 number-lines code-with-copy"><code class="sourceCode"><span id="cb9-1"><a href="#cb9-1"></a>[1] &quot;latent =~ I01 + I02 + I03 + I04 + I05&quot;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1533,7 +1538,7 @@ Show code
 </div>
 </details>
 </div>
-<div id="tabset-3-2">
+<div id="tabset-4-2">
 <div class="cell" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
 <div class="sourceCode" id="cb11"><pre class="sourceCode numberSource scroll-100 number-lines code-with-copy"><code class="sourceCode"><span id="cb11-1"><a href="#cb11-1"></a>lavaan 0.6.16 ended normally after 10 iterations</span>
@@ -1754,9 +1759,9 @@ Show code
 <span id="cb18-3"><a href="#cb18-3"></a>f.m2pl<span class="sc">$</span>modelfit.test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="panel-tabset">
-<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default href="#tabset-4-1"><code>statlist</code></a></li><li><a href="#tabset-4-2"><code>modelfit.test</code></a></li></ul>
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default href="#tabset-5-1"><code>statlist</code></a></li><li><a href="#tabset-5-2"><code>modelfit.test</code></a></li></ul>
 <div class="tab-content">
-<div id="tabset-4-1">
+<div id="tabset-5-1">
 <div class="cell" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
 <div class="sourceCode" id="cb19"><pre class="sourceCode numberSource scroll-100 number-lines code-with-copy"><code class="sourceCode"><span id="cb19-1"><a href="#cb19-1"></a>  X100.MADCOV        SRMR      SRMSR     MADaQ3 pmaxX2</span>
@@ -1764,7 +1769,7 @@ Show code
 </div>
 </div>
 </div>
-<div id="tabset-4-2">
+<div id="tabset-5-2">
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>fit_m2pl<span class="sc">$</span>modelfit.test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1791,9 +1796,9 @@ Show code
 <section id="pl---item-parameters" class="slide level2">
 <h2>2PL - Item parameters</h2>
 <div class="panel-tabset">
-<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default href="#tabset-5-1">Model summary</a></li><li><a href="#tabset-5-2">Item Characteristics Curves (ICC)</a></li></ul>
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default href="#tabset-6-1">Model summary</a></li><li><a href="#tabset-6-2">Item Characteristics Curves (ICC)</a></li></ul>
 <div class="tab-content">
-<div id="tabset-5-1">
+<div id="tabset-6-1">
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">summary</span>(m2pl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1801,9 +1806,9 @@ Show code
 <span id="cb25-2"><a href="#cb25-2"></a>TAM 4.1-4 (2022-08-28 16:03:54) </span>
 <span id="cb25-3"><a href="#cb25-3"></a>R version 4.3.1 (2023-06-16 ucrt) x86_64, mingw32 | nodename=LAPTOP-OTTAVIA | login=huawei </span>
 <span id="cb25-4"><a href="#cb25-4"></a></span>
-<span id="cb25-5"><a href="#cb25-5"></a>Date of Analysis: 2023-11-10 16:14:30.925423 </span>
-<span id="cb25-6"><a href="#cb25-6"></a>Time difference of 0.179745 secs</span>
-<span id="cb25-7"><a href="#cb25-7"></a>Computation time: 0.179745 </span>
+<span id="cb25-5"><a href="#cb25-5"></a>Date of Analysis: 2023-11-11 14:45:41.32456 </span>
+<span id="cb25-6"><a href="#cb25-6"></a>Time difference of 0.196846 secs</span>
+<span id="cb25-7"><a href="#cb25-7"></a>Computation time: 0.196846 </span>
 <span id="cb25-8"><a href="#cb25-8"></a></span>
 <span id="cb25-9"><a href="#cb25-9"></a>Multidimensional Item Response Model in TAM </span>
 <span id="cb25-10"><a href="#cb25-10"></a></span>
@@ -1868,7 +1873,7 @@ Show code
 </div>
 </div>
 </div>
-<div id="tabset-5-2">
+<div id="tabset-6-2">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -1912,9 +1917,9 @@ Show code
 <section id="information-functions-1" class="slide level2 scrollable">
 <h2>Information Functions</h2>
 <div class="panel-tabset">
-<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default href="#tabset-6-1">IIF</a></li><li><a href="#tabset-6-2">TIF</a></li><li><a href="#tabset-6-3">SE</a></li></ul>
+<ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default href="#tabset-7-1">IIF</a></li><li><a href="#tabset-7-2">TIF</a></li><li><a href="#tabset-7-3">SE</a></li></ul>
 <div class="tab-content">
-<div id="tabset-6-1">
+<div id="tabset-7-1">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -1930,7 +1935,7 @@ Show code
 </summary>
 </details>
 </div>
-<div id="tabset-6-2">
+<div id="tabset-7-2">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -1946,7 +1951,7 @@ Show code
 </summary>
 </details>
 </div>
-<div id="tabset-6-3">
+<div id="tabset-7-3">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
