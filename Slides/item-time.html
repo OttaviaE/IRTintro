@@ -445,7 +445,7 @@
 
   <meta name="author" content="Dr. Ottavia M. Epifania">
   <meta name="dcterms.date" content="2023-11-17">
-  <title>Item Response Theory for beginners</title>
+  <title>First Steps with Item Response Theory</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -1208,7 +1208,7 @@ margin-right: 0; }
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Item Response Theory for beginners</h1>
+  <h1 class="title">First Steps with Item Response Theory</h1>
   <p class="subtitle">Item time!</p>
 
 <div class="quarto-title-authors">
@@ -1586,19 +1586,18 @@ Correct response
 </section>
 <section id="likelihood-ratio-test" class="slide level2">
 <h2>Likelihood Ratio Test</h2>
-<p>Thissen, Steinber, &amp; Wainer (1998)</p>
+<h3 id="thissen-steinber-wainer-1998">Thissen, Steinber, &amp; Wainer (1998)</h3>
 <p>Two IRT models:</p>
 <ol type="1">
 <li class="fragment"><p>A “no DIF” model <span class="math inline">\(\rightarrow\)</span> parameters are constrained to be equal in the two groups</p></li>
 <li class="fragment"><p>A “DIF” model <span class="math inline">\(\rightarrow\)</span> parameters are left free to vary between the two groups</p></li>
 </ol>
-<div class="fragment">
+<p>. . .</p>
 <p>It is like the LRT on a linear model where the group belonging (Focal Vs. Reference) is used as a predictor or not</p>
-</div>
 </section>
 <section id="lord" class="slide level2">
 <h2>Lord</h2>
-<p>Lord (1980)</p>
+<h3 id="lord-1980">Lord (1980)</h3>
 <p>The item parameters are estimated in both the reference and the focal groups</p>
 <p>If there is a significant difference in the item estimates between groups <span class="math inline">\(\rigtharrow\)</span> DIF</p>
 <p>Beyond significance: Lord’s <span class="math inline">\(\Delta\)</span>:</p>
@@ -1610,7 +1609,7 @@ Correct response
 </section>
 <section id="rajus-area" class="slide level2">
 <h2>Raju’s Area</h2>
-<p>Raju (1988)</p>
+<h3 id="raju-1988">Raju (1988)</h3>
 <p><br></p>
 <p>It considers the DIF as the area between the ICCs of the items</p>
 <p><br></p>
@@ -1628,9 +1627,10 @@ Correct response
 </section>
 <section id="equal-means-anchoring" class="slide level2">
 <h2>Equal means anchoring</h2>
+<h3 id="cook-eignor-1991">Cook &amp; Eignor (1991)</h3>
 <p>First, a constant must be computed:</p>
 <p><span class="math display">\[c = \bar{b}_R - \bar{b}_F\]</span></p>
-<p>Then, it is substracted from the estimates of the items in the <strong>reference group</strong>:</p>
+<p>Then, it is subtracted from the estimates of the items in the <strong>reference group</strong>:</p>
 <p><span class="math display">\[b&#39; = b_Ri - c\]</span></p>
 </section>
 <section id="dif-import-data" class="slide level2 scrollable">

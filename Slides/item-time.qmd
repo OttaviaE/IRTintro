@@ -1,5 +1,5 @@
 ---
-title: "Item Response Theory for beginners"
+title: "First Steps with Item Response Theory"
 subtitle: "Item time!"
 author: "Dr. Ottavia M. Epifania"
 institute: "Rovereto (TN)"
@@ -422,8 +422,7 @@ Non-uniform DIF
 ::::
 
 ## Likelihood Ratio Test 
-
-Thissen, Steinber, & Wainer (1998)
+### Thissen, Steinber, & Wainer (1998)
 
 Two IRT models: 
 
@@ -437,8 +436,7 @@ It is like the LRT on a linear model where the group belonging (Focal Vs. Refere
 
 
 ## Lord 
-
-Lord (1980)
+### Lord (1980)
 
 The item parameters are estimated in both the reference and the focal groups
 
@@ -453,8 +451,7 @@ Beyond significance: Lord's $\Delta$:
 - $> 1.5$: High DIF 
 
 ## Raju's Area  
-
-Raju (1988)
+### Raju (1988)
 
 <br>
 
@@ -478,12 +475,13 @@ The rescaling can be done according to the *equal means anchoring* (Cook & Eigno
 This method is already applied by the `difR` package 
 
 ## Equal means anchoring
+### Cook & Eignor (1991)
 
 First, a constant must be computed: 
 
 $$c = \bar{b}_R - \bar{b}_F$$
 
-Then, it is substracted from the estimates of the items in the **reference group**:
+Then, it is subtracted from the estimates of the items in the **reference group**:
 
 $$b' = b_Ri - c$$
 
