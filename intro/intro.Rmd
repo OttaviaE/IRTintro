@@ -1,6 +1,6 @@
 ---
-title: "Item Response Theory for beginners"
-subtitle: "Introduction to IRT models"
+title: "First Steps with Item Response Theory"
+subtitle: "Introduction to Item Response Theory models"
 institute: "Rovereto (TN)"
 author: "Dr. Ottavia M. Epifania"
 date: "University of Trento, \\ 17 November 2023"
@@ -135,7 +135,7 @@ Assumptions:
 
 -  The \color{latenti}latent variables \normalcolor are the underlying cause of the \color{manifeste}observed variables \normalcolor 
 
-- *Local independence*: The correlation between the \color{manifeste}observed variables \normalcolor after controlling for the influence of the \color{latenti}latent variable\normalcolor
+- *Local independence*: The correlation between the \color{manifeste}observed variables \normalcolor disappears after controlling for the influence of the \color{latenti}latent variable\normalcolor
 
 \vspace{3mm}
 
@@ -257,11 +257,11 @@ These models can be distinguinshed according to the number of parameters describ
 
 - One-Parameter Logistic Model (1-PL)
 
-- Two-Parameter Logistic Model (2-PL)
+- Two-Parameter Logistic Model (2-PL; Birnbaum, 1968)
 
-- Three-Parameter Logistic Model (3-PL)
+- Three-Parameter Logistic Model (3-PL; Lord, 1980)
 
-- Four-Parameter Logistic Model (4-PL)
+- Four-Parameter Logistic Model (4-PL; Barton & Lord, 1981)
 
 ### In general
 
@@ -594,7 +594,7 @@ plot(theta, sum_info, type = "l", axes = FALSE,
      bty = "n", xlab = "", ylab = "", ylim = c(0,1))
 text("TIF", x = 0, y = .7, cex = 2)
 axis(side=4, at = pretty(range(sum_info)), cex = 1.5)
-mtext("Informazione", side=4, line=3, cex = 2)
+mtext("Information", side=4, line=3, cex = 2)
 
 ```
 
@@ -609,11 +609,9 @@ print(xtable(si), comment = FALSE, include.rownames=T)
 # 2PL
 
 ## Item Response Function
-
-###
+### Birnbaum (1968)
 
 $$P(x_{pi} = 1| \theta_p, b_i, a_i) = \dfrac{\exp[a_i(\theta_p - b_i)]}{1+\exp[a_i(\theta_p - b_i)]}$$
-Dove: 
 
 $\theta_p$: Ability of the person (i.e., latent trait level of the person)
       
@@ -815,7 +813,8 @@ The higher the level of the latent trait... the lower the probability of respond
 
 
 
-### 
+## 
+
 \vspace*{-5mm}
 
 ```{r}
@@ -926,7 +925,7 @@ check$theta = NULL
 
 plot(Theta, check[, 1], ylim= c(0, 1), cex.lab= 2, 
      cex.axis =1.5,
-       xlab = expression(theta), ylab = "Informazione", 
+       xlab = expression(theta), ylab = "Information", 
      type = "l", lwd =2, 
      col = my_col[1])
 
@@ -967,19 +966,23 @@ print(xtable(si), comment = F)
 
 ## Test Information Function
 
-###
-
-
-$$I(\theta) = \sum I_i(\theta, b_i, a_i)  $$
 
 ### 
 
-\vspace*{-5mm}
+:::: {.columns}
 
-```{r}
+::: {.column}
+
+$$I(\theta) = \sum I_i(\theta, b_i, a_i)  $$
+
+:::
+
+::: {.column}
+
+```{r out.width="100%"}
 plot(theta, sum_info, cex.lab= 2, 
      cex.axis =1.5,
-       xlab = expression(theta), ylab = "Informazione", 
+       xlab = expression(theta), ylab = "Information", 
      type = "l", lwd =2, 
      col = "black", ylim = c(0,1))
 
@@ -989,8 +992,12 @@ for ( i in 1:length(b)) {
 }
 ```
 
+:::
+
+::::
+
 \centering 
-\vspace{-3mm}
+
 \small
 ```{r results='asis'}
 print(xtable(si), comment = FALSE, include.rownames=T)
@@ -999,12 +1006,17 @@ print(xtable(si), comment = FALSE, include.rownames=T)
 
 ### Standard Error of Measurement (SEM)
 
+:::: {.columns}
+
+::: {.column}
 
 $$SEM(\theta) = \sqrt{\dfrac{1}{I(\theta)}} = \sqrt{\dfrac{1}{a^2 P_i(\theta, b_i)Q_i(\theta, b_i)}} $$
 
-### 
+::: 
 
-\vspace*{-5mm}
+
+::: {.column}
+
 
 ```{r}
 
@@ -1020,13 +1032,18 @@ plot(theta, sum_info, type = "l", axes = FALSE,
      bty = "n", xlab = "", ylab = "", ylim = c(0,1))
 text("TIF", x = 0, y = .7, cex = 2)
 axis(side=4, at = pretty(range(sum_info)), cex = 1.5)
-mtext("Informazione", side=4, line=3, cex = 2)
+mtext("Information", side=4, line=3, cex = 2)
 
 ```
 
+:::
+
+:::: 
+
+
 \centering 
 \small
-\vspace{-3mm}
+
 ```{r results='asis'}
 print(xtable(si), comment = FALSE, include.rownames=T)
 ```
@@ -1248,7 +1265,7 @@ $$I(\theta) = \sum I_i(\theta, b_i, a_i, c_i) $$
 ```{r}
 plot(theta, sum_info, cex.lab= 2, 
      cex.axis =1.5,
-       xlab = expression(theta), ylab = "Informazione", 
+       xlab = expression(theta), ylab = "Information", 
      type = "l", lwd =2, 
      col = "black", ylim = c(0,1))
 
@@ -1289,7 +1306,7 @@ plot(theta, sum_info, type = "l", axes = FALSE,
      bty = "n", xlab = "", ylab = "", ylim = c(0,1))
 text("TIF", x = 1, y = .5, cex = 2)
 axis(side=4, at = pretty(range(sum_info)), cex = 1.5)
-mtext("Informazione", side=4, line=3, cex = 2)
+mtext("Information", side=4, line=3, cex = 2)
 
 ```
 
@@ -1362,19 +1379,19 @@ text(x= 3.2,
 ```
 
 
-# Relazione tra i modelli
+# Relatiosnhip between models
 
 
+## 
 
-### 
 
 - Constraining the $d_i$ parameters of all items to be 1 $\rightarrow$ from 4-PL to 3-PL
 
 - Constraining the $c_i$ parameters of all items to be 0 $\rightarrow$ from 3-PL to 2-PL
 
-- Constraining the $a_i$ parameters of all items to be 1 $\rightarrow$ from 2-PL to 1_PL
+- Constraining the $a_i$ parameters of all items to be 1 $\rightarrow$ from 2-PL to 1-PL
 
-### The Rasch Model?
+## The Rasch Model?
 
 Formally, the Rasch model and the 1-PL are the same model
 
