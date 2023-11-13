@@ -15,6 +15,6 @@ This information can also be exploited for the development of short test forms.
 - Item time: Item fit, item information, differential item functioning [HTML](Slides/item-time.html) [PDF](Slides/item-time.pdf) [R code](Slides/item-time.R)
 - [Visual IRT](visual.html)
 - [Data](https://drive.google.com/drive/folders/1EF4cN4yiB3Fft_y2Mh4r0Mclxc6bTRdf?usp=sharing)
-- [Reference list](reference-list.pdf)
+- [Reference list](Reference-list.pdf)
 
 
