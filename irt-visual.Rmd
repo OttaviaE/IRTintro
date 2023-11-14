@@ -1,9 +1,8 @@
 ---
 title: "IRT for beginners"
-subtitle: "Visualizzare aiuta"
-institute: "Bressanone"
+institute: "Rovereto"
 author: "Dr. Ottavia M. Epifania"
-date: "Corso IRT @ Università Libera di Bolzano, \\ 17-18 Gennaio 2023"
+date: "Introduction to IRT models"
 output: ioslides_presentation
 runtime: shiny
 ---
@@ -67,7 +66,7 @@ set.seed(999)
 
 
 
-## Tutti quanti
+## All together
 
 ```{r}
 shiny::shinyApp(
@@ -145,7 +144,7 @@ options = list(height = 400)
 ```
 
 
-## In pratica: ICC, IIF e TIF
+##  ICC, IIF e TIF
 
 ```{r}
 shiny::shinyApp(
@@ -297,45 +296,5 @@ options = list(height = 400)
 ```
 
 
-
-
-
-# Oltre il dicotomico 
-
-## Polytomous Rasch Model 
-
-$P(X = x, x > 0| \theta_s, \tau_{ic}) = \frac{exp \left(\sum_{c = 1}^{m} \theta_s - \tau_{ic}\right)}{1 + exp \left(\sum_{c = 1}^{m} \theta_s - \tau_{ic} \right)}$
-
-```{r, warning = FALSE, message=FALSE,  eval = TRUE, fig.align='center'}
-library(psych)
-library(ltm)
-set.seed(1234)
-data <- sim.poly(nvar = 4, n = 500, 
-                     low = -1, high = 2, mod = "logistic", 
-                     cat = 4, a = c(0.2, 0.7, 1.20, 1.90))
-prm <- gpcm(data$items, constraint = "rasch")
-par(mfrow=c(2,2))
-plot(prm, type = "ICC")
-```
-
-## Partial credit model
-
-$P(X = x, x > 0| \theta_s, \tau_{ic}, a) = \frac{exp \left[\sum_{c = 1}^{m} a (\theta_s - \tau_{ic})\right]}{1 + exp \left[\sum_{c = 1}^{m} a (\theta_s - \tau_{ic})\right]}$
-
-```{r fig.align='center'}
-pcm <- gpcm(data$items, constraint = "1PL")
-par(mfrow=c(2,2))
-plot(pcm, type = "ICC")
-```
-
-## Graded Response Model 
-
-$P(X = x, x > 0| \theta_s, \tau_{ic}, a_i) = \frac{exp \left[\sum_{c = 1}^{m} a_i (\theta_s - \tau_{ic})\right]}{1 + exp \left[\sum_{c = 1}^{m} a_i (\theta_s - \tau_{ic})\right]}$
-
-```{r, fig.align='center'}
-grm <- gpcm(data$items, constraint = "gpcm")
-par(mfrow=c(2,2))
-plot(grm, type = "ICC")
-```
 
 
