@@ -11,8 +11,8 @@ This information can also be exploited for the development of short test forms.
 ## Course structure 
 
 - Introduction to IRT models [PDF](intro/intro.pdf)
-- Estimating the models, testing the assumptions, and choosing the best model [HTML](Slides/model-estimation.html) [PDF](Slides/model-estimation.pdf) [R code](Slides/Code-model-estimation.R)
-- Item time: Item fit,  and differential item functioning [HTML](Slides/item-time.html) [PDF](Slides/item-time.pdf) [R code](Slides/Code-item-time.R)
+- Estimating the models, testing the assumptions, and choosing the best model [HTML](Slides/model-estimation.html) [R code](Slides/Code-model-estimation.R)
+- Item time: Item fit,  and differential item functioning [HTML](Slides/item-time.html) [R code](Slides/Code-item-time.R)
 - [Visual IRT](irt-visual.Rmd)
 - [Data](https://drive.google.com/drive/folders/1EF4cN4yiB3Fft_y2Mh4r0Mclxc6bTRdf?usp=sharing)
 - [Reference list](Reference-list.pdf)
