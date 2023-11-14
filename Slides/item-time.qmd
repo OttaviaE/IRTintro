@@ -15,7 +15,7 @@ format:
       side: left
       width: normal
 editor: source
-fontsize: 20pt
+fontsize: 22pt
 execute: 
   eval: true
   echo: false
@@ -109,13 +109,24 @@ library(xtable)
 
 The fit of each item to the model can be evaluated: 
 
-- $S - X^2$ (Orland & Thissen, 2000): Statistics based on the $\chi^2$. If significant, the item does not fit to the model (not suggested)
+. . .
+
+$S - X^2$ (Orland & Thissen, 2000): Statistics based on the $\chi^2$. If significant, the item does not fit to the model (not suggested)
+
+. . .
 
 <br>
 
-- *Root Mean Squared Deviation* (RMSD): Difference between what expected under the model and reala data (the lower the better). Values under $.15$ define an acceptable fit of the item to the model, values under $.10$ are optimal 
+*Root Mean Squared Deviation* (RMSD): Difference between what expected under the model and real data (the lower the better). 
+
+
+> $< .15$: acceptable fit of the item to the model
+>  
+> $< .10$: optimal fit of the item to the model
 
 <br>
+
+. . .
 
 - Rasch model only $\rightarrow$ Infit and outfit statistics
 
@@ -161,7 +172,8 @@ ggplot(prop_item,
 ```
 </details>
 
-## Fitting & choosing a model {.scrollable}
+
+## Fitting & choosing a model 
 
 ```{r echo = FALSE}
 m1pl = tam.mml(data[, grep("item", colnames(data))], verbose = F)
@@ -244,7 +256,7 @@ item_fit_1pl$RMSD %>% kable(aling = "c", digits = 2)
 <details><summary>Show code</summary>
 ```{r eval =FALSE, echo = TRUE}
 item_fit_1pl$RMSD_summary %>% kable(aling = "c", digits = 2)
-item_fit_1pl$RMSD %>% kable(aling = "c", digits = 2)
+item_fit_1pl$RMSD 
 ```
 </details>
 
@@ -275,7 +287,7 @@ In a laboratory, there are 2grams of Iodine 131. How many grams there would be a
 0.5grams
 </details>
 
-## 
+## Item Charcteristic Curve (ICC)
 
 
 ```{r}
@@ -288,10 +300,10 @@ par(mar = c(5,7,4,2) + 0.1)
 plot(theta, IRT(theta, b = b[1], a = a[1]),
      cex.lab= 2.5, 
      cex.axis =1.5, cex.main = 3,
-       xlab = expression(theta), ylab = "P(x = 1)",
+       xlab = expression(theta), ylab = expression(paste("P(", x[ip], " = 1|", theta, ", ", b[i], ")")),
        xlim = c(-4, 4), ylim = c(0, 1), 
      type = "l", lwd = 3, 
-     col = "royalblue", main = "Item Charcteristic Curve (ICC)")
+     col = "royalblue")
 text(x= -1.5, y = 0.6, "M", col = "royalblue", cex = 2)
 lines(theta, IRT(theta, b=b[2], 
                 a = 1), 
@@ -334,7 +346,7 @@ The comparison to investigate items with DIF is between two groups:
 
 <br>
 
-- **Focal group**: It is the focus of the DIF investigation, where we suepct the items of the test might be working differently 
+- **Focal group**: It is the focus of the DIF investigation, where we suspect the items of the test might be working differently 
 
 ## Uniform DIF 
 
@@ -348,7 +360,8 @@ par(mar = c(5,7,4,2) + 0.1)
 plot(theta, IRT(theta, b=difficulty[1]),
      cex.lab= 2, 
      cex.axis =1.5,
-       xlab = expression(theta), ylab = expression(paste("P(", x[vi], " = 1)")),
+       xlab = expression(theta), 
+     ylab = expression(paste("P(", x[ip], " = 1|", theta, ", ", b[i], ")")),
        xlim = c(-5, 5), ylim = c(0, 1), 
      type = "l", lwd = 3, 
      col = "royalblue")
@@ -358,7 +371,7 @@ lines(theta, IRT(theta, b = difficulty[2]),
       lty = 4, lwd=3, col = "magenta")
 ```
 
-## Not-uniform DIF 
+## Non-uniform DIF 
 
 The item favors one of the group $\rightarrow$ it is not constant along the latent trait
 
@@ -370,7 +383,7 @@ par(mar = c(5,7,4,2) + 0.1)
 plot(theta, IRT(theta, b=difficulty[1], a = 1),
      cex.lab= 2, 
      cex.axis =1.5,
-       xlab = expression(theta), ylab = expression(paste("P(", x[vi], " = 1)")),
+       xlab = expression(theta), ylab = expression(paste("P(", x[ip], " = 1|", theta, ", ", b[i], ")")),
        xlim = c(-5, 5), ylim = c(0, 1), 
      type = "l", lwd = 3, 
      col = "royalblue")
@@ -397,11 +410,11 @@ Score-based methods: Subjects are paired to the the *observed score*
 Uniform DIF 
 </div>
 
-- 1PL
+1PL
 
-- 2PL 
+2PL 
 
-- 3PL 
+3PL 
 
 
 
@@ -413,9 +426,9 @@ Uniform DIF
 Non-uniform DIF 
 </div>
 
-- 2PL 
+2PL 
 
-- 3PL
+3PL
 
 :::
 
@@ -426,13 +439,13 @@ Non-uniform DIF
 
 Two IRT models: 
 
-1. A "no DIF" model $\rightarrow$ parameters are constrained to be equal in the two groups 
+1. A "no DIF" model $\rightarrow$ Parameters are constrained to be equal in the two groups 
 
-2. A "DIF" model $\rightarrow$ parameters are left free to vary between the two groups 
+2. A "DIF" model $\rightarrow$ Parameters are left free to vary between the two groups 
 
 . . .
 
-It is like the LRT on a linear model where the group belonging (Focal Vs. Reference) is used as a predictor or not
+It is like the LRT on a linear model where the group variable (Focal Vs. Reference) is used as a predictor or not
 
 
 ## Lord 
@@ -440,15 +453,15 @@ It is like the LRT on a linear model where the group belonging (Focal Vs. Refere
 
 The item parameters are estimated in both the reference and the focal groups
 
-If there is a significant difference in the item estimates between groups $\rigtharrow$ DIF 
+If there is a significant difference in the item estimates between groups $\rightarrow$ DIF 
 
 Beyond significance: Lord's $\Delta$:
 
-- $< 1.00$: Negligible DIF 
-
-- $1.00 < d < 1.5$: Moderate DIF 
-
-- $> 1.5$: High DIF 
+> $< 1.00$: Negligible DIF 
+>
+> $1.00 < d < 1.5$: Moderate DIF 
+>
+> $> 1.5$: High DIF 
 
 ## Raju's Area  
 ### Raju (1988)
@@ -464,15 +477,15 @@ If the area between the ICCs is 0, then the item presents no DIF
 
 ## A note on Lord and Raju 
 
-The parameters estimated in the focal and reference groups cannot be directly compared $\rightarrow$ the parameters in one of the groups **must** be rescaled.
+The parameters estimated in the focal and reference groups cannot be directly compared $\rightarrow$ The parameters in one of the groups **must** be rescaled.
 
 . . .
 
-The rescaling can be done according to the *equal means anchoring* (Cook & Eignor, 1991)
+The rescaling can be done according to the *equal means anchoring* method (Cook & Eignor, 1991)
 
 . . .
 
-This method is already applied by the `difR` package 
+This method is already applied in the [`difR`](https://cran.r-project.org/web/packages/difR/difR.pdf) package 
 
 ## Equal means anchoring
 ### Cook & Eignor (1991)
@@ -483,11 +496,11 @@ $$c = \bar{b}_R - \bar{b}_F$$
 
 Then, it is subtracted from the estimates of the items in the **reference group**:
 
-$$b' = b_Ri - c$$
+$$b' = b_{Ri} - c$$
 
 ## DIF -- Import data {.scrollable}
 
-The dataset is the `difClass.csv` dataset 
+The dataset is the [`difClass.csv`](https://drive.google.com/file/d/1G7Eu5WKyqEcJHXI-dlXfJ2tVux_eMAWv/view?usp=sharing) data set 
 
 <details><summary>Show data & code </summary>
 ```{r}
@@ -601,32 +614,52 @@ lrt_dif
 
 
 
-## DIF -- Raju 
+## DIF -- Raju {.scrollable}
 
 ```{r}
+#| code-line-numbers: "|1|2|3|4"
+rajDif = difRaju(data[, !colnames(data) %in% c("id")], 
+                  group = "gender",  focal.name = "f", 
+                  model = "1PL", 
+                  alpha = .001, p.adjust.method = "BH")
+```
+
+. . .
+
+```{r echo = FALSE}
 rajDif = difRaju(data[, !colnames(data) %in% c("id")], 
                   group = "gender",  focal.name = "f", 
                   model = "1PL", 
                   alpha = .001, p.adjust.method = "BH")
 rajDif
-
 ```
 
 
-## DIF -- Lord 
+## DIF -- Lord {.scrollable}
 
 ```{r}
+#| code-line-numbers: "|1|2-4"
 lordDif = difLord(data[, !colnames(data) %in% "id"], 
                   group = "gender",  focal.name = "f", 
                   model = "1PL", 
                    alpha = .001, p.adjust.method = "BH")
 ```
 
-## Details Raju and Lord 
+. . .
+
+```{r echo = FALSE}
+lordDif = difLord(data[, !colnames(data) %in% "id"], 
+                  group = "gender",  focal.name = "f", 
+                  model = "1PL", 
+                   alpha = .001, p.adjust.method = "BH")
+```
+
+
+## Details on Raju and Lord 
 
 `mF-mR`: Difference between the focal and reference group (the estimates in the reference group are already rescaled)
 
-`deltaLord`: effect-size, it is obtained by multiplying `mF-mR` $\times -2.35$ (Penfield & Camilli, 2007)
+`deltaLord`/`deltaRaju`: effect-size, it is obtained by multiplying `mF-mR` $\times -2.35$ (Penfield & Camilli, 2007)
 
 The size of the effect can be interpreted according to the values reported in the `R` output 
 
@@ -636,19 +669,21 @@ The item parameters can be obtained as:
 lordDif$itemParInit
 ```
 
-## Caution advised!
+## Caution advised! {.scrollable}
 
 The object obtained from `lordDif$itemParInit` has a number of rows equal 2 times the number of items: 
 
-- rows $i, 1\ldots, I$: Estimates of the items in the **REFERENCE GROUP**
+> Rows $i, 1\ldots, I$: Estimates of the items in the **REFERENCE GROUP**
 
-- rows $i+1, \ldots 2I$: Estimates of the items in the **FOCAL GROUP**
+> Rows $i+1, \ldots 2I$: Estimates of the items in the **FOCAL GROUP**
+
+. . .
 
 ::: {.panel-tabset}
 
 ## Item estimates: Reference group 
 
-Rows $i, 1\ldots, I$. These estimates **are not** rescaled
+Rows $i, 1\ldots, I$: These estimates **are not** rescaled
 
 ```{r}
 item_par = lordDif$itemParInit

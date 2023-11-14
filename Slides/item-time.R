@@ -145,7 +145,7 @@ item_fit_1pl$RMSD %>% kable(aling = "c", digits = 2)
 
 ## ----r eval =FALSE, echo = TRUE-----------------------------------------------
 #  item_fit_1pl$RMSD_summary %>% kable(aling = "c", digits = 2)
-#  item_fit_1pl$RMSD %>% kable(aling = "c", digits = 2)
+#  item_fit_1pl$RMSD
 
 ## ----r------------------------------------------------------------------------
 b = c(-0.5616, -0.07)
@@ -156,10 +156,10 @@ par(mar = c(5,7,4,2) + 0.1)
 plot(theta, IRT(theta, b = b[1], a = a[1]),
      cex.lab= 2.5, 
      cex.axis =1.5, cex.main = 3,
-       xlab = expression(theta), ylab = "P(x = 1)",
+       xlab = expression(theta), ylab = expression(paste("P(", x[ip], " = 1|", theta, ", ", b[i], ")")),
        xlim = c(-4, 4), ylim = c(0, 1), 
      type = "l", lwd = 3, 
-     col = "royalblue", main = "Item Charcteristic Curve (ICC)")
+     col = "royalblue")
 text(x= -1.5, y = 0.6, "M", col = "royalblue", cex = 2)
 lines(theta, IRT(theta, b=b[2], 
                 a = 1), 
@@ -173,7 +173,8 @@ par(mar = c(5,7,4,2) + 0.1)
 plot(theta, IRT(theta, b=difficulty[1]),
      cex.lab= 2, 
      cex.axis =1.5,
-       xlab = expression(theta), ylab = expression(paste("P(", x[vi], " = 1)")),
+       xlab = expression(theta), 
+     ylab = expression(paste("P(", x[ip], " = 1|", theta, ", ", b[i], ")")),
        xlim = c(-5, 5), ylim = c(0, 1), 
      type = "l", lwd = 3, 
      col = "royalblue")
@@ -189,7 +190,7 @@ par(mar = c(5,7,4,2) + 0.1)
 plot(theta, IRT(theta, b=difficulty[1], a = 1),
      cex.lab= 2, 
      cex.axis =1.5,
-       xlab = expression(theta), ylab = expression(paste("P(", x[vi], " = 1)")),
+       xlab = expression(theta), ylab = expression(paste("P(", x[ip], " = 1|", theta, ", ", b[i], ")")),
        xlim = c(-5, 5), ylim = c(0, 1), 
      type = "l", lwd = 3, 
      col = "royalblue")
@@ -277,10 +278,21 @@ rajDif = difRaju(data[, !colnames(data) %in% c("id")],
                   group = "gender",  focal.name = "f", 
                   model = "1PL", 
                   alpha = .001, p.adjust.method = "BH")
+
+## ----r echo = FALSE-----------------------------------------------------------
+rajDif = difRaju(data[, !colnames(data) %in% c("id")], 
+                  group = "gender",  focal.name = "f", 
+                  model = "1PL", 
+                  alpha = .001, p.adjust.method = "BH")
 rajDif
 
-
 ## ----r------------------------------------------------------------------------
+lordDif = difLord(data[, !colnames(data) %in% "id"], 
+                  group = "gender",  focal.name = "f", 
+                  model = "1PL", 
+                   alpha = .001, p.adjust.method = "BH")
+
+## ----r echo = FALSE-----------------------------------------------------------
 lordDif = difLord(data[, !colnames(data) %in% "id"], 
                   group = "gender",  focal.name = "f", 
                   model = "1PL", 
