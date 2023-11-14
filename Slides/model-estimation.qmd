@@ -15,7 +15,7 @@ format:
       side: left
       width: normal
 editor: source
-fontsize: 20pt
+fontsize: 22pt
 execute: 
   eval: true
   echo: true
@@ -256,9 +256,8 @@ return(info_tot)
 
 ## Import data 
 
-Download the file  `dataClass.csv` from this shared folder [Dati](https://drive.google.com/drive/folders/1PXDG7HhjRDMdFEQjk5WQQWdiorDpSgtw?usp=sharing)
-
-Store the downloaded file in the `Data` sub folder of your newly created project and run this code: 
+Download the file  `dataClass.csv` from this [shared folder](https://drive.google.com/drive/folders/1EF4cN4yiB3Fft_y2Mh4r0Mclxc6bTRdf?usp=sharing) 
+Store the downloaded file in the `data` sub folder of your newly created project and run this code: 
 
 ```{r eval = T}
 data = read.csv("data/dataClass.csv", header = T, sep = ",")
@@ -369,18 +368,30 @@ If these assumptions are violated, the models can still be fitted but their inte
 
 ## Unidimensionality {.build}
 
-Unidimensionality $\rightarrow$ There's only one latent trait that is responsible of the observed responses 
+Unidimensionality $\rightarrow$ There's only one latent trait that is responsible for the observed responses 
 
 . . .
 
 <div style="text-align: center;">
-**Confirmatory Factor Analysis models** (CFA)
+**How**
 </div>
+
+**Confirmatory Factor Analysis models** (CFA)
+
+<br>
+
+. . .
+
+<div style="text-align: center;">
+**If violated**
+</div>
+
 
 The parameter estimates might be distorted and/or could not be interpreted
 
 Even if the estimates could be interpreted, they would have no meaning because the model has no meaning 
 
+. . .
 
 There are IRT models that are designed for dealing with multidimensional latent traits
 
@@ -389,9 +400,9 @@ There are IRT models that are designed for dealing with multidimensional latent 
 
 CFA models that force a one-factor solution to the data: 
 
-- If the one-factor model presents a good fit to the data $\rightarrow$ it is reasonable to assume the unidimensionality
+- If the one-factor model has a good fit to the data $\rightarrow$ it is reasonable to assume the unidimensionality
 
-- If the one-factor model presents does not present a good fit to the data $\rightarrow$ unidimensionality is not supported, it is best to first understand the latent structure of the data
+- If the one-factor model does not have a good fit to the data $\rightarrow$ unidimensionality is not supported, it is best to first understand the latent structure of the data
 
 . . .
 
@@ -408,7 +419,7 @@ CFA models that force a one-factor solution to the data:
 
 ## Unidimensionality - Practice {.scrollable}
 
-The CFA model is fitted with the `lavaan` package:
+The CFA model is fitted with the [`lavaan`](https://cran.r-project.org/web/packages/lavaan/lavaan.pdf) package:
 
 
 :::: {.panel-tabset}
@@ -470,12 +481,16 @@ Monotonicitiy is evaluated at the item level with $H$ coefficient by Mokken (197
 
 . . .
 
-If violated $\rightarrow$ Issues on the reliability and validity of the measure 
+<div style="text-align: center;">
+**If violated** 
+</div>
+
+Issues on the reliability and validity of the measure 
 
 
 ## Monotonicity in `R`
 
-Monotonicity is checked with the `mokken` package in `R`:
+Monotonicity is checked with the [`mokken`](https://cran.r-project.org/web/packages/mokken/mokken.pdf) package in `R`:
 
 ```{r eval = TRUE, echo = FALSE}
 library(mokken)
@@ -502,8 +517,11 @@ $$P(x_{p1}, x_{p2}, \ldots, x_{pi}) = P(x_{p1})P(x_{p2}) \ldots P(x_{pi})$$
 
 The correlation between the observed responses "disappears" once the effect of the latent variable has been taken into account
 
+<div style="text-align: center;">
+**If violated** 
+</div>
 
-If violated $\rightarrow$ There is something else other than the latent variable, issues for the validity and reliability of the measure 
+There is something else other than the latent variable, issues for the validity and reliability of the measure 
 
 ## Local indepedence - How
 
@@ -517,14 +535,14 @@ The usual statistics for interpreting the correlation between the residuals is t
 
 This statistics is computed for every pair of items
 
-$Q3 > .20$ suggests an high correlation between the residuals of two items, indicating local dependence $\rightarrow$ one of the item should be deleted 
+> $Q3 > .20$ suggests an high correlation between the residuals of two items, indicating local dependence $\rightarrow$ one of the item should be deleted 
 
 
 # Model estimation 
 
 ## Model estimation in R
 
-The `TAM` package allows for the estimation of IRT models in `R` 
+The [`TAM`](https://cran.r-project.org/web/packages/TAM/TAM.pdf) package allows for the estimation of IRT models in `R` 
 
 Multiple-choice items, coded as 0 (incorrect response) and 1 (correct response):
 
@@ -579,12 +597,40 @@ fit_m2pl$modelfit.test
 
 ## Local dependence
 
-(pensare di mettere la mia funzione che si tira dietro la correlazione tra ogni item e restituisce solo quelle superiori a .20)
+
+:::: {.panel-tabset}
+
+## Summary
 ```{r}
 fit_m2pl$Q3_summary
 ```
 
-## 2PL - Item parameters
+## LD -- Items
+
+```{r}
+local_dep = function(model, cut = NULL) {
+  fit_model = tam.modelfit(model, progress = FALSE)
+  temp_local = fit_model$Q3.matr
+  index = which( upper.tri(temp_local,diag=F) , arr.ind = TRUE )
+  local = data.frame( col = dimnames(temp_local)[[2]][index[,2]] ,
+                      row = dimnames(temp_local)[[1]][index[,1]] ,
+                      val = temp_local[ index ] )
+
+  if (is.null(cut) == TRUE) {
+      summary_local = local
+  } else {
+     summary_local = local[local$val > cut, ]
+  }
+  return(summary_local)
+}
+
+local_dep(m2pl)
+```
+
+
+::::
+ 
+## 2PL - Item parameters {.scrollable}
 
 
 :::: {.panel-tabset}
@@ -607,7 +653,7 @@ icc_2pl$item_label = paste0(icc_2pl$item, ", b =",
 ggplot(icc_2pl, 
        aes(x = theta, y = it_p, group = item_label, color = item_label)) +
   geom_line(linewidth = 1.2) + theme_classic() + 
-  ylab("P(x =1)") + xlab(expression(theta)) +
+  ylab(expression(paste("P(", x[ip], " = 1|", theta, ", ", b[i], ", ", a[i], ")"))) + xlab(expression(theta)) +
   theme(legend.position = c(.15, .80), 
         legend.title = element_blank(), 
         legend.text = element_text(size = 18), 
@@ -628,7 +674,7 @@ icc_2pl$item_label = paste0(icc_2pl$item, ", b =",
 ggplot(icc_2pl, 
        aes(x = theta, y = it_p, group = item_label, color = item_label)) +
   geom_line(linewidth = 1.2) + theme_classic() + 
-  ylab("P(x =1)") + xlab(expression(theta)) +
+    ylab(expression(paste("P(", x[ip], " = 1|", theta, ", ", b[i], ", ", a[i], ")"))) + xlab(expression(theta)) +
   theme(legend.position = c(.15, .80), 
         legend.title = element_blank(), 
         legend.text = element_text(size = 18), 
@@ -672,6 +718,24 @@ ggplot(item_info,
 ```
 
 <details><summary>Show code</summary>
+```{r echo = T, eval = FALSE}
+label_item = icc_2pl[, c("item", "item_label")]
+label_item = label_item %>% distinct()
+
+info2pl = irt_iif(m2pl)
+item_info = info2pl$item_info
+item_info = merge(item_info, label_item)
+
+ggplot(item_info, 
+       aes(x = theta, y = ii_item, group = item_label, color = item_label)) + geom_line(lwd = 1) + theme_light()+ xlab(expression(theta)) + ylab("Info")+
+  theme(legend.position = c(.15, .80), 
+        legend.title = element_blank(), 
+        legend.text = element_text(size = 18), 
+        axis.title = element_text(size = 26)) + 
+  geom_hline(yintercept = .50, linetype = 2)
+
+
+```
 
 </details>
 
@@ -689,7 +753,7 @@ ggplot(info2pl$test_info,
 ```
 
 <details><summary>Show code</summary>
-```{r eval = F, echo = F}
+```{r eval = F, echo = T}
 
 ggplot(info2pl$test_info, 
        aes(x = theta, y = info)) + geom_line(lwd = 2) + theme_light() + 
@@ -716,7 +780,7 @@ ggplot(info2pl$test_info,
 ```
 
 <details><summary>Show code</summary>
-```{r eval = F, echo = F}
+```{r eval = F, echo = T}
 
 ggplot(info2pl$test_info, 
        aes(x = theta, y = se, col = "SE")) + geom_line(lwd = 2) + + theme_light() + 

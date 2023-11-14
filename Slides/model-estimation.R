@@ -275,6 +275,25 @@ fit_m2pl$modelfit.test
 fit_m2pl$Q3_summary
 
 ## ----r------------------------------------------------------------------------
+local_dep = function(model, cut = NULL) {
+  fit_model = tam.modelfit(model, progress = FALSE)
+  temp_local = fit_model$Q3.matr
+  index = which( upper.tri(temp_local,diag=F) , arr.ind = TRUE )
+  local = data.frame( col = dimnames(temp_local)[[2]][index[,2]] ,
+                      row = dimnames(temp_local)[[1]][index[,1]] ,
+                      val = temp_local[ index ] )
+
+  if (is.null(cut) == TRUE) {
+      summary_local = local
+  } else {
+     summary_local = local[local$val > cut, ]
+  }
+  return(summary_local)
+}
+
+local_dep(m2pl)
+
+## ----r------------------------------------------------------------------------
 summary(m2pl)
 
 ## ----r eval = T, echo = FALSE-------------------------------------------------
@@ -287,7 +306,7 @@ icc_2pl$item_label = paste0(icc_2pl$item, ", b =",
 ggplot(icc_2pl, 
        aes(x = theta, y = it_p, group = item_label, color = item_label)) +
   geom_line(linewidth = 1.2) + theme_classic() + 
-  ylab("P(x =1)") + xlab(expression(theta)) +
+  ylab(expression(paste("P(", x[ip], " = 1|", theta, ", ", b[i], ", ", a[i], ")"))) + xlab(expression(theta)) +
   theme(legend.position = c(.15, .80), 
         legend.title = element_blank(), 
         legend.text = element_text(size = 18), 
@@ -306,7 +325,7 @@ ggplot(icc_2pl,
 #  ggplot(icc_2pl,
 #         aes(x = theta, y = it_p, group = item_label, color = item_label)) +
 #    geom_line(linewidth = 1.2) + theme_classic() +
-#    ylab("P(x =1)") + xlab(expression(theta)) +
+#      ylab(expression(paste("P(", x[ip], " = 1|", theta, ", ", b[i], ", ", a[i], ")"))) + xlab(expression(theta)) +
 #    theme(legend.position = c(.15, .80),
 #          legend.title = element_blank(),
 #          legend.text = element_text(size = 18),
@@ -333,6 +352,24 @@ ggplot(item_info,
 
 
 
+## ----r echo = T, eval = FALSE-------------------------------------------------
+#  label_item = icc_2pl[, c("item", "item_label")]
+#  label_item = label_item %>% distinct()
+#  
+#  info2pl = irt_iif(m2pl)
+#  item_info = info2pl$item_info
+#  item_info = merge(item_info, label_item)
+#  
+#  ggplot(item_info,
+#         aes(x = theta, y = ii_item, group = item_label, color = item_label)) + geom_line(lwd = 1) + theme_light()+ xlab(expression(theta)) + ylab("Info")+
+#    theme(legend.position = c(.15, .80),
+#          legend.title = element_blank(),
+#          legend.text = element_text(size = 18),
+#          axis.title = element_text(size = 26)) +
+#    geom_hline(yintercept = .50, linetype = 2)
+#  
+#  
+
 ## ----r echo = FALSE-----------------------------------------------------------
 
 ggplot(info2pl$test_info, 
@@ -343,7 +380,7 @@ ggplot(info2pl$test_info,
 
 
 
-## ----r eval = F, echo = F-----------------------------------------------------
+## ----r eval = F, echo = T-----------------------------------------------------
 #  
 #  ggplot(info2pl$test_info,
 #         aes(x = theta, y = info)) + geom_line(lwd = 2) + theme_light() +
@@ -364,7 +401,7 @@ ggplot(info2pl$test_info,
 
 
 
-## ----r eval = F, echo = F-----------------------------------------------------
+## ----r eval = F, echo = T-----------------------------------------------------
 #  
 #  ggplot(info2pl$test_info,
 #         aes(x = theta, y = se, col = "SE")) + geom_line(lwd = 2) + + theme_light() +
