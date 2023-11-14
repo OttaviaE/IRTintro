@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2023.5.14)  11 NOV 2023 15:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.10) (preloaded format=pdflatex 2023.5.14)  14 NOV 2023 15:16
 entering extended mode
 **./intro.tex
 (intro.tex
@@ -995,7 +995,10 @@ Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 Package beamerthememetropolis Warning: You need to compile with XeLaTeX or LuaL
 aTeX to use the Fira fonts on input line 95.
 
-)) (C:\Users\huawei\AppData\Local\Programs\MiKTeX\tex/latex/upquote\upquote.sty
+))
+(C:\Users\huawei\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamercolorthem
+edove.sty) (C:\Users\huawei\AppData\Local\Programs\MiKTeX\tex/latex/upquote\upq
+uote.sty
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
 tim
 )
@@ -1281,7 +1284,7 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@thisrulewidth=\dimen345
 )
 (C:\Users\huawei\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerinnerthem
-ecircles.sty)
+erounded.sty)
 (C:\Users\huawei\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamerouterthem
 esmoothbars.sty) (C:\Users\huawei\AppData\Local\Programs\MiKTeX\tex/latex/bookm
 ark\bookmark.sty
@@ -1294,31 +1297,207 @@ File: bkm-pdftex.def 2019/12/03 v1.28 bookmark driver for pdfTeX (HO)
 )) (C:\Users\huawei\AppData\Local\Programs\MiKTeX\tex/latex/xurl\xurl.sty
 Package: xurl 2020/01/24 v 0.09 modify URL breaks
 )
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\begingroup' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\catcode' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\active' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\csname\endcsname' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\catcode' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\active' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\csname\endcsname' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\%' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\catcode' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\active' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\csname\endcsname' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\#' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\catcode' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\csname\endcsname' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\&' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\textunderscore' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\_' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\catcode' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\active' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\csname\endcsname' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\csname\endcsname' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\~' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\textasciitilde' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<let>-command' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\\' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\csname\endcsname' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\Hy@tempa' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 134.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\Hy@tempa' on input line 134.
+
 LaTeX Font Info:    Trying to load font information for T1+lmss on input line 1
-35.
+38.
 (C:\Users\huawei\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmss.fd
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) (intro.aux)
 \openout1 = `intro.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 135.
-LaTeX Font Info:    ... okay on input line 135.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 135.
-LaTeX Font Info:    ... okay on input line 135.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 135.
-LaTeX Font Info:    ... okay on input line 135.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 135.
-LaTeX Font Info:    ... okay on input line 135.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 135.
-LaTeX Font Info:    ... okay on input line 135.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 135.
-LaTeX Font Info:    ... okay on input line 135.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 135.
-LaTeX Font Info:    ... okay on input line 135.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 135.
-LaTeX Font Info:    ... okay on input line 135.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 135.
-LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1375,7 +1554,7 @@ Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
 )
-Package hyperref Info: Link coloring OFF on input line 135.
+Package hyperref Info: Link coloring OFF on input line 138.
 (C:\Users\huawei\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 (C:\Users\huawei\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
@@ -1387,55 +1566,55 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count359
 )
-LaTeX Info: Redefining \ref on input line 135.
-LaTeX Info: Redefining \pageref on input line 135.
-LaTeX Info: Redefining \nameref on input line 135.
+LaTeX Info: Redefining \ref on input line 138.
+LaTeX Info: Redefining \pageref on input line 138.
+LaTeX Info: Redefining \nameref on input line 138.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/lmr/m/n --> OT1/cmss/m/n on input line 135.
+(Font)                  OT1/lmr/m/n --> OT1/cmss/m/n on input line 138.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/lmr/bx/n --> OT1/cmss/b/n on input line 135.
+(Font)                  OT1/lmr/bx/n --> OT1/cmss/b/n on input line 138.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 135.
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 138.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/lmss/b/n on input line 135.
+(Font)                  OT1/cmss/b/n --> OT1/lmss/b/n on input line 138.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmss/m/n --> T1/lmr/m/n on input line 135.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 135.
+(Font)                  OT1/lmss/m/n --> T1/lmr/m/n on input line 138.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 138.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> T1/lmss/b/n on input line 135.
+(Font)                  OT1/lmr/bx/n --> T1/lmss/b/n on input line 138.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/lmr/bx/n --> T1/lmss/b/n on input line 135.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 135.
+(Font)                  OT1/lmr/bx/n --> T1/lmss/b/n on input line 138.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 138.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> T1/lmss/m/n on input line 135.
+(Font)                  OT1/lmss/m/n --> T1/lmss/m/n on input line 138.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> T1/lmss/m/n on input line 135.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 135.
+(Font)                  OT1/lmss/bx/n --> T1/lmss/m/n on input line 138.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 138.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> T1/lmss/m/it on input line 135.
+(Font)                  OT1/lmr/m/it --> T1/lmss/m/it on input line 138.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/lmr/bx/it --> T1/lmss/m/it on input line 135.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 135.
+(Font)                  OT1/lmr/bx/it --> T1/lmss/m/it on input line 138.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 138.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 135.
+(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 138.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 135.
+(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 138.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  T1/lmss/m/n --> T1/lmss/b/n on input line 135.
+(Font)                  T1/lmss/m/n --> T1/lmss/b/n on input line 138.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/lmss/m/it --> T1/lmss/b/it on input line 135.
+(Font)                  T1/lmss/m/it --> T1/lmss/b/it on input line 138.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/lmss/b/n --> T1/lmr/b/n on input line 135.
+(Font)                  OT1/lmss/b/n --> T1/lmr/b/n on input line 138.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  T1/lmss/b/n --> T1/lmss/b/n on input line 135.
+(Font)                  T1/lmss/b/n --> T1/lmss/b/n on input line 138.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  T1/lmss/m/n --> T1/lmss/b/n on input line 135.
+(Font)                  T1/lmss/m/n --> T1/lmss/b/n on input line 138.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  T1/lmss/m/it --> T1/lmss/b/it on input line 135.
+(Font)                  T1/lmss/m/it --> T1/lmss/b/it on input line 138.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  T1/lmtt/m/n --> T1/lmtt/b/n on input line 135.
+(Font)                  T1/lmtt/m/n --> T1/lmtt/b/n on input line 138.
 
 (C:\Users\huawei\AppData\Local\Programs\MiKTeX\tex/latex/translator\translator-
 basic-dictionary-English.dict
@@ -1461,14 +1640,14 @@ Dictionary: translator-numbers-dictionary, Language: English
 theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \microtypecontext on input line 135.
+LaTeX Info: Redefining \microtypecontext on input line 138.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `basictext'.
-LaTeX Info: Redefining \showhyphens on input line 135.
+LaTeX Info: Redefining \showhyphens on input line 138.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1479,18 +1658,8 @@ Package microtype Info: Loading generic protrusion settings for font family
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 (intro.nav)
-Overfull \vbox (69.22235pt too high) detected at line 136
- []
-
-[1{C:/Users/huawei/AppData/Local/MiKTeX/pdftex/config/pdftex.map}
-
-] (intro.toc) [2
-
-] [3
-
-]
 LaTeX Font Info:    Trying to load font information for OT1+lmss on input line 
-145.
+139.
 (C:\Users\huawei\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmss.fd
 File: ot1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -1499,47 +1668,66 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-45.
+39.
 (C:\Users\huawei\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-145.
+139.
 (C:\Users\huawei\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-145.
+139.
 (C:\Users\huawei\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 145.
+(Font)              <10> on input line 139.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 145.
+(Font)              <7> on input line 139.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 145.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 145
+(Font)              <5> on input line 139.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 139
 .
 (C:\Users\huawei\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (C:\Users\huawei\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 145
+LaTeX Font Info:    Trying to load font information for U+msb on input line 139
 .
 (C:\Users\huawei\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (C:\Users\huawei\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 139.
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <7> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 139.
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <5> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 139.
+[1{C:/Users/huawei/AppData/Local/MiKTeX/pdftex/config/pdftex.map}
+
+] (intro.toc) [2
+
+]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10.95> on input line 151.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 151.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 151.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 145.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 151.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <8> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 145.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 151.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <6> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 145.
-[4
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 151.
+[3
+
+] [4
 
 ] [5
 
@@ -1547,37 +1735,25 @@ LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <6> not available
 
 ]
 LaTeX Font Info:    Font shape `T1/lmss/bx/it' in size <10.95> not available
-(Font)              Font shape `T1/lmss/bx/sl' tried instead on input line 187.
+(Font)              Font shape `T1/lmss/bx/sl' tried instead on input line 196.
 
 [7
 
 ] [8
 
 ]
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 217.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 217.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 217.
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 217.
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <7> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 217.
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <5> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 217.
-<img/latent.png, id=805, 900.747pt x 396.39pt>
+<img/latent.png, id=759, 900.747pt x 396.39pt>
 File: img/latent.png Graphic file (type png)
 <use img/latent.png>
-Package pdftex.def Info: img/latent.png  used on input line 217.
+Package pdftex.def Info: img/latent.png  used on input line 226.
 (pdftex.def)             Requested size: 201.44762pt x 88.65163pt.
 [9
 
  <./img/latent.png>]
-<img/mavl1.png, id=892, 889.14pt x 480.267pt>
+<img/mavl1.png, id=840, 889.14pt x 480.267pt>
 File: img/mavl1.png Graphic file (type png)
 <use img/mavl1.png>
-Package pdftex.def Info: img/mavl1.png  used on input line 225.
+Package pdftex.def Info: img/mavl1.png  used on input line 234.
 (pdftex.def)             Requested size: 268.59512pt x 145.07785pt.
 [10
 
@@ -1590,15 +1766,15 @@ Package pdftex.def Info: img/mavl1.png  used on input line 225.
 ] [14
 
 ]
-<img/lisa.png, id=1319, 541.02126pt x 611.28375pt>
+<img/lisa.png, id=1237, 541.02126pt x 611.28375pt>
 File: img/lisa.png Graphic file (type png)
 <use img/lisa.png>
-Package pdftex.def Info: img/lisa.png  used on input line 316.
+Package pdftex.def Info: img/lisa.png  used on input line 325.
 (pdftex.def)             Requested size: 67.14749pt x 75.85995pt.
-<img/bart.png, id=1320, 200.75pt x 299.1175pt>
+<img/bart.png, id=1238, 200.75pt x 299.1175pt>
 File: img/bart.png Graphic file (type png)
 <use img/bart.png>
-Package pdftex.def Info: img/bart.png  used on input line 316.
+Package pdftex.def Info: img/bart.png  used on input line 325.
 (pdftex.def)             Requested size: 67.14749pt x 100.05093pt.
 [15
 
@@ -1617,27 +1793,31 @@ Package pdftex.def Info: img/bart.png  used on input line 316.
 ] [22
 
 ]
-<intro_files/figure-beamer/unnamed-chunk-3-1.pdf, id=1924, 722.7pt x 505.89pt>
+<intro_files/figure-beamer/unnamed-chunk-3-1.pdf, id=1800, 722.7pt x 505.89pt>
 File: intro_files/figure-beamer/unnamed-chunk-3-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-3-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-3-1.pdf  used 
-on input line 415.
+on input line 423.
 (pdftex.def)             Requested size: 335.74263pt x 235.02026pt.
 
-Overfull \vbox (15.45607pt too high) detected at line 415
+Overfull \vbox (15.45607pt too high) detected at line 423
  []
 
 [23
 
  <./intro_files/figure-beamer/unnamed-chunk-3-1.pdf>]
-<intro_files/figure-beamer/unnamed-chunk-4-1.pdf, id=2016, 722.7pt x 505.89pt>
+<intro_files/figure-beamer/unnamed-chunk-4-1.pdf, id=1886, 722.7pt x 505.89pt>
 File: intro_files/figure-beamer/unnamed-chunk-4-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-4-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-4-1.pdf  used 
-on input line 435.
-(pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
+on input line 445.
+(pdftex.def)             Requested size: 285.38327pt x 199.76645pt.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <9> on input line 445.
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <9> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 445.
 
-Overfull \vbox (19.2909pt too high) detected at line 435
+Overfull \vbox (7.54141pt too high) detected at line 445
  []
 
 [24
@@ -1647,14 +1827,14 @@ Overfull \vbox (19.2909pt too high) detected at line 435
 ] [26
 
 ]
-<intro_files/figure-beamer/prova-1.pdf, id=2279, 722.7pt x 505.89pt>
+<intro_files/figure-beamer/prova-1.pdf, id=2131, 722.7pt x 505.89pt>
 File: intro_files/figure-beamer/prova-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/prova-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/prova-1.pdf  used on input l
-ine 459.
+ine 469.
 (pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
 
-Overfull \vbox (25.98276pt too high) detected at line 459
+Overfull \vbox (25.98276pt too high) detected at line 469
  []
 
 [27
@@ -1662,14 +1842,14 @@ Overfull \vbox (25.98276pt too high) detected at line 459
  <./intro_files/figure-beamer/prova-1.pdf>] [28
 
 ]
-<intro_files/figure-beamer/unnamed-chunk-6-1.pdf, id=2455, 722.7pt x 505.89pt>
+<intro_files/figure-beamer/unnamed-chunk-6-1.pdf, id=2295, 722.7pt x 505.89pt>
 File: intro_files/figure-beamer/unnamed-chunk-6-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-6-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-6-1.pdf  used 
-on input line 509.
-(pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
+on input line 521.
+(pdftex.def)             Requested size: 285.38327pt x 199.76645pt.
 
-Overfull \vbox (19.2909pt too high) detected at line 509
+Overfull \vbox (7.54141pt too high) detected at line 521
  []
 
 [29
@@ -1679,14 +1859,14 @@ Overfull \vbox (19.2909pt too high) detected at line 509
 ] [31
 
 ]
-<intro_files/figure-beamer/unnamed-chunk-8-1.pdf, id=2719, 722.7pt x 505.89pt>
+<intro_files/figure-beamer/unnamed-chunk-8-1.pdf, id=2541, 722.7pt x 505.89pt>
 File: intro_files/figure-beamer/unnamed-chunk-8-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-8-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-8-1.pdf  used 
-on input line 537.
+on input line 549.
 (pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
 
-Overfull \vbox (20.01495pt too high) detected at line 537
+Overfull \vbox (20.01495pt too high) detected at line 549
  []
 
 [32
@@ -1694,15 +1874,15 @@ Overfull \vbox (20.01495pt too high) detected at line 537
  <./intro_files/figure-beamer/unnamed-chunk-8-1.pdf>] [33
 
 ]
-<intro_files/figure-beamer/unnamed-chunk-10-1.pdf, id=2894, 722.7pt x 505.89pt>
+<intro_files/figure-beamer/unnamed-chunk-10-1.pdf, id=2704, 722.7pt x 505.89pt>
 
 File: intro_files/figure-beamer/unnamed-chunk-10-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-10-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-10-1.pdf  used
- on input line 568.
+ on input line 580.
 (pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
 
-Overfull \vbox (20.01495pt too high) detected at line 568
+Overfull \vbox (17.71497pt too high) detected at line 580
  []
 
 [34
@@ -1714,29 +1894,29 @@ Overfull \vbox (20.01495pt too high) detected at line 568
 ] [37
 
 ]
-<intro_files/figure-beamer/unnamed-chunk-12-1.pdf, id=3162, 722.7pt x 505.89pt>
+<intro_files/figure-beamer/unnamed-chunk-12-1.pdf, id=2954, 722.7pt x 505.89pt>
 
 File: intro_files/figure-beamer/unnamed-chunk-12-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-12-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-12-1.pdf  used
- on input line 667.
+ on input line 681.
 (pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
-<intro_files/figure-beamer/unnamed-chunk-13-1.pdf, id=3163, 722.7pt x 505.89pt>
+<intro_files/figure-beamer/unnamed-chunk-13-1.pdf, id=2955, 722.7pt x 505.89pt>
 
 File: intro_files/figure-beamer/unnamed-chunk-13-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-13-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-13-1.pdf  used
- on input line 667.
+ on input line 681.
 (pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
-<intro_files/figure-beamer/unnamed-chunk-14-1.pdf, id=3164, 722.7pt x 505.89pt>
+<intro_files/figure-beamer/unnamed-chunk-14-1.pdf, id=2956, 722.7pt x 505.89pt>
 
 File: intro_files/figure-beamer/unnamed-chunk-14-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-14-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-14-1.pdf  used
- on input line 667.
+ on input line 681.
 (pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
 
-Overfull \vbox (13.28827pt too high) detected at line 667
+Overfull \vbox (22.11273pt too high) detected at line 681
  []
 
 [38
@@ -1746,25 +1926,25 @@ stination with the same identifier (name{maybe-better}) has been already used,
 duplicate ignored
 <to be read again> 
                    \relax 
-l.667 \end{frame}
+l.681 \end{frame}
                  
 File: intro_files/figure-beamer/unnamed-chunk-12-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-12-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-12-1.pdf  used
- on input line 667.
+ on input line 681.
 (pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
 File: intro_files/figure-beamer/unnamed-chunk-13-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-13-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-13-1.pdf  used
- on input line 667.
+ on input line 681.
 (pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
 File: intro_files/figure-beamer/unnamed-chunk-14-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-14-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-14-1.pdf  used
- on input line 667.
+ on input line 681.
 (pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
 
-Overfull \vbox (13.28827pt too high) detected at line 667
+Overfull \vbox (22.11273pt too high) detected at line 681
  []
 
 [39
@@ -1774,238 +1954,237 @@ stination with the same identifier (name{maybe-better}) has been already used,
 duplicate ignored
 <to be read again> 
                    \relax 
-l.667 \end{frame}
+l.681 \end{frame}
                  
 File: intro_files/figure-beamer/unnamed-chunk-12-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-12-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-12-1.pdf  used
- on input line 667.
+ on input line 681.
 (pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
 File: intro_files/figure-beamer/unnamed-chunk-13-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-13-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-13-1.pdf  used
- on input line 667.
+ on input line 681.
 (pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
 File: intro_files/figure-beamer/unnamed-chunk-14-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-14-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-14-1.pdf  used
- on input line 667.
+ on input line 681.
 (pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
 
-Overfull \vbox (13.28827pt too high) detected at line 667
+Overfull \vbox (22.11273pt too high) detected at line 681
  []
 
 [40
 
  <./intro_files/figure-beamer/unnamed-chunk-14-1.pdf>]
-<intro_files/figure-beamer/unnamed-chunk-15-1.pdf, id=3450, 722.7pt x 505.89pt>
+<intro_files/figure-beamer/unnamed-chunk-15-1.pdf, id=3224, 722.7pt x 505.89pt>
 
 File: intro_files/figure-beamer/unnamed-chunk-15-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-15-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-15-1.pdf  used
- on input line 679.
+ on input line 693.
 (pdftex.def)             Requested size: 235.01881pt x 164.51265pt.
 [41
 
- <./intro_files/figure-beamer/unnamed-chunk-15-1.pdf>] [42
-
-]
-<intro_files/figure-beamer/unnamed-chunk-16-1.pdf, id=3629, 722.7pt x 505.89pt>
+ <./intro_files/figure-beamer/unnamed-chunk-15-1.pdf>]
+<intro_files/figure-beamer/unnamed-chunk-16-1.pdf, id=3309, 722.7pt x 505.89pt>
 
 File: intro_files/figure-beamer/unnamed-chunk-16-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-16-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-16-1.pdf  used
- on input line 704.
+ on input line 716.
 (pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
 
-Overfull \vbox (19.5885pt too high) detected at line 704
+Overfull \vbox (19.5885pt too high) detected at line 716
  []
 
-[43
+[42
 
- <./intro_files/figure-beamer/unnamed-chunk-16-1.pdf>] [44
-
-] [45
+ <./intro_files/figure-beamer/unnamed-chunk-16-1.pdf>] [43
 
 ]
-<intro_files/figure-beamer/unnamed-chunk-18-1.pdf, id=3890, 722.7pt x 505.89pt>
+<intro_files/figure-beamer/unnamed-chunk-18-1.pdf, id=3475, 722.7pt x 505.89pt>
 
 File: intro_files/figure-beamer/unnamed-chunk-18-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-18-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-18-1.pdf  used
- on input line 739.
+ on input line 754.
 (pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
 
-Overfull \vbox (19.5885pt too high) detected at line 739
+Overfull \vbox (22.56169pt too high) detected at line 754
  []
 
-[46
+[44
 
- <./intro_files/figure-beamer/unnamed-chunk-18-1.pdf>] [47
+ <./intro_files/figure-beamer/unnamed-chunk-18-1.pdf>] [45
 
 ]
-<intro_files/figure-beamer/unnamed-chunk-20-1.pdf, id=4067, 722.7pt x 505.89pt>
+<intro_files/figure-beamer/unnamed-chunk-20-1.pdf, id=3640, 722.7pt x 505.89pt>
 
 File: intro_files/figure-beamer/unnamed-chunk-20-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-20-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-20-1.pdf  used
- on input line 771.
-(pdftex.def)             Requested size: 161.15501pt x 112.80911pt.
-[48
+ on input line 790.
+(pdftex.def)             Requested size: 285.38327pt x 199.76645pt.
 
- <./intro_files/figure-beamer/unnamed-chunk-20-1.pdf>]
-Overfull \hbox (35.06113pt too wide) detected at line 799
-\T1/lmss/m/sl/10.95 SEM\OT1/lmss/m/n/10.95 (\OML/lmm/m/it/10.95 \OT1/lmss/m/n/
-10.95 ) = [] = []
+Overfull \vbox (10.81299pt too high) detected at line 790
  []
 
-<intro_files/figure-beamer/unnamed-chunk-22-1.pdf, id=4158, 722.7pt x 505.89pt>
+[46
+
+ <./intro_files/figure-beamer/unnamed-chunk-20-1.pdf>]
+<intro_files/figure-beamer/unnamed-chunk-22-1.pdf, id=3725, 722.7pt x 505.89pt>
 
 File: intro_files/figure-beamer/unnamed-chunk-22-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-22-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-22-1.pdf  used
- on input line 799.
-(pdftex.def)             Requested size: 145.03853pt x 101.52356pt.
-[49
+ on input line 824.
+(pdftex.def)             Requested size: 251.80696pt x 176.26134pt.
 
- <./intro_files/figure-beamer/unnamed-chunk-22-1.pdf>] [50
+Overfull \hbox (7.30104pt too wide) detected at line 824
+\T1/lmss/m/sl/9 SEM\OT1/lmss/m/n/9 (\OML/lmm/m/it/9 \OT1/lmss/m/n/9 ) = [] = [
+]
+ []
 
-] [51
+[47
 
-] [52
+ <./intro_files/figure-beamer/unnamed-chunk-22-1.pdf>] [48
+
+] [49
+
+] [50
 
 ]
-<intro_files/figure-beamer/unnamed-chunk-24-1.pdf, id=4426, 722.7pt x 505.89pt>
+<intro_files/figure-beamer/unnamed-chunk-24-1.pdf, id=3978, 722.7pt x 505.89pt>
 
 File: intro_files/figure-beamer/unnamed-chunk-24-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-24-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-24-1.pdf  used
- on input line 840.
-(pdftex.def)             Requested size: 235.01881pt x 164.51265pt.
-
-Overfull \vbox (3.73476pt too high) detected at line 840
- []
-
-[53
+ on input line 880.
+(pdftex.def)             Requested size: 268.59512pt x 188.01776pt.
+[51
 
  <./intro_files/figure-beamer/unnamed-chunk-24-1.pdf>]
-<intro_files/figure-beamer/unnamed-chunk-25-1.pdf, id=4517, 722.7pt x 505.89pt>
+<intro_files/figure-beamer/unnamed-chunk-25-1.pdf, id=4063, 722.7pt x 505.89pt>
 
 File: intro_files/figure-beamer/unnamed-chunk-25-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-25-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-25-1.pdf  used
- on input line 850.
-(pdftex.def)             Requested size: 235.01881pt x 164.51265pt.
-[54
+ on input line 890.
+(pdftex.def)             Requested size: 268.59512pt x 188.01776pt.
 
- <./intro_files/figure-beamer/unnamed-chunk-25-1.pdf>] [55
+Overfull \vbox (5.71446pt too high) detected at line 890
+ []
 
-] [56
+[52
 
-] [57
+ <./intro_files/figure-beamer/unnamed-chunk-25-1.pdf>] [53
+
+] [54
+
+] [55
 
 ]
-<intro_files/figure-beamer/unnamed-chunk-26-1.pdf, id=4863, 722.7pt x 505.89pt>
+<intro_files/figure-beamer/unnamed-chunk-26-1.pdf, id=4387, 722.7pt x 505.89pt>
 
 File: intro_files/figure-beamer/unnamed-chunk-26-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-26-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-26-1.pdf  used
- on input line 902.
+ on input line 939.
 (pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
 
-Overfull \vbox (27.69786pt too high) detected at line 902
+Overfull \vbox (23.09789pt too high) detected at line 939
  []
 
-[58
+[56
 
- <./intro_files/figure-beamer/unnamed-chunk-26-1.pdf>] [59
-
-] [60
+ <./intro_files/figure-beamer/unnamed-chunk-26-1.pdf>] [57
 
 ]
-<intro_files/figure-beamer/unnamed-chunk-28-1.pdf, id=5124, 722.7pt x 505.89pt>
+<intro_files/figure-beamer/unnamed-chunk-28-1.pdf, id=4552, 722.7pt x 505.89pt>
 
 File: intro_files/figure-beamer/unnamed-chunk-28-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-28-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-28-1.pdf  used
- on input line 934.
+ on input line 976.
 (pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
 
-Overfull \vbox (19.16203pt too high) detected at line 934
+Overfull \vbox (20.38052pt too high) detected at line 976
  []
 
-[61
+[58
 
- <./intro_files/figure-beamer/unnamed-chunk-28-1.pdf>] [62
-
-]
-<intro_files/figure-beamer/unnamed-chunk-30-1.pdf, id=5300, 722.7pt x 505.89pt>
+ <./intro_files/figure-beamer/unnamed-chunk-28-1.pdf>]
+<intro_files/figure-beamer/unnamed-chunk-30-1.pdf, id=4637, 722.7pt x 505.89pt>
 
 File: intro_files/figure-beamer/unnamed-chunk-30-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-30-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-30-1.pdf  used
- on input line 962.
+ on input line 1009.
 (pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
 
-Overfull \vbox (19.16203pt too high) detected at line 962
+Overfull \hbox (51.14354pt too wide) detected at line 1009
+\T1/lmss/m/sl/9 SEM\OT1/lmss/m/n/9 (\OML/lmm/m/it/9 \OT1/lmss/m/n/9 ) = [] = [
+]
  []
 
-[63
 
- <./intro_files/figure-beamer/unnamed-chunk-30-1.pdf>] [64
+Overfull \vbox (36.18204pt too high) detected at line 1009
+ []
 
-] [65
+[59
 
-] [66
+ <./intro_files/figure-beamer/unnamed-chunk-30-1.pdf>] [60
+
+] [61
+
+] [62
 
 ]
-<intro_files/figure-beamer/unnamed-chunk-32-1.pdf, id=5567, 722.7pt x 505.89pt>
+<intro_files/figure-beamer/unnamed-chunk-32-1.pdf, id=4887, 722.7pt x 505.89pt>
 
 File: intro_files/figure-beamer/unnamed-chunk-32-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-32-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-32-1.pdf  used
- on input line 1003.
+ on input line 1049.
 (pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
 
-Overfull \vbox (25.96829pt too high) detected at line 1003
+Overfull \vbox (27.61078pt too high) detected at line 1049
  []
 
-[67
+[63
 
- <./intro_files/figure-beamer/unnamed-chunk-32-1.pdf>] [68
+ <./intro_files/figure-beamer/unnamed-chunk-32-1.pdf>] [64
+
+] [65
+
+]
+<img/procuste.jpg, id=5055, 271.0125pt x 187.70125pt>
+File: img/procuste.jpg Graphic file (type jpg)
+<use img/procuste.jpg>
+Package pdftex.def Info: img/procuste.jpg  used on input line 1100.
+(pdftex.def)             Requested size: 80.5775pt x 55.80672pt.
+[66
+
+ <./img/procuste.jpg>] [67
+
+] [68
 
 ] [69
 
-] [70
-
-] [71
-
-]
-<img/procuste.jpg, id=5920, 271.0125pt x 187.70125pt>
-File: img/procuste.jpg Graphic file (type jpg)
-<use img/procuste.jpg>
-Package pdftex.def Info: img/procuste.jpg  used on input line 1058.
-(pdftex.def)             Requested size: 80.5775pt x 55.80672pt.
-[72
-
- <./img/procuste.jpg>] [73
-
-] [74
-
-] [75
-
 ]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 1120.
+(Font)              <12> on input line 1163.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <12> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 1120.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 1163.
 
 LaTeX Font Info:    Font shape `T1/lmss/bx/it' in size <12> not available
-(Font)              Font shape `T1/lmss/bx/sl' tried instead on input line 1120
+(Font)              Font shape `T1/lmss/bx/sl' tried instead on input line 1163
 .
-[76
+[70
 
-] [77
+] [71
 
 ]
 \tf@nav=\write5
@@ -2019,32 +2198,35 @@ LaTeX Font Info:    Font shape `T1/lmss/bx/it' in size <12> not available
 
 (intro.aux) ) 
 Here is how much of TeX's memory you used:
- 33616 strings out of 480236
- 686929 string characters out of 2880083
- 1118909 words of memory out of 3000000
- 49124 multiletter control sequences out of 15000+200000
- 627949 words of font info for 120 fonts, out of 3000000 for 9000
+ 33644 strings out of 480236
+ 687399 string characters out of 2880083
+ 1110335 words of memory out of 3000000
+ 49156 multiletter control sequences out of 15000+200000
+ 637485 words of font info for 128 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 111i,20n,112p,1808b,774s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 111i,20n,112p,1808b,765s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/huawei/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/
-lm-ec.enc}{C:/Users/huawei/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-
-mathex.enc}{C:/Users/huawei/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm
--rm.enc}{C:/Users/huawei/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ma
-thit.enc}{C:/Users/huawei/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-m
+lm-mathit.enc}{C:/Users/huawei/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm
+/lm-rm.enc}{C:/Users/huawei/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm
+-ec.enc}{C:/Users/huawei/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ma
+thex.enc}{C:/Users/huawei/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-m
 athsy.enc}<C:/Users/huawei/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/
 lmex10.pfb><C:/Users/huawei/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm
 /lmmi10.pfb><C:/Users/huawei/AppData/Local/Programs/MiKTeX/fonts/type1/public/l
+m/lmmi9.pfb><C:/Users/huawei/AppData/Local/Programs/MiKTeX/fonts/type1/public/l
 m/lmss10.pfb><C:/Users/huawei/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-lm/lmss8.pfb><C:/Users/huawei/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-lm/lmss9.pfb><C:/Users/huawei/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-lm/lmssbo10.pfb><C:/Users/huawei/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/lm/lmssbx10.pfb><C:/Users/huawei/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/lm/lmsso10.pfb><C:/Users/huawei/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/lm/lmsso8.pfb><C:/Users/huawei/AppData/Local/Programs/MiKTeX/fonts/type
-1/public/lm/lmsy10.pfb>
-Output written on intro.pdf (77 pages, 2766101 bytes).
+lm/lmss12.pfb><C:/Users/huawei/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/lm/lmss8.pfb><C:/Users/huawei/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/lm/lmss9.pfb><C:/Users/huawei/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/lm/lmssbo10.pfb><C:/Users/huawei/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/lm/lmssbx10.pfb><C:/Users/huawei/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/lm/lmsso10.pfb><C:/Users/huawei/AppData/Local/Programs/MiKTeX/fonts/type
+1/public/lm/lmsso8.pfb><C:/Users/huawei/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/lm/lmsso9.pfb><C:/Users/huawei/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/lm/lmsy10.pfb>
+Output written on intro.pdf (71 pages, 2627010 bytes).
 PDF statistics:
- 6592 PDF objects out of 7423 (max. 8388607)
- 223 named destinations out of 1000 (max. 500000)
- 20974 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 5689 PDF objects out of 6186 (max. 8388607)
+ 210 named destinations out of 1000 (max. 500000)
+ 25070 words of extra memory for PDF output out of 29859 (max. 10000000)
 

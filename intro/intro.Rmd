@@ -1,12 +1,12 @@
 ---
 title: "First Steps with Item Response Theory"
-subtitle: "Introduction to Item Response Theory models"
 institute: "Rovereto (TN)"
-author: "Dr. Ottavia M. Epifania"
+author: "Dr. Ottavia M. Epifania, ottavia.epifania@unipd.it"
 date: "University of Trento, \\ 17 November 2023"
 output: 
   beamer_presentation: 
     theme: metropolis
+    colortheme: dove
     highlight: haddock
     toc: true
     slide_level: 3
@@ -26,14 +26,16 @@ header-includes:
     - \setbeamertemplate{navigation symbols}{}
     - \newcommand\Factor{1.2}
     - \setbeamerfont{subtitle}{size=\large, series=\bfseries}
-    - \useinnertheme{circles}
+    - \setbeamerfont{title}{size=\Large, series=\bfseries}
+    - \useinnertheme{rounded}
     - \useoutertheme{smoothbars}
     - \definecolor{latenti}{RGB}{54, 114, 89}
     - \definecolor{manifeste}{RGB}{179, 7, 27}
     - \definecolor{background}{RGB}{251, 251, 251}
     - \setbeamercolor{frametitle}{bg=background}
-    - \setbeamertemplate{frametitle}[default][center]
+    # - \setbeamertemplate{frametitle}[default][center]
     - \AtBeginSubsection{\frame{\subsectionpage}}
+    - \setbeamercolor{subsection name}{fg=white}
     - \setbeamercolor{section name}{fg=white}
     - \setbeamertemplate{titlepage}{\frame[plain]{\titlepage}}
     - \setbeamersize{text margin left=5mm,text margin right=5mm} 
@@ -44,10 +46,20 @@ header-includes:
     - \newcommand*{\colit}[1]{\textcolor{question}{#1}}
     - \definecolor{highlight}{RGB}{18, 10, 143}    
     - \newcommand*{\high}[1]{\textcolor{highlight}{#1}}
-
+    - \setbeamertemplate{subsection page}
+        {
+          \begingroup
+            \begin{beamercolorbox}[sep=12pt,center]{section title}
+              \usebeamerfont{section title}\insertsection\par
+            \end{beamercolorbox}
+            \vspace*{5pt}
+          \begin{beamercolorbox}[sep=8pt,center]{subsection title}
+              \usebeamerfont{subsection title}\insertsubsection\par
+            \end{beamercolorbox}
+          \endgroup
+        }
 ---
 
-<!-- \frame[plain]{\titlepage}  -->
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = F, 
@@ -69,7 +81,7 @@ Ii <- NULL
 for(i in 1:1000){
   P[i] <- 1/(1+ exp (-a*(theta[i] - b)))
   Q[i]= 1-P[i]
-  Ii[i] =(a*Q[i]*(P[i]-c)^2)/(P[i]*((1-c)^2)) # (3PL)
+  Ii[i] =(a*Q[i]*(P[i]-c)^2)/(P[i]*((1-c)^2)) # (3-PL)
    }
 return(Ii)
 }
@@ -91,6 +103,15 @@ library(TAM)
 
 ```
 
+### Course website
+
+\vspace*{5mm}
+
+\centering
+
+[https://ottaviae.github.io/IRTintro/](https://ottaviae.github.io/IRTintro/)
+
+
 
 
 # Introduction
@@ -108,7 +129,7 @@ library(TAM)
 - \emph{Operazionalization of the latent variable} is crucial 
 
 
-### Esempio 
+### Example
 
 Let's say we have a friend, Giorgio, and after observing what he does usually, we see that:
 
@@ -120,14 +141,14 @@ Let's say we have a friend, Giorgio, and after observing what he does usually, w
 
 - $\ldots$
 
-Giorgio's behaviors (\color{manifeste}**observed variables**\normalcolor) can be explained by considering the latent variable ***\color{latenti}extraversion*** 
+Giorgio's behaviors (\color{manifeste}***observed variables***\normalcolor) can be explained by considering the \color{latenti}***latent variable*** extraversion
 
 
 ## Modelling latent variables
 
 ### 
 
-The \color{latenti}latent variables\normalcolor must be linked to the \color{manifeste}observed variables\normalcolor $\rightarrow$ mathematical and statistical models
+The \color{latenti}latent variables \normalcolor must be linked to the \color{manifeste}observed variables\normalcolor $\rightarrow$ mathematical and statistical models
 
 
 \small
@@ -187,11 +208,11 @@ Focus $\rightarrow$ \high{Test}
 
 The probability of an observed response (\color{manifeste}observed variable\normalcolor) depends on the characteristics of both the \sbj{person} and the \colit{item}
 
-The characteristics of the \sbj{person} can be described by a parameter of the person  $\rightarrow$ \color{latenti} latent trait \normalcolor (e.g., intelligence, self-esteem, extroversion etc.)
+The characteristics of the \sbj{person} can be described by a parameter of the person  $\rightarrow$ \color{latenti} latent trait \normalcolor (e.g., intelligence, self-esteem, extraversion etc.)
 
 
 
-The characteristics of the \colit{item} can be described by one or more parameters, (\textbf{difficulty}, \textbf{discrimination}, \textbf{guessing}, \textbf{careless error})
+The characteristics of the \colit{item} can be described by one or more parameters (\textbf{difficulty}, \textbf{discrimination}, \textbf{guessing}, \textbf{careless error})
 
 The item, the person and their characteristics are located on the same latent trait
 
@@ -237,7 +258,7 @@ $3x - 2y + 4 = ?$
 			
 \end{minipage}
 
-### To each its own IRT model 
+### To each its own... IRT model 
 
 Different IRT models according to:
 
@@ -269,7 +290,7 @@ These models can be distinguinshed according to the number of parameters describ
 
 - As the distance on the latent trait between the person parameter and the item parameter increases, the probability of a correct response changes 
 
-- When the parameter of the person matches the parameter of the item, then the probability of observing a correct response is 50% (Only for the 1-PL)
+- When the parameter of the person matches the parameter of the item, then the probability of observing a correct response is 50% 
 
 # 1-PL
 
@@ -278,7 +299,7 @@ These models can be distinguinshed according to the number of parameters describ
 
 ###
 
-The probability that person $p$ responds correctly to item $i$ is formalized ad
+The probability that person $p$ responds correctly to item $i$ is formalized as:
 
 
 $$P(x_{pi} = 1| \theta_p, b_i) = \dfrac{\exp(\theta_p - b_i)}{1 + \exp(\theta_p - b_i)}$$
@@ -286,11 +307,11 @@ $$P(x_{pi} = 1| \theta_p, b_i) = \dfrac{\exp(\theta_p - b_i)}{1 + \exp(\theta_p 
 
 $\theta_p$: Ability of the person (i.e., latent trait level of the person) $\rightarrow$ The value of $\theta_p$, the higher the amount of latent trait of $p$
       
-$b_i$; difficulty of item $i$ (location of the item on the latent trait) $\rightarrow$ The higher the value of  $b_i$, the most difficult the item is
+$b_i$: Difficulty of item $i$ (location of the item on the latent trait) $\rightarrow$ The higher the value of  $b_i$, the most difficult the item is
 
 
 
-## Item Charcteristic Curve 
+## Item Characteristic Curve 
 
 ###
 
@@ -302,7 +323,7 @@ plot(theta, IRT(theta, b = 1, a = 1),
        xlab = expression(theta), ylab = "Probability of \n endorsing the item",
        xlim = c(-4, 4), ylim = c(0, 1), 
      type = "l", lwd = 3, 
-     col = "royalblue", main = "Item Charcteristic Curve (ICC)")
+     col = "royalblue", main = "Item Characteristic Curve (ICC)")
 
 mtext("b = 1", side = 1, at = 1, cex = 2, padj = 1)
 
@@ -314,11 +335,11 @@ segments(1, -0.5,
          col = "red", lty = 3, lwd = 3)
 ```
 
-### Item with different locations: ICC
+### Items with different locations: ICC
 
-\vspace*{-15mm}
+\vspace*{-8mm}
 
-```{r, out.width = "90%"}
+```{r, out.width = "85%"}
 b = seq(-2.5, 2.5, length = 5)
 a = rep(1, length(b))
 
@@ -329,7 +350,7 @@ plot(theta, IRT(theta, b = b[1], a = a[1]),
      cex.lab= 2.5, 
      cex.axis =1.5,cex.main = 3,
        xlab = expression(theta), ylab = "Probability of \n endorsing the item", 
-     main = "ICC - Different locations",
+     # main = "ICC - Different locations",
        xlim = c(-4, 4), ylim = c(0, 1), 
      type = "l", lwd = 3, 
      col = my_colors[1])
@@ -368,7 +389,9 @@ text(x= b[i] +.5,
 
 ```
 
+\vspace{-3mm}
 \centering 
+\footnotesize
 
 ```{r results='asis'}
 print(xtable(si), comment = FALSE, include.rownames=T)
@@ -384,11 +407,11 @@ Measure of the precision with which the item assesses different levels of the la
 
 $$I_I = P_i(\theta, b_i)Q_i(\theta, b_i)$$
 
-$Q = 1- P_i(\theta_p, b_i)$ is the probability of choosing the incorrect response
+$Q_i = 1- P_i(\theta_p, b_i)$ is the probability of choosing the incorrect response
 
 ###
 
-The IIFis maximized when $\theta_p = b_i$ $\rightarrow$ $P(x_{pi}=1) = P(x_{pi}=0) =0.50$ $\rightarrow$ $I_i = .25$
+The IIF is maximized when $\theta_p = b_i$ $\rightarrow$ $P(x_{pi}=1) = P(x_{pi}=0) =0.50$ $\rightarrow$ $I_i = .25$
 
 \vspace{-2mm}
 
@@ -422,7 +445,7 @@ lines(theta, IRT(theta, b=1,
 
 ### 
 
-The item is mostly informative for subjects with a latent trait level close to the location of the item $\rightarrow$ the higher the distance between the latent trait level of the person and the location of the item, the lower the IFF
+The item is mostly informative for subjects with a latent trait level close to the location of the item $\rightarrow$ the higher the distance between the latent trait level of the person and the location of the item, the lower the IIF
 
 High variability in the latent trait levels of the respondents $\rightarrow$ items with locations spread along the entire latent trait 
 
@@ -451,11 +474,11 @@ Items should be as homogeneous as possible
 :::
 
 
-### Items with difference locations: IIF
+### Items with difference locations: IIFs
 
-\vspace*{-15mm}
+\vspace*{-8mm}
 
-```{r}
+```{r out.width="85%"}
 
 b = seq(-2.5, 2.5, length = 5)
 a = rep(1, length(b))
@@ -480,10 +503,11 @@ sum_info <- rowSums(d)
 check$theta = NULL
 
 plot(Theta, check[, 1], ylim= c(0, 1), cex.lab= 2, 
-     cex.axis =1.5, cex.main =3,
+     cex.axis =1.5, cex.main =2.5,
        xlab = expression(theta), ylab = "Information", 
+     # main = "IIF- Items with different locations",
      type = "l", lwd =2, 
-     col = my_colors[1], main = "IIF- Item with different locations")
+     col = my_colors[1])
 segments(-7, 0.25, 
          b[1], 0.25, 
          col = "red", lty = 3, lwd = 3)
@@ -521,7 +545,9 @@ si = data.frame(item1 = b[1], item2 = b[2], item3 = b[3],
 rownames(si) = "b"
 ```
 
+\vspace{-3mm}
 \centering 
+\footnotesize
 
 ```{r results='asis'}
 print(xtable(si), comment = FALSE, include.rownames=T)
@@ -533,7 +559,7 @@ print(xtable(si), comment = FALSE, include.rownames=T)
 
 Measure of the precision with which the test assesses the latent trait:
 
-$$I(\theta) = \sum I_i(\theta, b_i) = $$
+$$I(\theta) = \sum_{i = 1}^{I} I_i(\theta, b_i)$$
 
 
 
@@ -598,30 +624,33 @@ mtext("Information", side=4, line=3, cex = 2)
 
 ```
 
-\centering 
-\small
 \vspace{-3mm}
+\centering 
+\footnotesize
 
 ```{r results='asis'}
 print(xtable(si), comment = FALSE, include.rownames=T)
 ```
 
-# 2PL
+# 2-PL
 
 ## Item Response Function
-### Birnbaum (1968)
+
+### 
+
+Birnbaum (1968):
 
 $$P(x_{pi} = 1| \theta_p, b_i, a_i) = \dfrac{\exp[a_i(\theta_p - b_i)]}{1+\exp[a_i(\theta_p - b_i)]}$$
 
 $\theta_p$: Ability of the person (i.e., latent trait level of the person)
       
-$b_i$; difficulty of item $i$ (location of the item on the latent trait) $\rightarrow$
+$b_i$: Difficulty of item $i$ (location of the item on the latent trait) $\rightarrow$
 
 $a_i$: Discrimination of the item $\rightarrow$ ability of the item to tell apart subjects with different levels of the latent trait
 
 ### Maybe better
 
-\vspace*{-10mm}
+\vspace*{-5mm}
 \begin{overprint}
 	
 \onslide<1>
@@ -787,13 +816,13 @@ $5 + 14 = ?$
 
 ### Negative discrimination
 
-\vspace*{-10mm}
+\vspace*{-5mm}
 
 ```{r out.width ="70%"}
 plot(theta, IRT(theta, a = -0.5, b = 0), 
      type = "l", cex.main = 3, 
      ylab = "P(x = 1)", ylim = c(0,1 ), cex.lab= 2, 
-     cex.axis =1.5, xlab = expression(theta), lwd = 3, main = "Negative discrimination")
+     cex.axis =1.5, xlab = expression(theta), lwd = 3)
 text(x= 3.2, 
      y = 0.95, expression(paste(a[1], "= -0.50")), 
      col = "black", cex = 2)
@@ -813,7 +842,7 @@ The higher the level of the latent trait... the lower the probability of respond
 
 
 
-## 
+###  
 
 \vspace*{-5mm}
 
@@ -883,11 +912,6 @@ print(xtable(si), comment = FALSE, include.rownames=T)
 
 ## Item Information Function
 
-###
-
-$$I_i(\theta, b_i, a_i) = a_i^2P_i(\theta, b_i, a_i)Q_i(\theta, b_i, a_i)$$
-
-$Q_i = 1 - P_i(\theta, b_i, a_i)$ is the probability of giving the incorrect response
 
 ### 
 
@@ -956,6 +980,17 @@ for ( i in 1:length(b)) {
 ```
 
 \vspace{-3mm}
+
+:::: {.columns}
+
+::: {.column}
+\small
+
+$I_i(\theta, b_i, a_i) = a_i^2P_i(\theta, b_i, a_i)Q_i(\theta, b_i, a_i)$
+:::
+
+
+::: {.column}
 \centering
 \small
 
@@ -964,22 +999,20 @@ print(xtable(si), comment = F)
 ```
 
 
+:::
+
+::::
+
+
+
 ## Test Information Function
 
 
 ### 
 
-:::: {.columns}
+\vspace*{-5mm}
 
-::: {.column}
-
-$$I(\theta) = \sum I_i(\theta, b_i, a_i)  $$
-
-:::
-
-::: {.column}
-
-```{r out.width="100%"}
+```{r out.width="85%"}
 plot(theta, sum_info, cex.lab= 2, 
      cex.axis =1.5,
        xlab = expression(theta), ylab = "Information", 
@@ -992,9 +1025,17 @@ for ( i in 1:length(b)) {
 }
 ```
 
+\vspace{-3mm}
+
+:::: {.columns}
+
+::: {.column}
+
+$$I(\theta) = \sum_{i = 1}^{I} I_i(\theta, b_i, a_i)  $$
+
 :::
 
-::::
+::: {.column}
 
 \centering 
 
@@ -1002,23 +1043,19 @@ for ( i in 1:length(b)) {
 ```{r results='asis'}
 print(xtable(si), comment = FALSE, include.rownames=T)
 ```
+:::
+
+::::
+
+
 
 
 ### Standard Error of Measurement (SEM)
 
-:::: {.columns}
 
-::: {.column}
+\vspace*{-8mm}
 
-$$SEM(\theta) = \sqrt{\dfrac{1}{I(\theta)}} = \sqrt{\dfrac{1}{a^2 P_i(\theta, b_i)Q_i(\theta, b_i)}} $$
-
-::: 
-
-
-::: {.column}
-
-
-```{r}
+```{r out.width="75%"}
 
 par(mar = c(5, 4, 4, 4) + 0.3)  # Leave space for z axis
 plot(theta, sqrt(1/sum_info), cex.lab= 2, 
@@ -1036,19 +1073,36 @@ mtext("Information", side=4, line=3, cex = 2)
 
 ```
 
-:::
+\vspace{-3mm}
 
-:::: 
+:::: {.columns}
 
+::: {.column}
+
+\footnotesize
+
+$$SEM(\theta) = \sqrt{\dfrac{1}{I(\theta)}} = \sqrt{\dfrac{1}{a^2 P_i(\theta, b_i)Q_i(\theta, b_i)}} $$
+
+::: 
+
+
+::: {.column}
 
 \centering 
-\small
+\footnotesize
 
 ```{r results='asis'}
 print(xtable(si), comment = FALSE, include.rownames=T)
 ```
 
-# 3PL 
+:::
+
+:::: 
+
+
+
+
+# 3-PL 
 
 ## Item Response Function
 
@@ -1061,21 +1115,33 @@ $$P(x_{pi} = 1| \theta_p, b_i, a_i) = c_i + (1 - c_i) \dfrac{\exp[a_i(\theta_p -
 
 $\theta_p$: Ability of the person (i.e., latent trait level of the person)
       
-$b_i$; difficulty of item $i$ (location of the item on the latent trait) $\rightarrow$
+$b_i$: Difficulty of item $i$ (location of the item on the latent trait) $\rightarrow$
 
 $a_i$: Discrimination of the item $\rightarrow$ ability of the item to tell apart subjects with different levels of the latent trait
 
 $c_i$: pseudo-guessing of item $i$ $\rightarrow$ probability of giving the correct response even if the latent trait approaches $-\infty$
 
 
-### Maybe better
+### 
 
-\vspace*{-10mm}
+\vspace*{-3mm}
+
+
+:::: {.columns}
+
+::: {.column}
 \small
+Item 1: $b_1 = 0$, $a_1 = 1.4$, $c_1 = 0.20$ 
+:::
 
-Item 1: $b_1 = 0$, $a_1 = 1.4$ e $c_1 = 0.2$, Item 2: $b_1 = 0$, $a_1 = 1.4$ e $c_1 = 0.3$ (item 2)
+::: {.column}
+\small
+Item 2: $b_2 = 0$, $a_2 = 1.4$, $c_2 = 0.30$ 
+:::
 
-```{r, out.width="70%"}
+::::
+\vspace{-3mm}
+```{r, out.width="80%"}
 b = c(0, 1)
 a = c(1.4, 1.4)
 g = c(0.20, 0.30)
@@ -1099,7 +1165,9 @@ text(x= 3.2,
 
 ```
 
-The probability of responding correctly is approximately $c$ (0.20, 0.30) for low levels of the latent trait
+\vspace{-3mm}
+\small
+The probability of responding correctly is approximately $c$ (0.20, 0.30) when $\theta \rightarrow -\infty$
 
 
 ###
@@ -1107,7 +1175,7 @@ The probability of responding correctly is approximately $c$ (0.20, 0.30) for lo
 \small
 
 
-```{r out.width="70%"}
+```{r out.width="80%"}
 b = c(0, 1)
 a = c(1.4, 1.4)
 g = c(0.20, 0.30)
@@ -1139,7 +1207,7 @@ The probability of responding correctly when $\theta_p = b_i$ is higher than $.5
 
 In multiple-choice items $\rightarrow$ subjects with low levels of the latent trait might try to guess the correct response
 
-If there $k$ response options that are all equally plausible, then $c \cong \dfrac{1}{k}$
+If there are $k$ response options that are all equally plausible, then $c \cong \dfrac{1}{k}$
 
 \begin{alertblock}{WARNING}
 
@@ -1157,8 +1225,6 @@ $$I_i(\theta, b_i, a_i, c_i) = a^2 \dfrac{P_i(\theta, b_i, a_i, c_i)}{Q_i(\theta
 
 The higher the guessing, the lower the IIF
 
-
- $Q_i = 1 - P_i(\theta, b_i, a_i, c_i)$ è la probabilità di osservare una risposta errata 
 
 ### 
 \vspace*{-5mm}
@@ -1243,7 +1309,7 @@ for ( i in 1:length(b)) {
 ```
 
 \centering
-\small
+\footnotesize
 \vspace{-5mm}
 
 ```{r results='asis'}
@@ -1253,14 +1319,9 @@ print(xtable(si), comment = F)
 
 ## Test Information Function
 
-###
-
-
-$$I(\theta) = \sum I_i(\theta, b_i, a_i, c_i) $$
-
 ### 
 
-\vspace*{-10mm}
+\vspace*{-8mm}
 
 ```{r}
 plot(theta, sum_info, cex.lab= 2, 
@@ -1274,21 +1335,32 @@ for ( i in 1:length(b)) {
       lty = 1, lwd=3, col = my_colors[i])
 }
 ```
-\centering
-\small
-\vspace{-3mm}
 
+\vspace{-4mm}
+:::: {.columns}
+
+::: {.column}
+\small
+$$I(\theta) = \sum_{i = 1}^{I} I_i(\theta, b_i, a_i, c_i)  $$
+:::
+
+::: {.column}
+\footnotesize
 ```{r results='asis'}
 print(xtable(si), comment = FALSE)
 ```
 
+:::
+
+::::
+
+
+
+
+
 
 ### Standard Error of Measurement (SEM)
 
-
-$$SEM(\theta) = \sqrt{\dfrac{1}{I(\theta)}} = \sqrt{\dfrac{1}{a^2 P_i(\theta, b_i, a_i, c_i)Q_i(\theta, b_i, a_i, c_i)}} $$
-
-### 
 
 \vspace*{-10mm}
 
@@ -1310,15 +1382,25 @@ mtext("Information", side=4, line=3, cex = 2)
 
 ```
 
-\centering 
-\small
-\vspace{-3mm}
+\vspace{-5mm}
+:::: {.columns}
+
+::: {.column}
+\footnotesize
+
+$$SEM(\theta) = \sqrt{\dfrac{1}{I(\theta)}} = \sqrt{\dfrac{1}{a^2 P_i(\theta, b_i, a_i, c_i)Q_i(\theta, b_i, a_i, c_i)}}$$
+:::
+
+::: {.column}
+
+\footnotesize
 ```{r results='asis'}
 print(xtable(si), comment = FALSE, include.rownames=T)
 ```
+:::
+::::
 
-
-# 4PL
+# 4-PL
 
 ## Item Response Function
 
@@ -1327,7 +1409,6 @@ print(xtable(si), comment = FALSE, include.rownames=T)
 Lower the upper asymptote by adding a \textbf{careless error} parameter
 
 $$P(x_{pi} = 1| \theta_p, b_i. a_i) = c_i + (d_i - c_i) \dfrac{\exp[a_i(\theta_p - b_i)]}{1+\exp[a_i(\theta_p - b_i)]}$$
-Dove: 
 
 $\theta_p$: Ability of the person (i.e., latent trait level of the person)
 
@@ -1336,17 +1417,17 @@ $b_i$, $a_i$, $c_i$; Difficulty, discrimination, and pseduo-guessing of item $i$
 $d_i$: careless-error, probability of endorsing the item when the latent trait approaches $+ \infty$
 
 
-The lower then value of $d_i$, the lower the probability that a person with high level of the latent trait gives the correct response to item $i$
+The lower the value of $d_i$, the lower the probability that a person with high level of the latent trait gives the correct response to item $i$
 
 
 ###
 
 \begin{columns}[T]
 \begin{column}{.50\linewidth}
-Item 1: $b = 0$, $a = 1.4$, $c=0.20$, $d = .9$
+Item 1: $b_1 = 0$, $a_1 = 1.4$, $c_1=0.20$, $d_1 = .9$
 \end{column}
 \begin{column}{.50\linewidth}
-Item 2: $b = 0$, $a = 1.4$, $c=0.30$, $d = .7$
+Item 2: $b_2 = 0$, $a_2 = 1.4$, $c_2=0.30$, $d_2 = .7$
 \end{column}
 \end{columns}
 
@@ -1379,10 +1460,10 @@ text(x= 3.2,
 ```
 
 
-# Relatiosnhip between models
+# Relationship between models
 
 
-## 
+###
 
 
 - Constraining the $d_i$ parameters of all items to be 1 $\rightarrow$ from 4-PL to 3-PL
@@ -1391,7 +1472,7 @@ text(x= 3.2,
 
 - Constraining the $a_i$ parameters of all items to be 1 $\rightarrow$ from 2-PL to 1-PL
 
-## The Rasch Model?
+### The Rasch Model?
 
 Formally, the Rasch model and the 1-PL are the same model
 
@@ -1432,6 +1513,8 @@ knitr::include_graphics("img/procuste.jpg")
 :::
 
 ## All models are wrong...
+
+### 
 
 The model can be chosen
 
