@@ -216,6 +216,16 @@ boxplot(sbj_data$sum)
 #  
 #  boxplot(sbj_data$sum)
 
+## ----r eval = TRUE, echo = FALSE----------------------------------------------
+library(mokken)
+mono_check = check.monotonicity(data)
+summary(mono_check)
+
+## ----r eval = FALSE-----------------------------------------------------------
+#  library(mokken)
+#  mono_check = check.monotonicity(data)
+#  summary(mono_check)
+
 ## ----r eval=TRUE, echo=FALSE--------------------------------------------------
 item_lab = paste(colnames(data), collapse = " + ")
 form = paste("latent =~", item_lab)
@@ -236,16 +246,6 @@ summary(model, fit.measures = T)
 ## ----r eval = FALSE-----------------------------------------------------------
 #  model = cfa(form, data = data,  ordered = colnames(data), std.lv = T)
 #  summary(model, fit.measures = T)
-
-## ----r eval = TRUE, echo = FALSE----------------------------------------------
-library(mokken)
-mono_check = check.monotonicity(data)
-summary(mono_check)
-
-## ----r eval = FALSE-----------------------------------------------------------
-#  library(mokken)
-#  mono_check = check.monotonicity(data)
-#  summary(mono_check)
 
 ## ----r------------------------------------------------------------------------
 m1pl = tam.mml(data, verbose = F)

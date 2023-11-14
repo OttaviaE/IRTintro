@@ -354,9 +354,9 @@ boxplot(sbj_data$sum)
 
 There are three main assumptions: 
 
-1. Unidimensionality 
+1. Monotonicity 
 
-2. Monotonicity 
+2. Unidimensionality
 
 ::: {.fragment .highlight-red}
 3. Local independence 
@@ -366,7 +366,53 @@ There are three main assumptions:
 
 If these assumptions are violated, the models can still be fitted but their interpretation if meaningless
 
-## Unidimensionality {.build}
+
+
+
+## Monotonicity 
+
+
+The probability of responding correctly increases as the the level of the latent trait increases
+
+. . .
+
+Monotonicitiy is evaluated at the item level with $H$ coefficient by Mokken (1971): 
+
+> $H \leq .30$ $\rightarrow$ The item is not monotone, should be discarded
+>   
+> $.30 < H \leq .50$ $\rightarrow$ The item is essentially monotone, this is fine 
+>
+> $H > .50$ $\rightarrow$ The item is monotone, this is optimal
+
+. . .
+
+<div style="text-align: center;">
+**If violated** 
+</div>
+
+Issues on the reliability and validity of the measure 
+
+
+## Monotonicity in `R`
+
+Monotonicity is checked with the [`mokken`](https://cran.r-project.org/web/packages/mokken/mokken.pdf) package in `R`:
+
+```{r eval = TRUE, echo = FALSE}
+library(mokken)
+mono_check = check.monotonicity(data)
+summary(mono_check)
+```
+
+<details><summary>Show code</summary>
+```{r eval = FALSE}
+library(mokken)
+mono_check = check.monotonicity(data)
+summary(mono_check)
+```
+</details>
+ 
+ 
+## Unidimensionality 
 
 Unidimensionality $\rightarrow$ There's only one latent trait that is responsible for the observed responses 
 
@@ -462,50 +508,6 @@ summary(model, fit.measures = T)
 
 </details>
 ::::
-
-
-## Monotonicity 
-
-
-The probability of responding correctly increases as the the level of the latent trait increases
-
-. . .
-
-Monotonicitiy is evaluated at the item level with $H$ coefficient by Mokken (1971): 
-
-> $H \leq .30$ $\rightarrow$ The item is not monotone, should be discarded
->   
-> $.30 < H \leq .50$ $\rightarrow$ The item is essentially monotone, this is fine 
->
-> $H > .50$ $\rightarrow$ The item is monotone, this is optimal
-
-. . .
-
-<div style="text-align: center;">
-**If violated** 
-</div>
-
-Issues on the reliability and validity of the measure 
-
-
-## Monotonicity in `R`
-
-Monotonicity is checked with the [`mokken`](https://cran.r-project.org/web/packages/mokken/mokken.pdf) package in `R`:
-
-```{r eval = TRUE, echo = FALSE}
-library(mokken)
-mono_check = check.monotonicity(data)
-summary(mono_check)
-```
-
-<details><summary>Show code</summary>
-```{r eval = FALSE}
-library(mokken)
-mono_check = check.monotonicity(data)
-summary(mono_check)
-```
-</details>
- 
  
 ## Local independence 
 
