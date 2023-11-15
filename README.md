@@ -1,6 +1,6 @@
 # An introduction to Item Response Theory Models with R
 
-Welcome to this introductory cource to Item Response Theory (IRT) models! The aim of this course is to give an overview on IRT models, with a focus on IRT models for dichotomous responses. 
+Welcome to this introductory course to Item Response Theory (IRT) models! The aim of this course is to give an overview on IRT models, with a focus on IRT models for dichotomous responses. 
 
 According to Item Response Theory (IRT) models, the observed response of a person to an item is a function of the characteristics of the person (i.e., the latent trait) and of the characteristics of the items, as described by both person's and item parameters. Different IRT models are available according to the number of parameters used for describing the functioning of the items and to the nature of the analyzed responses.
 This course provides an introduction to IRT models for dichotomous (e.g., "true" vs. "false") and polytomous responses (e.g., agreement on a 5-point Liker-type scale), with a main focus on the former ones. 
