@@ -32,7 +32,7 @@ header-includes:
     - \definecolor{latenti}{RGB}{54, 114, 89}
     - \definecolor{manifeste}{RGB}{179, 7, 27}
     - \definecolor{background}{RGB}{251, 251, 251}
-    - \setbeamercolor{frametitle}{bg=background}
+    - \setbeamercolor{frametitle}{bg=white}
     # - \setbeamertemplate{frametitle}[default][center]
     - \AtBeginSubsection{\frame{\subsectionpage}}
     - \setbeamercolor{subsection name}{fg=white}
@@ -305,7 +305,7 @@ The probability that person $p$ responds correctly to item $i$ is formalized as:
 $$P(x_{pi} = 1| \theta_p, b_i) = \dfrac{\exp(\theta_p - b_i)}{1 + \exp(\theta_p - b_i)}$$
 
 
-$\theta_p$: Ability of the person (i.e., latent trait level of the person) $\rightarrow$ The value of $\theta_p$, the higher the amount of latent trait of $p$
+$\theta_p$: Ability of the person (i.e., latent trait level of the person) $\rightarrow$ The higher the value of $\theta_p$, the higher the amount of latent trait of $p$
       
 $b_i$: Difficulty of item $i$ (location of the item on the latent trait) $\rightarrow$ The higher the value of  $b_i$, the most difficult the item is
 
@@ -644,7 +644,7 @@ $$P(x_{pi} = 1| \theta_p, b_i, a_i) = \dfrac{\exp[a_i(\theta_p - b_i)]}{1+\exp[a
 
 $\theta_p$: Ability of the person (i.e., latent trait level of the person)
       
-$b_i$: Difficulty of item $i$ (location of the item on the latent trait) $\rightarrow$
+$b_i$: Difficulty of item $i$ (location of the item on the latent trait) 
 
 $a_i$: Discrimination of the item $\rightarrow$ ability of the item to tell apart subjects with different levels of the latent trait
 
@@ -1115,7 +1115,7 @@ $$P(x_{pi} = 1| \theta_p, b_i, a_i) = c_i + (1 - c_i) \dfrac{\exp[a_i(\theta_p -
 
 $\theta_p$: Ability of the person (i.e., latent trait level of the person)
       
-$b_i$: Difficulty of item $i$ (location of the item on the latent trait) $\rightarrow$
+$b_i$: Difficulty of item $i$ (location of the item on the latent trait) 
 
 $a_i$: Discrimination of the item $\rightarrow$ ability of the item to tell apart subjects with different levels of the latent trait
 
@@ -1124,7 +1124,7 @@ $c_i$: pseudo-guessing of item $i$ $\rightarrow$ probability of giving the corre
 
 ### 
 
-\vspace*{-3mm}
+
 
 
 :::: {.columns}
@@ -1393,7 +1393,7 @@ $$SEM(\theta) = \sqrt{\dfrac{1}{I(\theta)}} = \sqrt{\dfrac{1}{a^2 P_i(\theta, b_
 
 ::: {.column}
 
-\footnotesize
+\scriptsize
 ```{r results='asis'}
 print(xtable(si), comment = FALSE, include.rownames=T)
 ```
@@ -1488,7 +1488,7 @@ Formally, the Rasch model and the 1-PL are the same model
 \end{center}
 \high{Fit of the \textbf{models} to the data} 
 
-The model that fit better the data is chosen
+The model that fits better the data is chosen
 
 ::::
 
