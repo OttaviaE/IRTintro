@@ -471,6 +471,10 @@ It considers the DIF as the area between the ICCs of the items
 
 If the area between the ICCs is 0, then the item presents no DIF
 
+<br>
+
+It is based on a $Z$ statistic under the hypothesis that the area between the ICCs of the item in the two groups is 0
+
 
 ## A note on Lord and Raju 
 
