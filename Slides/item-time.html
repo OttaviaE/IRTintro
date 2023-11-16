@@ -1323,37 +1323,18 @@ Show code
 </div>
 <div id="tabset-1-3">
 <div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">X100.MADCOV</th>
-<th style="text-align: center;">SRMR</th>
-<th style="text-align: center;">SRMSR</th>
-<th style="text-align: center;">MADaQ3</th>
-<th style="text-align: center;">pmaxX2</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">0.43</td>
-<td style="text-align: center;">0.02</td>
-<td style="text-align: center;">0.03</td>
-<td style="text-align: center;">0.03</td>
-<td style="text-align: center;">1</td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>fit_m1pl <span class="ot">=</span> <span class="fu">tam.modelfit</span>(m1pl, <span class="at">progress =</span> F)</span>
+<span id="cb4-2"><a href="#cb4-2"></a>fit_m1pl<span class="sc">$</span>statlist </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource scroll-100 number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href="#cb5-1"></a>  X100.MADCOV       SRMR      SRMSR     MADaQ3 pmaxX2</span>
+<span id="cb5-2"><a href="#cb5-2"></a>1   0.4318818 0.02178404 0.02800907 0.02874571      1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<details>
-<summary>
-Show code
-</summary>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>fit_m1pl<span class="sc">$</span>statlist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</details>
+<!-- <details><summary>Show code</summary> -->
+<!-- ```{r eval =FALSE, echo = TRUE} -->
+<!-- fit_m1pl$statlist -->
+<!-- ``` -->
+<!-- </details> -->
 </div>
 </div>
 </div>
@@ -1365,144 +1346,84 @@ Show code
 <div class="tab-content">
 <div id="tabset-2-1">
 <div class="cell" data-layout-align="center" data-out.lines="20">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>item_fit_1pl <span class="ot">=</span> <span class="fu">IRT.itemfit</span>(m1pl)</span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">str</span>(item_fit_1pl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>item_fit_1pl <span class="ot">=</span> <span class="fu">IRT.itemfit</span>(m1pl)</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="fu">str</span>(item_fit_1pl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource scroll-100 number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href="#cb6-1"></a>List of 11</span>
-<span id="cb6-2"><a href="#cb6-2"></a> $ MD             :&#39;data.frame&#39;:    10 obs. of  2 variables:</span>
-<span id="cb6-3"><a href="#cb6-3"></a>  ..$ item  : chr [1:10] &quot;item1&quot; &quot;item2&quot; &quot;item3&quot; &quot;item4&quot; ...</span>
-<span id="cb6-4"><a href="#cb6-4"></a>  ..$ Group1: num [1:10] -2.21e-06 1.09e-06 -4.23e-06 -4.09e-06 1.97e-06 ...</span>
-<span id="cb6-5"><a href="#cb6-5"></a> $ RMSD           :&#39;data.frame&#39;:    10 obs. of  2 variables:</span>
-<span id="cb6-6"><a href="#cb6-6"></a>  ..$ item  : chr [1:10] &quot;item1&quot; &quot;item2&quot; &quot;item3&quot; &quot;item4&quot; ...</span>
-<span id="cb6-7"><a href="#cb6-7"></a>  ..$ Group1: num [1:10] 0.01389 0.00794 0.01089 0.00595 0.01088 ...</span>
-<span id="cb6-8"><a href="#cb6-8"></a> $ RMSD_bc        :&#39;data.frame&#39;:    10 obs. of  2 variables:</span>
-<span id="cb6-9"><a href="#cb6-9"></a>  ..$ item  : chr [1:10] &quot;item1&quot; &quot;item2&quot; &quot;item3&quot; &quot;item4&quot; ...</span>
-<span id="cb6-10"><a href="#cb6-10"></a>  ..$ Group1: num [1:10] -0.00371 -0.01037 -0.00785 -0.01225 -0.00296 ...</span>
-<span id="cb6-11"><a href="#cb6-11"></a> $ MAD            :&#39;data.frame&#39;:    10 obs. of  2 variables:</span>
-<span id="cb6-12"><a href="#cb6-12"></a>  ..$ item  : chr [1:10] &quot;item1&quot; &quot;item2&quot; &quot;item3&quot; &quot;item4&quot; ...</span>
-<span id="cb6-13"><a href="#cb6-13"></a>  ..$ Group1: num [1:10] 0.01235 0.00612 0.00945 0.00538 0.00908 ...</span>
-<span id="cb6-14"><a href="#cb6-14"></a> $ chisquare_stat :&#39;data.frame&#39;:    10 obs. of  2 variables:</span>
-<span id="cb6-15"><a href="#cb6-15"></a>  ..$ item  : chr [1:10] &quot;item1&quot; &quot;item2&quot; &quot;item3&quot; &quot;item4&quot; ...</span>
-<span id="cb6-16"><a href="#cb6-16"></a>  ..$ Group1: num [1:10] 1.234 0.594 0.667 0.312 1.135 ...</span>
-<span id="cb6-17"><a href="#cb6-17"></a> $ call           : language CDM::IRT.RMSD(object = object)</span>
-<span id="cb6-18"><a href="#cb6-18"></a> $ G              : num 1</span>
-<span id="cb6-19"><a href="#cb6-19"></a> $ RMSD_summary   :&#39;data.frame&#39;:    1 obs. of  5 variables:</span>
-<span id="cb6-20"><a href="#cb6-20"></a>  ..$ Parm: chr &quot;Group1&quot;</span>
-<span id="cb6-21"><a href="#cb6-21"></a>....</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource scroll-100 number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a href="#cb7-1"></a>List of 11</span>
+<span id="cb7-2"><a href="#cb7-2"></a> $ MD             :&#39;data.frame&#39;:    10 obs. of  2 variables:</span>
+<span id="cb7-3"><a href="#cb7-3"></a>  ..$ item  : chr [1:10] &quot;item1&quot; &quot;item2&quot; &quot;item3&quot; &quot;item4&quot; ...</span>
+<span id="cb7-4"><a href="#cb7-4"></a>  ..$ Group1: num [1:10] -2.21e-06 1.09e-06 -4.23e-06 -4.09e-06 1.97e-06 ...</span>
+<span id="cb7-5"><a href="#cb7-5"></a> $ RMSD           :&#39;data.frame&#39;:    10 obs. of  2 variables:</span>
+<span id="cb7-6"><a href="#cb7-6"></a>  ..$ item  : chr [1:10] &quot;item1&quot; &quot;item2&quot; &quot;item3&quot; &quot;item4&quot; ...</span>
+<span id="cb7-7"><a href="#cb7-7"></a>  ..$ Group1: num [1:10] 0.01389 0.00794 0.01089 0.00595 0.01088 ...</span>
+<span id="cb7-8"><a href="#cb7-8"></a> $ RMSD_bc        :&#39;data.frame&#39;:    10 obs. of  2 variables:</span>
+<span id="cb7-9"><a href="#cb7-9"></a>  ..$ item  : chr [1:10] &quot;item1&quot; &quot;item2&quot; &quot;item3&quot; &quot;item4&quot; ...</span>
+<span id="cb7-10"><a href="#cb7-10"></a>  ..$ Group1: num [1:10] -0.00371 -0.01037 -0.00785 -0.01225 -0.00296 ...</span>
+<span id="cb7-11"><a href="#cb7-11"></a> $ MAD            :&#39;data.frame&#39;:    10 obs. of  2 variables:</span>
+<span id="cb7-12"><a href="#cb7-12"></a>  ..$ item  : chr [1:10] &quot;item1&quot; &quot;item2&quot; &quot;item3&quot; &quot;item4&quot; ...</span>
+<span id="cb7-13"><a href="#cb7-13"></a>  ..$ Group1: num [1:10] 0.01235 0.00612 0.00945 0.00538 0.00908 ...</span>
+<span id="cb7-14"><a href="#cb7-14"></a> $ chisquare_stat :&#39;data.frame&#39;:    10 obs. of  2 variables:</span>
+<span id="cb7-15"><a href="#cb7-15"></a>  ..$ item  : chr [1:10] &quot;item1&quot; &quot;item2&quot; &quot;item3&quot; &quot;item4&quot; ...</span>
+<span id="cb7-16"><a href="#cb7-16"></a>  ..$ Group1: num [1:10] 1.234 0.594 0.667 0.312 1.135 ...</span>
+<span id="cb7-17"><a href="#cb7-17"></a> $ call           : language CDM::IRT.RMSD(object = object)</span>
+<span id="cb7-18"><a href="#cb7-18"></a> $ G              : num 1</span>
+<span id="cb7-19"><a href="#cb7-19"></a> $ RMSD_summary   :&#39;data.frame&#39;:    1 obs. of  5 variables:</span>
+<span id="cb7-20"><a href="#cb7-20"></a>  ..$ Parm: chr &quot;Group1&quot;</span>
+<span id="cb7-21"><a href="#cb7-21"></a>....</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 <div id="tabset-2-2">
 <div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource scroll-100 number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a href="#cb7-1"></a>     item    Group1</span>
-<span id="cb7-2"><a href="#cb7-2"></a>1   item1 1.2342630</span>
-<span id="cb7-3"><a href="#cb7-3"></a>2   item2 0.5938130</span>
-<span id="cb7-4"><a href="#cb7-4"></a>3   item3 0.6668817</span>
-<span id="cb7-5"><a href="#cb7-5"></a>4   item4 0.3117211</span>
-<span id="cb7-6"><a href="#cb7-6"></a>5   item5 1.1353671</span>
-<span id="cb7-7"><a href="#cb7-7"></a>6   item6 0.3983689</span>
-<span id="cb7-8"><a href="#cb7-8"></a>7   item7 2.2867280</span>
-<span id="cb7-9"><a href="#cb7-9"></a>8   item8 0.4899905</span>
-<span id="cb7-10"><a href="#cb7-10"></a>9   item9 1.2476006</span>
-<span id="cb7-11"><a href="#cb7-11"></a>10 item10 0.3184401</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<details>
-<summary>
-Show code
-</summary>
-<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>item_fit_1pl<span class="sc">$</span>chisquare_stat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource scroll-100 number-lines code-with-copy"><code class="sourceCode"><span id="cb9-1"><a href="#cb9-1"></a>     item    Group1</span>
+<span id="cb9-2"><a href="#cb9-2"></a>1   item1 1.2342630</span>
+<span id="cb9-3"><a href="#cb9-3"></a>2   item2 0.5938130</span>
+<span id="cb9-4"><a href="#cb9-4"></a>3   item3 0.6668817</span>
+<span id="cb9-5"><a href="#cb9-5"></a>4   item4 0.3117211</span>
+<span id="cb9-6"><a href="#cb9-6"></a>5   item5 1.1353671</span>
+<span id="cb9-7"><a href="#cb9-7"></a>6   item6 0.3983689</span>
+<span id="cb9-8"><a href="#cb9-8"></a>7   item7 2.2867280</span>
+<span id="cb9-9"><a href="#cb9-9"></a>8   item8 0.4899905</span>
+<span id="cb9-10"><a href="#cb9-10"></a>9   item9 1.2476006</span>
+<span id="cb9-11"><a href="#cb9-11"></a>10 item10 0.3184401</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</details>
+</div>
+<!-- <details><summary>Show code</summary> -->
+<!-- ```{r eval =FALSE, echo = TRUE} -->
+<!-- item_fit_1pl$chisquare_stat -->
+<!-- ``` -->
+<!-- </details> -->
 </div>
 <div id="tabset-2-3">
 <div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Parm</th>
-<th style="text-align: right;">M</th>
-<th style="text-align: right;">SD</th>
-<th style="text-align: right;">Min</th>
-<th style="text-align: right;">Max</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Group1</td>
-<td style="text-align: right;">0.01</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0.01</td>
-<td style="text-align: right;">0.02</td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode cell-code" id="cb10" data-code-line-numbers="|1|2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>item_fit_1pl<span class="sc">$</span>RMSD_summary </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource scroll-100 number-lines code-with-copy"><code class="sourceCode"><span id="cb11-1"><a href="#cb11-1"></a>    Parm          M          SD         Min        Max</span>
+<span id="cb11-2"><a href="#cb11-2"></a>1 Group1 0.01071287 0.004171214 0.005948698 0.01983321</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell-output-display">
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">item</th>
-<th style="text-align: right;">Group1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">item1</td>
-<td style="text-align: right;">0.01</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">item2</td>
-<td style="text-align: right;">0.01</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">item3</td>
-<td style="text-align: right;">0.01</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">item4</td>
-<td style="text-align: right;">0.01</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">item5</td>
-<td style="text-align: right;">0.01</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">item6</td>
-<td style="text-align: right;">0.01</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">item7</td>
-<td style="text-align: right;">0.02</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">item8</td>
-<td style="text-align: right;">0.01</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">item9</td>
-<td style="text-align: right;">0.01</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">item10</td>
-<td style="text-align: right;">0.01</td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode cell-code" id="cb12" data-code-line-numbers="|1|2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>item_fit_1pl<span class="sc">$</span>RMSD </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource scroll-100 number-lines code-with-copy"><code class="sourceCode"><span id="cb13-1"><a href="#cb13-1"></a>     item      Group1</span>
+<span id="cb13-2"><a href="#cb13-2"></a>1   item1 0.013892105</span>
+<span id="cb13-3"><a href="#cb13-3"></a>2   item2 0.007935321</span>
+<span id="cb13-4"><a href="#cb13-4"></a>3   item3 0.010894367</span>
+<span id="cb13-5"><a href="#cb13-5"></a>4   item4 0.005948698</span>
+<span id="cb13-6"><a href="#cb13-6"></a>5   item5 0.010882772</span>
+<span id="cb13-7"><a href="#cb13-7"></a>6   item6 0.008170491</span>
+<span id="cb13-8"><a href="#cb13-8"></a>7   item7 0.019833211</span>
+<span id="cb13-9"><a href="#cb13-9"></a>8   item8 0.009002479</span>
+<span id="cb13-10"><a href="#cb13-10"></a>9   item9 0.013681206</span>
+<span id="cb13-11"><a href="#cb13-11"></a>10 item10 0.006888076</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<details>
-<summary>
-Show code
-</summary>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>item_fit_1pl<span class="sc">$</span>RMSD_summary <span class="sc">%&gt;%</span> <span class="fu">kable</span>(<span class="at">aling =</span> <span class="st">&quot;c&quot;</span>, <span class="at">digits =</span> <span class="dv">2</span>)</span>
-<span id="cb9-2"><a href="#cb9-2"></a>item_fit_1pl<span class="sc">$</span>RMSD </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</details>
+<!-- <details><summary>Show code</summary> -->
+<!-- ```{r eval =FALSE, echo = TRUE} -->
+<!-- item_fit_1pl$RMSD_summary %>% kable(aling = "c", digits = 2) -->
+<!-- item_fit_1pl$RMSD  -->
+<!-- ``` -->
+<!-- </details> -->
 </div>
 </div>
 </div>
@@ -1548,11 +1469,8 @@ Correct response
 <p>The comparison to investigate items with DIF is between two groups:</p>
 <p><br></p>
 <ul>
-<li class="fragment"><strong>Reference group</strong>: It is the “baseline” group. For instance, if the test/questionnaire has been validated in a second language, the reference group is the original group</li>
-</ul>
-<p><br></p>
-<ul>
-<li class="fragment"><strong>Focal group</strong>: It is the focus of the DIF investigation, where we suspect the items of the test might be working differently</li>
+<li class="fragment"><p><strong>Reference group</strong>: It is the “baseline” group. For instance, if the test/questionnaire has been validated in a second language, the reference group is the original group</p></li>
+<li class="fragment"><p><strong>Focal group</strong>: It is the focus of the DIF investigation, where we suspect the items of the test might be working differently</p></li>
 </ul>
 </section>
 <section id="uniform-dif" class="slide level2">
@@ -1594,7 +1512,6 @@ Correct response
 <li class="fragment"><p>A “no DIF” model <span class="math inline">\(\rightarrow\)</span> Parameters are constrained to be equal in the two groups</p></li>
 <li class="fragment"><p>A “DIF” model <span class="math inline">\(\rightarrow\)</span> Parameters are left free to vary between the two groups</p></li>
 </ol>
-<p>. . .</p>
 <p>It is like the LRT on a linear model where the group variable (Focal Vs. Reference) is used as a predictor or not</p>
 </section>
 <section id="lord" class="slide level2">
@@ -1619,6 +1536,7 @@ Correct response
 </section>
 <section id="a-note-on-lord-and-raju" class="slide level2">
 <h2>A note on Lord and Raju</h2>
+<p><br></p>
 <p>The parameters estimated in the focal and reference groups cannot be directly compared <span class="math inline">\(\rightarrow\)</span> The parameters in one of the groups <strong>must</strong> be rescaled.</p>
 <div class="fragment">
 <p>The rescaling can be done according to the <em>equal means anchoring</em> method (Cook &amp; Eignor, 1991)</p>
@@ -1643,16 +1561,16 @@ Correct response
 Show data &amp; code
 </summary>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>data <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/difClass.csv&quot;</span>, <span class="at">header =</span> T, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>)</span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="fu">head</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>data <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/difClass.csv&quot;</span>, <span class="at">header =</span> T, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>)</span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="fu">head</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource scroll-100 number-lines code-with-copy"><code class="sourceCode"><span id="cb11-1"><a href="#cb11-1"></a>  id gender item1 item2 item3 item4 item5 item6 item7 item8 item9 item10</span>
-<span id="cb11-2"><a href="#cb11-2"></a>1  1      m     0     1     0     1     1     0     0     1     1      0</span>
-<span id="cb11-3"><a href="#cb11-3"></a>2  2      m     0     1     0     0     1     0     0     0     0      0</span>
-<span id="cb11-4"><a href="#cb11-4"></a>3  3      m     0     1     1     1     1     1     0     1     1      0</span>
-<span id="cb11-5"><a href="#cb11-5"></a>4  4      m     1     0     0     1     1     0     0     0     1      0</span>
-<span id="cb11-6"><a href="#cb11-6"></a>5  5      m     1     1     0     0     1     1     1     1     0      0</span>
-<span id="cb11-7"><a href="#cb11-7"></a>6  6      m     0     0     0     0     1     0     0     0     0      0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource scroll-100 number-lines code-with-copy"><code class="sourceCode"><span id="cb15-1"><a href="#cb15-1"></a>  id gender item1 item2 item3 item4 item5 item6 item7 item8 item9 item10</span>
+<span id="cb15-2"><a href="#cb15-2"></a>1  1      m     0     1     0     1     1     0     0     1     1      0</span>
+<span id="cb15-3"><a href="#cb15-3"></a>2  2      m     0     1     0     0     1     0     0     0     0      0</span>
+<span id="cb15-4"><a href="#cb15-4"></a>3  3      m     0     1     1     1     1     1     0     1     1      0</span>
+<span id="cb15-5"><a href="#cb15-5"></a>4  4      m     1     0     0     1     1     0     0     0     1      0</span>
+<span id="cb15-6"><a href="#cb15-6"></a>5  5      m     1     1     0     0     1     1     1     1     0      0</span>
+<span id="cb15-7"><a href="#cb15-7"></a>6  6      m     0     0     0     0     1     0     0     0     0      0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </details>
@@ -1674,69 +1592,69 @@ Show data &amp; code
 Show code
 </summary>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>long <span class="ot">=</span> <span class="fu">pivot_longer</span>(data, <span class="sc">!</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">names_to =</span> <span class="st">&quot;item&quot;</span>, </span>
-<span id="cb12-2"><a href="#cb12-2"></a>             <span class="at">values_to =</span> <span class="st">&quot;correct&quot;</span>)</span>
-<span id="cb12-3"><a href="#cb12-3"></a>prop_gender <span class="ot">=</span> long <span class="sc">%&gt;%</span> </span>
-<span id="cb12-4"><a href="#cb12-4"></a>  <span class="fu">group_by</span>(item, gender) <span class="sc">%&gt;%</span>  </span>
-<span id="cb12-5"><a href="#cb12-5"></a>  <span class="fu">summarise</span>(<span class="at">prop =</span> <span class="fu">mean</span>(correct), <span class="at">sd =</span> <span class="fu">sd</span>(correct))</span>
-<span id="cb12-6"><a href="#cb12-6"></a></span>
-<span id="cb12-7"><a href="#cb12-7"></a><span class="fu">ggplot</span>(prop_gender, </span>
-<span id="cb12-8"><a href="#cb12-8"></a>       <span class="fu">aes</span>( <span class="at">x =</span> item, <span class="at">y=</span> prop, <span class="at">fill =</span> gender)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>()) <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>long <span class="ot">=</span> <span class="fu">pivot_longer</span>(data, <span class="sc">!</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">names_to =</span> <span class="st">&quot;item&quot;</span>, </span>
+<span id="cb16-2"><a href="#cb16-2"></a>             <span class="at">values_to =</span> <span class="st">&quot;correct&quot;</span>)</span>
+<span id="cb16-3"><a href="#cb16-3"></a>prop_gender <span class="ot">=</span> long <span class="sc">%&gt;%</span> </span>
+<span id="cb16-4"><a href="#cb16-4"></a>  <span class="fu">group_by</span>(item, gender) <span class="sc">%&gt;%</span>  </span>
+<span id="cb16-5"><a href="#cb16-5"></a>  <span class="fu">summarise</span>(<span class="at">prop =</span> <span class="fu">mean</span>(correct), <span class="at">sd =</span> <span class="fu">sd</span>(correct))</span>
+<span id="cb16-6"><a href="#cb16-6"></a></span>
+<span id="cb16-7"><a href="#cb16-7"></a><span class="fu">ggplot</span>(prop_gender, </span>
+<span id="cb16-8"><a href="#cb16-8"></a>       <span class="fu">aes</span>( <span class="at">x =</span> item, <span class="at">y=</span> prop, <span class="at">fill =</span> gender)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>()) <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
 </div>
 <div id="tabset-3-2">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>m1pl <span class="ot">=</span> <span class="fu">tam.mml</span>(data[, <span class="fu">grep</span>(<span class="st">&quot;item&quot;</span>, <span class="fu">colnames</span>(data))], <span class="at">verbose =</span> F)</span>
-<span id="cb13-2"><a href="#cb13-2"></a>m2pl <span class="ot">=</span> <span class="fu">tam.mml.2pl</span>(data[, <span class="fu">grep</span>(<span class="st">&quot;item&quot;</span>, <span class="fu">colnames</span>(data))], <span class="at">irtmodel =</span> <span class="st">&quot;2PL&quot;</span>, <span class="at">verbose =</span> F)</span>
-<span id="cb13-3"><a href="#cb13-3"></a>m3pl <span class="ot">=</span> <span class="fu">tam.mml.3pl</span>(data[, <span class="fu">grep</span>(<span class="st">&quot;item&quot;</span>, <span class="fu">colnames</span>(data))], <span class="at">est.guess =</span> <span class="fu">grep</span>(<span class="st">&quot;item&quot;</span>, <span class="fu">colnames</span>(data)),</span>
-<span id="cb13-4"><a href="#cb13-4"></a>                     <span class="at">verbose =</span> F)</span>
-<span id="cb13-5"><a href="#cb13-5"></a><span class="fu">IRT.compareModels</span>(m1pl, m2pl, m3pl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>m1pl <span class="ot">=</span> <span class="fu">tam.mml</span>(data[, <span class="fu">grep</span>(<span class="st">&quot;item&quot;</span>, <span class="fu">colnames</span>(data))], <span class="at">verbose =</span> F)</span>
+<span id="cb17-2"><a href="#cb17-2"></a>m2pl <span class="ot">=</span> <span class="fu">tam.mml.2pl</span>(data[, <span class="fu">grep</span>(<span class="st">&quot;item&quot;</span>, <span class="fu">colnames</span>(data))], <span class="at">irtmodel =</span> <span class="st">&quot;2PL&quot;</span>, <span class="at">verbose =</span> F)</span>
+<span id="cb17-3"><a href="#cb17-3"></a>m3pl <span class="ot">=</span> <span class="fu">tam.mml.3pl</span>(data[, <span class="fu">grep</span>(<span class="st">&quot;item&quot;</span>, <span class="fu">colnames</span>(data))], <span class="at">est.guess =</span> <span class="fu">grep</span>(<span class="st">&quot;item&quot;</span>, <span class="fu">colnames</span>(data)),</span>
+<span id="cb17-4"><a href="#cb17-4"></a>                     <span class="at">verbose =</span> F)</span>
+<span id="cb17-5"><a href="#cb17-5"></a><span class="fu">IRT.compareModels</span>(m1pl, m2pl, m3pl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource scroll-100 number-lines code-with-copy"><code class="sourceCode"><span id="cb14-1"><a href="#cb14-1"></a>$IC</span>
-<span id="cb14-2"><a href="#cb14-2"></a>  Model   loglike Deviance Npars Nobs      AIC      BIC     AIC3     AICc</span>
-<span id="cb14-3"><a href="#cb14-3"></a>1  m1pl -5599.390 11198.78    11 1000 11220.78 11274.77 11231.78 11221.05</span>
-<span id="cb14-4"><a href="#cb14-4"></a>2  m2pl -5597.621 11195.24    20 1000 11235.24 11333.40 11255.24 11236.10</span>
-<span id="cb14-5"><a href="#cb14-5"></a>3  m3pl -5597.736 11195.47    31 1000 11257.47 11409.61 11288.47 11259.52</span>
-<span id="cb14-6"><a href="#cb14-6"></a>      CAIC       GHP</span>
-<span id="cb14-7"><a href="#cb14-7"></a>1 11285.77 0.5610390</span>
-<span id="cb14-8"><a href="#cb14-8"></a>2 11353.40 0.5617621</span>
-<span id="cb14-9"><a href="#cb14-9"></a>3 11440.61 0.5628736</span>
-<span id="cb14-10"><a href="#cb14-10"></a></span>
-<span id="cb14-11"><a href="#cb14-11"></a>$LRtest</span>
-<span id="cb14-12"><a href="#cb14-12"></a>  Model1 Model2       Chi2 df         p</span>
-<span id="cb14-13"><a href="#cb14-13"></a>1   m1pl   m2pl  3.5389531  9 0.9390614</span>
-<span id="cb14-14"><a href="#cb14-14"></a>2   m1pl   m3pl  3.3079257 20 0.9999905</span>
-<span id="cb14-15"><a href="#cb14-15"></a>3   m2pl   m3pl -0.2310274 11 1.0000000</span>
-<span id="cb14-16"><a href="#cb14-16"></a></span>
-<span id="cb14-17"><a href="#cb14-17"></a>attr(,&quot;class&quot;)</span>
-<span id="cb14-18"><a href="#cb14-18"></a>[1] &quot;IRT.compareModels&quot;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource scroll-100 number-lines code-with-copy"><code class="sourceCode"><span id="cb18-1"><a href="#cb18-1"></a>$IC</span>
+<span id="cb18-2"><a href="#cb18-2"></a>  Model   loglike Deviance Npars Nobs      AIC      BIC     AIC3     AICc</span>
+<span id="cb18-3"><a href="#cb18-3"></a>1  m1pl -5599.390 11198.78    11 1000 11220.78 11274.77 11231.78 11221.05</span>
+<span id="cb18-4"><a href="#cb18-4"></a>2  m2pl -5597.621 11195.24    20 1000 11235.24 11333.40 11255.24 11236.10</span>
+<span id="cb18-5"><a href="#cb18-5"></a>3  m3pl -5597.736 11195.47    31 1000 11257.47 11409.61 11288.47 11259.52</span>
+<span id="cb18-6"><a href="#cb18-6"></a>      CAIC       GHP</span>
+<span id="cb18-7"><a href="#cb18-7"></a>1 11285.77 0.5610390</span>
+<span id="cb18-8"><a href="#cb18-8"></a>2 11353.40 0.5617621</span>
+<span id="cb18-9"><a href="#cb18-9"></a>3 11440.61 0.5628736</span>
+<span id="cb18-10"><a href="#cb18-10"></a></span>
+<span id="cb18-11"><a href="#cb18-11"></a>$LRtest</span>
+<span id="cb18-12"><a href="#cb18-12"></a>  Model1 Model2       Chi2 df         p</span>
+<span id="cb18-13"><a href="#cb18-13"></a>1   m1pl   m2pl  3.5389531  9 0.9390614</span>
+<span id="cb18-14"><a href="#cb18-14"></a>2   m1pl   m3pl  3.3079257 20 0.9999905</span>
+<span id="cb18-15"><a href="#cb18-15"></a>3   m2pl   m3pl -0.2310274 11 1.0000000</span>
+<span id="cb18-16"><a href="#cb18-16"></a></span>
+<span id="cb18-17"><a href="#cb18-17"></a>attr(,&quot;class&quot;)</span>
+<span id="cb18-18"><a href="#cb18-18"></a>[1] &quot;IRT.compareModels&quot;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 <div id="tabset-3-3">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>fit_m1pl <span class="ot">=</span> <span class="fu">tam.modelfit</span>(m1pl, <span class="at">progress =</span> F)</span>
-<span id="cb15-2"><a href="#cb15-2"></a>fit_m1pl<span class="sc">$</span>statlist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>fit_m1pl <span class="ot">=</span> <span class="fu">tam.modelfit</span>(m1pl, <span class="at">progress =</span> F)</span>
+<span id="cb19-2"><a href="#cb19-2"></a>fit_m1pl<span class="sc">$</span>statlist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource scroll-100 number-lines code-with-copy"><code class="sourceCode"><span id="cb16-1"><a href="#cb16-1"></a>  X100.MADCOV       SRMR      SRMSR     MADaQ3 pmaxX2</span>
-<span id="cb16-2"><a href="#cb16-2"></a>1   0.4318818 0.02178404 0.02800907 0.02874571      1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource scroll-100 number-lines code-with-copy"><code class="sourceCode"><span id="cb20-1"><a href="#cb20-1"></a>  X100.MADCOV       SRMR      SRMSR     MADaQ3 pmaxX2</span>
+<span id="cb20-2"><a href="#cb20-2"></a>1   0.4318818 0.02178404 0.02800907 0.02874571      1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 <div id="tabset-3-4">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>item_fit_1pl <span class="ot">=</span> <span class="fu">IRT.itemfit</span>(m1pl)</span>
-<span id="cb17-2"><a href="#cb17-2"></a>item_fit_1pl<span class="sc">$</span>RMSD_summary</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>item_fit_1pl <span class="ot">=</span> <span class="fu">IRT.itemfit</span>(m1pl)</span>
+<span id="cb21-2"><a href="#cb21-2"></a>item_fit_1pl<span class="sc">$</span>RMSD_summary</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource scroll-100 number-lines code-with-copy"><code class="sourceCode"><span id="cb18-1"><a href="#cb18-1"></a>    Parm          M          SD         Min        Max</span>
-<span id="cb18-2"><a href="#cb18-2"></a>1 Group1 0.01071287 0.004171214 0.005948698 0.01983321</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource scroll-100 number-lines code-with-copy"><code class="sourceCode"><span id="cb22-1"><a href="#cb22-1"></a>    Parm          M          SD         Min        Max</span>
+<span id="cb22-2"><a href="#cb22-2"></a>1 Group1 0.01071287 0.004171214 0.005948698 0.01983321</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a> fit_m1pl<span class="sc">$</span>Q3_summary</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a> fit_m1pl<span class="sc">$</span>Q3_summary</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource scroll-100 number-lines code-with-copy"><code class="sourceCode"><span id="cb20-1"><a href="#cb20-1"></a>  type             M         SD         min        max      SGDDM     wSGDDM</span>
-<span id="cb20-2"><a href="#cb20-2"></a>1   Q3 -6.608155e-02 0.03590523 -0.14242523 0.01903314 0.06742440 0.06742440</span>
-<span id="cb20-3"><a href="#cb20-3"></a>2  aQ3  3.468830e-18 0.03590523 -0.07634368 0.08511468 0.02874571 0.02874571</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource scroll-100 number-lines code-with-copy"><code class="sourceCode"><span id="cb24-1"><a href="#cb24-1"></a>  type             M         SD         min        max      SGDDM     wSGDDM</span>
+<span id="cb24-2"><a href="#cb24-2"></a>1   Q3 -6.608155e-02 0.03590523 -0.14242523 0.01903314 0.06742440 0.06742440</span>
+<span id="cb24-3"><a href="#cb24-3"></a>2  aQ3  3.468830e-18 0.03590523 -0.07634368 0.08511468 0.02874571 0.02874571</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1747,78 +1665,78 @@ Show code
 <h2>DIF – LRT</h2>
 <p>This is not properly the LRT but an approximation.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb21" data-code-line-numbers="|1|2-3|4|5|6-7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>est_theta <span class="ot">=</span> <span class="fu">IRT.factor.scores</span>(m1pl)<span class="sc">$</span>EAP</span>
-<span id="cb21-2"><a href="#cb21-2"></a>lrt_dif <span class="ot">=</span> <span class="fu">difGenLogistic</span>(data[, <span class="sc">!</span><span class="fu">colnames</span>(data) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;id&quot;</span>, <span class="st">&quot;gender&quot;</span>)],</span>
-<span id="cb21-3"><a href="#cb21-3"></a>                           <span class="at">group =</span> <span class="fu">as.factor</span>(data<span class="sc">$</span>gender), <span class="at">focal.names =</span> <span class="st">&quot;f&quot;</span>,</span>
-<span id="cb21-4"><a href="#cb21-4"></a>                           <span class="at">type =</span> <span class="st">&quot;udif&quot;</span>,</span>
-<span id="cb21-5"><a href="#cb21-5"></a>                           <span class="at">alpha =</span> .<span class="dv">001</span>, <span class="at">p.adjust.method =</span> <span class="st">&quot;BH&quot;</span>,</span>
-<span id="cb21-6"><a href="#cb21-6"></a>                           <span class="at">match =</span> est_theta,</span>
-<span id="cb21-7"><a href="#cb21-7"></a>                           <span class="at">criterion =</span> <span class="st">&quot;LRT&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25" data-code-line-numbers="|1|2-3|4|5|6-7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>est_theta <span class="ot">=</span> <span class="fu">IRT.factor.scores</span>(m1pl)<span class="sc">$</span>EAP</span>
+<span id="cb25-2"><a href="#cb25-2"></a>lrt_dif <span class="ot">=</span> <span class="fu">difGenLogistic</span>(data[, <span class="sc">!</span><span class="fu">colnames</span>(data) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;id&quot;</span>, <span class="st">&quot;gender&quot;</span>)],</span>
+<span id="cb25-3"><a href="#cb25-3"></a>                           <span class="at">group =</span> <span class="fu">as.factor</span>(data<span class="sc">$</span>gender), <span class="at">focal.names =</span> <span class="st">&quot;f&quot;</span>,</span>
+<span id="cb25-4"><a href="#cb25-4"></a>                           <span class="at">type =</span> <span class="st">&quot;udif&quot;</span>,</span>
+<span id="cb25-5"><a href="#cb25-5"></a>                           <span class="at">alpha =</span> .<span class="dv">001</span>, <span class="at">p.adjust.method =</span> <span class="st">&quot;BH&quot;</span>,</span>
+<span id="cb25-6"><a href="#cb25-6"></a>                           <span class="at">match =</span> est_theta,</span>
+<span id="cb25-7"><a href="#cb25-7"></a>                           <span class="at">criterion =</span> <span class="st">&quot;LRT&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <div class="cell" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource scroll-100 number-lines code-with-copy"><code class="sourceCode"><span id="cb22-1"><a href="#cb22-1"></a></span>
-<span id="cb22-2"><a href="#cb22-2"></a>Detection of uniform Differential Item Functioning</span>
-<span id="cb22-3"><a href="#cb22-3"></a>using Logistic regression method, without item purification</span>
-<span id="cb22-4"><a href="#cb22-4"></a>and with LRT DIF statistic</span>
-<span id="cb22-5"><a href="#cb22-5"></a></span>
-<span id="cb22-6"><a href="#cb22-6"></a>Matching variable: specified matching variable </span>
-<span id="cb22-7"><a href="#cb22-7"></a> </span>
-<span id="cb22-8"><a href="#cb22-8"></a>No set of anchor items was provided </span>
-<span id="cb22-9"><a href="#cb22-9"></a> </span>
-<span id="cb22-10"><a href="#cb22-10"></a>Multiple comparisons made with Benjamini-Hochberg adjustement of p-values </span>
-<span id="cb22-11"><a href="#cb22-11"></a> </span>
-<span id="cb22-12"><a href="#cb22-12"></a>Logistic regression DIF statistic: </span>
-<span id="cb22-13"><a href="#cb22-13"></a> </span>
-<span id="cb22-14"><a href="#cb22-14"></a>       Stat.   P-value Adj. P     </span>
-<span id="cb22-15"><a href="#cb22-15"></a>item1   9.5769  0.0020  0.0033 ** </span>
-<span id="cb22-16"><a href="#cb22-16"></a>item2   7.8345  0.0051  0.0064 ** </span>
-<span id="cb22-17"><a href="#cb22-17"></a>item3   2.8907  0.0891  0.0891 .  </span>
-<span id="cb22-18"><a href="#cb22-18"></a>item4   6.6418  0.0100  0.0111 *  </span>
-<span id="cb22-19"><a href="#cb22-19"></a>item5  28.1792  0.0000  0.0000 ***</span>
-<span id="cb22-20"><a href="#cb22-20"></a>item6  36.3876  0.0000  0.0000 ***</span>
-<span id="cb22-21"><a href="#cb22-21"></a>item7  18.8507  0.0000  0.0000 ***</span>
-<span id="cb22-22"><a href="#cb22-22"></a>item8   9.8524  0.0017  0.0033 ** </span>
-<span id="cb22-23"><a href="#cb22-23"></a>item9  27.3310  0.0000  0.0000 ***</span>
-<span id="cb22-24"><a href="#cb22-24"></a>item10  8.9442  0.0028  0.0040 ** </span>
-<span id="cb22-25"><a href="#cb22-25"></a></span>
-<span id="cb22-26"><a href="#cb22-26"></a>Signif. codes: 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1  </span>
-<span id="cb22-27"><a href="#cb22-27"></a></span>
-<span id="cb22-28"><a href="#cb22-28"></a>Detection threshold: 10.8276 (significance level: 0.001)</span>
-<span id="cb22-29"><a href="#cb22-29"></a></span>
-<span id="cb22-30"><a href="#cb22-30"></a>Items detected as uniform DIF items:</span>
-<span id="cb22-31"><a href="#cb22-31"></a>      </span>
-<span id="cb22-32"><a href="#cb22-32"></a> item5</span>
-<span id="cb22-33"><a href="#cb22-33"></a> item6</span>
-<span id="cb22-34"><a href="#cb22-34"></a> item7</span>
-<span id="cb22-35"><a href="#cb22-35"></a> item9</span>
-<span id="cb22-36"><a href="#cb22-36"></a></span>
-<span id="cb22-37"><a href="#cb22-37"></a> </span>
-<span id="cb22-38"><a href="#cb22-38"></a>Effect size (Nagelkerke&#39;s R^2): </span>
-<span id="cb22-39"><a href="#cb22-39"></a> </span>
-<span id="cb22-40"><a href="#cb22-40"></a>Effect size code: </span>
-<span id="cb22-41"><a href="#cb22-41"></a> &#39;A&#39;: negligible effect </span>
-<span id="cb22-42"><a href="#cb22-42"></a> &#39;B&#39;: moderate effect </span>
-<span id="cb22-43"><a href="#cb22-43"></a> &#39;C&#39;: large effect </span>
-<span id="cb22-44"><a href="#cb22-44"></a> </span>
-<span id="cb22-45"><a href="#cb22-45"></a>       R^2    ZT JG</span>
-<span id="cb22-46"><a href="#cb22-46"></a>item1  0.0092 A  A </span>
-<span id="cb22-47"><a href="#cb22-47"></a>item2  0.0086 A  A </span>
-<span id="cb22-48"><a href="#cb22-48"></a>item3  0.0030 A  A </span>
-<span id="cb22-49"><a href="#cb22-49"></a>item4  0.0069 A  A </span>
-<span id="cb22-50"><a href="#cb22-50"></a>item5  0.0368 A  B </span>
-<span id="cb22-51"><a href="#cb22-51"></a>item6  0.0394 A  B </span>
-<span id="cb22-52"><a href="#cb22-52"></a>item7  0.0231 A  A </span>
-<span id="cb22-53"><a href="#cb22-53"></a>item8  0.0098 A  A </span>
-<span id="cb22-54"><a href="#cb22-54"></a>item9  0.0293 A  A </span>
-<span id="cb22-55"><a href="#cb22-55"></a>item10 0.0130 A  A </span>
-<span id="cb22-56"><a href="#cb22-56"></a></span>
-<span id="cb22-57"><a href="#cb22-57"></a>Effect size codes: </span>
-<span id="cb22-58"><a href="#cb22-58"></a> Zumbo &amp; Thomas (ZT): 0 &#39;A&#39; 0.13 &#39;B&#39; 0.26 &#39;C&#39; 1 </span>
-<span id="cb22-59"><a href="#cb22-59"></a> Jodoin &amp; Gierl (JG): 0 &#39;A&#39; 0.035 &#39;B&#39; 0.07 &#39;C&#39; 1 </span>
-<span id="cb22-60"><a href="#cb22-60"></a></span>
-<span id="cb22-61"><a href="#cb22-61"></a> Output was not captured! </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource scroll-100 number-lines code-with-copy"><code class="sourceCode"><span id="cb26-1"><a href="#cb26-1"></a></span>
+<span id="cb26-2"><a href="#cb26-2"></a>Detection of uniform Differential Item Functioning</span>
+<span id="cb26-3"><a href="#cb26-3"></a>using Logistic regression method, without item purification</span>
+<span id="cb26-4"><a href="#cb26-4"></a>and with LRT DIF statistic</span>
+<span id="cb26-5"><a href="#cb26-5"></a></span>
+<span id="cb26-6"><a href="#cb26-6"></a>Matching variable: specified matching variable </span>
+<span id="cb26-7"><a href="#cb26-7"></a> </span>
+<span id="cb26-8"><a href="#cb26-8"></a>No set of anchor items was provided </span>
+<span id="cb26-9"><a href="#cb26-9"></a> </span>
+<span id="cb26-10"><a href="#cb26-10"></a>Multiple comparisons made with Benjamini-Hochberg adjustement of p-values </span>
+<span id="cb26-11"><a href="#cb26-11"></a> </span>
+<span id="cb26-12"><a href="#cb26-12"></a>Logistic regression DIF statistic: </span>
+<span id="cb26-13"><a href="#cb26-13"></a> </span>
+<span id="cb26-14"><a href="#cb26-14"></a>       Stat.   P-value Adj. P     </span>
+<span id="cb26-15"><a href="#cb26-15"></a>item1   9.5769  0.0020  0.0033 ** </span>
+<span id="cb26-16"><a href="#cb26-16"></a>item2   7.8345  0.0051  0.0064 ** </span>
+<span id="cb26-17"><a href="#cb26-17"></a>item3   2.8907  0.0891  0.0891 .  </span>
+<span id="cb26-18"><a href="#cb26-18"></a>item4   6.6418  0.0100  0.0111 *  </span>
+<span id="cb26-19"><a href="#cb26-19"></a>item5  28.1792  0.0000  0.0000 ***</span>
+<span id="cb26-20"><a href="#cb26-20"></a>item6  36.3876  0.0000  0.0000 ***</span>
+<span id="cb26-21"><a href="#cb26-21"></a>item7  18.8507  0.0000  0.0000 ***</span>
+<span id="cb26-22"><a href="#cb26-22"></a>item8   9.8524  0.0017  0.0033 ** </span>
+<span id="cb26-23"><a href="#cb26-23"></a>item9  27.3310  0.0000  0.0000 ***</span>
+<span id="cb26-24"><a href="#cb26-24"></a>item10  8.9442  0.0028  0.0040 ** </span>
+<span id="cb26-25"><a href="#cb26-25"></a></span>
+<span id="cb26-26"><a href="#cb26-26"></a>Signif. codes: 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1  </span>
+<span id="cb26-27"><a href="#cb26-27"></a></span>
+<span id="cb26-28"><a href="#cb26-28"></a>Detection threshold: 10.8276 (significance level: 0.001)</span>
+<span id="cb26-29"><a href="#cb26-29"></a></span>
+<span id="cb26-30"><a href="#cb26-30"></a>Items detected as uniform DIF items:</span>
+<span id="cb26-31"><a href="#cb26-31"></a>      </span>
+<span id="cb26-32"><a href="#cb26-32"></a> item5</span>
+<span id="cb26-33"><a href="#cb26-33"></a> item6</span>
+<span id="cb26-34"><a href="#cb26-34"></a> item7</span>
+<span id="cb26-35"><a href="#cb26-35"></a> item9</span>
+<span id="cb26-36"><a href="#cb26-36"></a></span>
+<span id="cb26-37"><a href="#cb26-37"></a> </span>
+<span id="cb26-38"><a href="#cb26-38"></a>Effect size (Nagelkerke&#39;s R^2): </span>
+<span id="cb26-39"><a href="#cb26-39"></a> </span>
+<span id="cb26-40"><a href="#cb26-40"></a>Effect size code: </span>
+<span id="cb26-41"><a href="#cb26-41"></a> &#39;A&#39;: negligible effect </span>
+<span id="cb26-42"><a href="#cb26-42"></a> &#39;B&#39;: moderate effect </span>
+<span id="cb26-43"><a href="#cb26-43"></a> &#39;C&#39;: large effect </span>
+<span id="cb26-44"><a href="#cb26-44"></a> </span>
+<span id="cb26-45"><a href="#cb26-45"></a>       R^2    ZT JG</span>
+<span id="cb26-46"><a href="#cb26-46"></a>item1  0.0092 A  A </span>
+<span id="cb26-47"><a href="#cb26-47"></a>item2  0.0086 A  A </span>
+<span id="cb26-48"><a href="#cb26-48"></a>item3  0.0030 A  A </span>
+<span id="cb26-49"><a href="#cb26-49"></a>item4  0.0069 A  A </span>
+<span id="cb26-50"><a href="#cb26-50"></a>item5  0.0368 A  B </span>
+<span id="cb26-51"><a href="#cb26-51"></a>item6  0.0394 A  B </span>
+<span id="cb26-52"><a href="#cb26-52"></a>item7  0.0231 A  A </span>
+<span id="cb26-53"><a href="#cb26-53"></a>item8  0.0098 A  A </span>
+<span id="cb26-54"><a href="#cb26-54"></a>item9  0.0293 A  A </span>
+<span id="cb26-55"><a href="#cb26-55"></a>item10 0.0130 A  A </span>
+<span id="cb26-56"><a href="#cb26-56"></a></span>
+<span id="cb26-57"><a href="#cb26-57"></a>Effect size codes: </span>
+<span id="cb26-58"><a href="#cb26-58"></a> Zumbo &amp; Thomas (ZT): 0 &#39;A&#39; 0.13 &#39;B&#39; 0.26 &#39;C&#39; 1 </span>
+<span id="cb26-59"><a href="#cb26-59"></a> Jodoin &amp; Gierl (JG): 0 &#39;A&#39; 0.035 &#39;B&#39; 0.07 &#39;C&#39; 1 </span>
+<span id="cb26-60"><a href="#cb26-60"></a></span>
+<span id="cb26-61"><a href="#cb26-61"></a> Output was not captured! </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1826,76 +1744,76 @@ Show code
 <section id="dif-raju" class="slide level2 scrollable">
 <h2>DIF – Raju</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb23" data-code-line-numbers="|1|2|3|4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>rajDif <span class="ot">=</span> <span class="fu">difRaju</span>(data[, <span class="sc">!</span><span class="fu">colnames</span>(data) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;id&quot;</span>)], </span>
-<span id="cb23-2"><a href="#cb23-2"></a>                  <span class="at">group =</span> <span class="st">&quot;gender&quot;</span>,  <span class="at">focal.name =</span> <span class="st">&quot;f&quot;</span>, </span>
-<span id="cb23-3"><a href="#cb23-3"></a>                  <span class="at">model =</span> <span class="st">&quot;1PL&quot;</span>, </span>
-<span id="cb23-4"><a href="#cb23-4"></a>                  <span class="at">alpha =</span> .<span class="dv">001</span>, <span class="at">p.adjust.method =</span> <span class="st">&quot;BH&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27" data-code-line-numbers="|1|2|3|4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>rajDif <span class="ot">=</span> <span class="fu">difRaju</span>(data[, <span class="sc">!</span><span class="fu">colnames</span>(data) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;id&quot;</span>)], </span>
+<span id="cb27-2"><a href="#cb27-2"></a>                  <span class="at">group =</span> <span class="st">&quot;gender&quot;</span>,  <span class="at">focal.name =</span> <span class="st">&quot;f&quot;</span>, </span>
+<span id="cb27-3"><a href="#cb27-3"></a>                  <span class="at">model =</span> <span class="st">&quot;1PL&quot;</span>, </span>
+<span id="cb27-4"><a href="#cb27-4"></a>                  <span class="at">alpha =</span> .<span class="dv">001</span>, <span class="at">p.adjust.method =</span> <span class="st">&quot;BH&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <div class="cell" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource scroll-100 number-lines code-with-copy"><code class="sourceCode"><span id="cb24-1"><a href="#cb24-1"></a></span>
-<span id="cb24-2"><a href="#cb24-2"></a>Detection of Differential Item Functioning using Raju&#39;s method </span>
-<span id="cb24-3"><a href="#cb24-3"></a>with 1PL model and without item purification</span>
-<span id="cb24-4"><a href="#cb24-4"></a></span>
-<span id="cb24-5"><a href="#cb24-5"></a>Type of Raju&#39;s Z statistic: based on unsigned area </span>
-<span id="cb24-6"><a href="#cb24-6"></a> </span>
-<span id="cb24-7"><a href="#cb24-7"></a>Engine &#39;ltm&#39; for item parameter estimation </span>
-<span id="cb24-8"><a href="#cb24-8"></a> </span>
-<span id="cb24-9"><a href="#cb24-9"></a>Common discrimination parameter: fixed to 1</span>
-<span id="cb24-10"><a href="#cb24-10"></a></span>
-<span id="cb24-11"><a href="#cb24-11"></a>No set of anchor items was provided </span>
-<span id="cb24-12"><a href="#cb24-12"></a> </span>
-<span id="cb24-13"><a href="#cb24-13"></a>Multiple comparisons made with Benjamini-Hochberg adjustement of p-values </span>
-<span id="cb24-14"><a href="#cb24-14"></a> </span>
-<span id="cb24-15"><a href="#cb24-15"></a>Raju&#39;s statistic: </span>
-<span id="cb24-16"><a href="#cb24-16"></a> </span>
-<span id="cb24-17"><a href="#cb24-17"></a>       Stat.   P-value Adj. P     </span>
-<span id="cb24-18"><a href="#cb24-18"></a>item1  -2.7358  0.0062  0.0104 *  </span>
-<span id="cb24-19"><a href="#cb24-19"></a>item2  -2.5503  0.0108  0.0154 *  </span>
-<span id="cb24-20"><a href="#cb24-20"></a>item3  -1.5133  0.1302  0.1302    </span>
-<span id="cb24-21"><a href="#cb24-21"></a>item4  -2.2916  0.0219  0.0244 *  </span>
-<span id="cb24-22"><a href="#cb24-22"></a>item5   4.4742  0.0000  0.0000 ***</span>
-<span id="cb24-23"><a href="#cb24-23"></a>item6   5.0150  0.0000  0.0000 ***</span>
-<span id="cb24-24"><a href="#cb24-24"></a>item7   3.6098  0.0003  0.0008 ***</span>
-<span id="cb24-25"><a href="#cb24-25"></a>item8   2.4605  0.0139  0.0173 *  </span>
-<span id="cb24-26"><a href="#cb24-26"></a>item9  -4.6929  0.0000  0.0000 ***</span>
-<span id="cb24-27"><a href="#cb24-27"></a>item10 -2.9145  0.0036  0.0071 ** </span>
-<span id="cb24-28"><a href="#cb24-28"></a></span>
-<span id="cb24-29"><a href="#cb24-29"></a>Signif. codes: 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1  </span>
-<span id="cb24-30"><a href="#cb24-30"></a></span>
-<span id="cb24-31"><a href="#cb24-31"></a>Detection thresholds: -3.2905 and 3.2905 (significance level: 0.001)</span>
-<span id="cb24-32"><a href="#cb24-32"></a></span>
-<span id="cb24-33"><a href="#cb24-33"></a>Items detected as DIF items: </span>
-<span id="cb24-34"><a href="#cb24-34"></a>      </span>
-<span id="cb24-35"><a href="#cb24-35"></a> item5</span>
-<span id="cb24-36"><a href="#cb24-36"></a> item6</span>
-<span id="cb24-37"><a href="#cb24-37"></a> item7</span>
-<span id="cb24-38"><a href="#cb24-38"></a> item9</span>
-<span id="cb24-39"><a href="#cb24-39"></a></span>
-<span id="cb24-40"><a href="#cb24-40"></a>Effect size (ETS Delta scale): </span>
-<span id="cb24-41"><a href="#cb24-41"></a> </span>
-<span id="cb24-42"><a href="#cb24-42"></a>Effect size code: </span>
-<span id="cb24-43"><a href="#cb24-43"></a> &#39;A&#39;: negligible effect </span>
-<span id="cb24-44"><a href="#cb24-44"></a> &#39;B&#39;: moderate effect </span>
-<span id="cb24-45"><a href="#cb24-45"></a> &#39;C&#39;: large effect </span>
-<span id="cb24-46"><a href="#cb24-46"></a> </span>
-<span id="cb24-47"><a href="#cb24-47"></a>       mF-mR   deltaRaju  </span>
-<span id="cb24-48"><a href="#cb24-48"></a>item1  -0.4190  0.9846   A</span>
-<span id="cb24-49"><a href="#cb24-49"></a>item2  -0.4244  0.9973   A</span>
-<span id="cb24-50"><a href="#cb24-50"></a>item3  -0.2458  0.5776   A</span>
-<span id="cb24-51"><a href="#cb24-51"></a>item4  -0.3677  0.8641   A</span>
-<span id="cb24-52"><a href="#cb24-52"></a>item5   0.9066 -2.1305   C</span>
-<span id="cb24-53"><a href="#cb24-53"></a>item6   0.8568 -2.0135   C</span>
-<span id="cb24-54"><a href="#cb24-54"></a>item7   0.6592 -1.5491   C</span>
-<span id="cb24-55"><a href="#cb24-55"></a>item8   0.3799 -0.8928   A</span>
-<span id="cb24-56"><a href="#cb24-56"></a>item9  -0.7692  1.8076   C</span>
-<span id="cb24-57"><a href="#cb24-57"></a>item10 -0.5764  1.3545   B</span>
-<span id="cb24-58"><a href="#cb24-58"></a></span>
-<span id="cb24-59"><a href="#cb24-59"></a>Effect size codes: 0 &#39;A&#39; 1.0 &#39;B&#39; 1.5 &#39;C&#39; </span>
-<span id="cb24-60"><a href="#cb24-60"></a> (for absolute values of &#39;deltaRaju&#39;) </span>
-<span id="cb24-61"><a href="#cb24-61"></a> </span>
-<span id="cb24-62"><a href="#cb24-62"></a>Output was not captured! </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource scroll-100 number-lines code-with-copy"><code class="sourceCode"><span id="cb28-1"><a href="#cb28-1"></a></span>
+<span id="cb28-2"><a href="#cb28-2"></a>Detection of Differential Item Functioning using Raju&#39;s method </span>
+<span id="cb28-3"><a href="#cb28-3"></a>with 1PL model and without item purification</span>
+<span id="cb28-4"><a href="#cb28-4"></a></span>
+<span id="cb28-5"><a href="#cb28-5"></a>Type of Raju&#39;s Z statistic: based on unsigned area </span>
+<span id="cb28-6"><a href="#cb28-6"></a> </span>
+<span id="cb28-7"><a href="#cb28-7"></a>Engine &#39;ltm&#39; for item parameter estimation </span>
+<span id="cb28-8"><a href="#cb28-8"></a> </span>
+<span id="cb28-9"><a href="#cb28-9"></a>Common discrimination parameter: fixed to 1</span>
+<span id="cb28-10"><a href="#cb28-10"></a></span>
+<span id="cb28-11"><a href="#cb28-11"></a>No set of anchor items was provided </span>
+<span id="cb28-12"><a href="#cb28-12"></a> </span>
+<span id="cb28-13"><a href="#cb28-13"></a>Multiple comparisons made with Benjamini-Hochberg adjustement of p-values </span>
+<span id="cb28-14"><a href="#cb28-14"></a> </span>
+<span id="cb28-15"><a href="#cb28-15"></a>Raju&#39;s statistic: </span>
+<span id="cb28-16"><a href="#cb28-16"></a> </span>
+<span id="cb28-17"><a href="#cb28-17"></a>       Stat.   P-value Adj. P     </span>
+<span id="cb28-18"><a href="#cb28-18"></a>item1  -2.7358  0.0062  0.0104 *  </span>
+<span id="cb28-19"><a href="#cb28-19"></a>item2  -2.5503  0.0108  0.0154 *  </span>
+<span id="cb28-20"><a href="#cb28-20"></a>item3  -1.5133  0.1302  0.1302    </span>
+<span id="cb28-21"><a href="#cb28-21"></a>item4  -2.2916  0.0219  0.0244 *  </span>
+<span id="cb28-22"><a href="#cb28-22"></a>item5   4.4742  0.0000  0.0000 ***</span>
+<span id="cb28-23"><a href="#cb28-23"></a>item6   5.0150  0.0000  0.0000 ***</span>
+<span id="cb28-24"><a href="#cb28-24"></a>item7   3.6098  0.0003  0.0008 ***</span>
+<span id="cb28-25"><a href="#cb28-25"></a>item8   2.4605  0.0139  0.0173 *  </span>
+<span id="cb28-26"><a href="#cb28-26"></a>item9  -4.6929  0.0000  0.0000 ***</span>
+<span id="cb28-27"><a href="#cb28-27"></a>item10 -2.9145  0.0036  0.0071 ** </span>
+<span id="cb28-28"><a href="#cb28-28"></a></span>
+<span id="cb28-29"><a href="#cb28-29"></a>Signif. codes: 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1  </span>
+<span id="cb28-30"><a href="#cb28-30"></a></span>
+<span id="cb28-31"><a href="#cb28-31"></a>Detection thresholds: -3.2905 and 3.2905 (significance level: 0.001)</span>
+<span id="cb28-32"><a href="#cb28-32"></a></span>
+<span id="cb28-33"><a href="#cb28-33"></a>Items detected as DIF items: </span>
+<span id="cb28-34"><a href="#cb28-34"></a>      </span>
+<span id="cb28-35"><a href="#cb28-35"></a> item5</span>
+<span id="cb28-36"><a href="#cb28-36"></a> item6</span>
+<span id="cb28-37"><a href="#cb28-37"></a> item7</span>
+<span id="cb28-38"><a href="#cb28-38"></a> item9</span>
+<span id="cb28-39"><a href="#cb28-39"></a></span>
+<span id="cb28-40"><a href="#cb28-40"></a>Effect size (ETS Delta scale): </span>
+<span id="cb28-41"><a href="#cb28-41"></a> </span>
+<span id="cb28-42"><a href="#cb28-42"></a>Effect size code: </span>
+<span id="cb28-43"><a href="#cb28-43"></a> &#39;A&#39;: negligible effect </span>
+<span id="cb28-44"><a href="#cb28-44"></a> &#39;B&#39;: moderate effect </span>
+<span id="cb28-45"><a href="#cb28-45"></a> &#39;C&#39;: large effect </span>
+<span id="cb28-46"><a href="#cb28-46"></a> </span>
+<span id="cb28-47"><a href="#cb28-47"></a>       mF-mR   deltaRaju  </span>
+<span id="cb28-48"><a href="#cb28-48"></a>item1  -0.4190  0.9846   A</span>
+<span id="cb28-49"><a href="#cb28-49"></a>item2  -0.4244  0.9973   A</span>
+<span id="cb28-50"><a href="#cb28-50"></a>item3  -0.2458  0.5776   A</span>
+<span id="cb28-51"><a href="#cb28-51"></a>item4  -0.3677  0.8641   A</span>
+<span id="cb28-52"><a href="#cb28-52"></a>item5   0.9066 -2.1305   C</span>
+<span id="cb28-53"><a href="#cb28-53"></a>item6   0.8568 -2.0135   C</span>
+<span id="cb28-54"><a href="#cb28-54"></a>item7   0.6592 -1.5491   C</span>
+<span id="cb28-55"><a href="#cb28-55"></a>item8   0.3799 -0.8928   A</span>
+<span id="cb28-56"><a href="#cb28-56"></a>item9  -0.7692  1.8076   C</span>
+<span id="cb28-57"><a href="#cb28-57"></a>item10 -0.5764  1.3545   B</span>
+<span id="cb28-58"><a href="#cb28-58"></a></span>
+<span id="cb28-59"><a href="#cb28-59"></a>Effect size codes: 0 &#39;A&#39; 1.0 &#39;B&#39; 1.5 &#39;C&#39; </span>
+<span id="cb28-60"><a href="#cb28-60"></a> (for absolute values of &#39;deltaRaju&#39;) </span>
+<span id="cb28-61"><a href="#cb28-61"></a> </span>
+<span id="cb28-62"><a href="#cb28-62"></a>Output was not captured! </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1903,10 +1821,74 @@ Show code
 <section id="dif-lord" class="slide level2 scrollable">
 <h2>DIF – Lord</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb25" data-code-line-numbers="|1|2-4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>lordDif <span class="ot">=</span> <span class="fu">difLord</span>(data[, <span class="sc">!</span><span class="fu">colnames</span>(data) <span class="sc">%in%</span> <span class="st">&quot;id&quot;</span>], </span>
-<span id="cb25-2"><a href="#cb25-2"></a>                  <span class="at">group =</span> <span class="st">&quot;gender&quot;</span>,  <span class="at">focal.name =</span> <span class="st">&quot;f&quot;</span>, </span>
-<span id="cb25-3"><a href="#cb25-3"></a>                  <span class="at">model =</span> <span class="st">&quot;1PL&quot;</span>, </span>
-<span id="cb25-4"><a href="#cb25-4"></a>                   <span class="at">alpha =</span> .<span class="dv">001</span>, <span class="at">p.adjust.method =</span> <span class="st">&quot;BH&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29" data-code-line-numbers="|1|2-4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>lordDif <span class="ot">=</span> <span class="fu">difLord</span>(data[, <span class="sc">!</span><span class="fu">colnames</span>(data) <span class="sc">%in%</span> <span class="st">&quot;id&quot;</span>], </span>
+<span id="cb29-2"><a href="#cb29-2"></a>                  <span class="at">group =</span> <span class="st">&quot;gender&quot;</span>,  <span class="at">focal.name =</span> <span class="st">&quot;f&quot;</span>, </span>
+<span id="cb29-3"><a href="#cb29-3"></a>                  <span class="at">model =</span> <span class="st">&quot;1PL&quot;</span>, </span>
+<span id="cb29-4"><a href="#cb29-4"></a>                   <span class="at">alpha =</span> .<span class="dv">001</span>, <span class="at">p.adjust.method =</span> <span class="st">&quot;BH&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stdout">
+<div class="sourceCode" id="cb30"><pre class="sourceCode numberSource scroll-100 number-lines code-with-copy"><code class="sourceCode"><span id="cb30-1"><a href="#cb30-1"></a></span>
+<span id="cb30-2"><a href="#cb30-2"></a>Detection of Differential Item Functioning using Lord&#39;s method </span>
+<span id="cb30-3"><a href="#cb30-3"></a>with 1PL model and without item purification</span>
+<span id="cb30-4"><a href="#cb30-4"></a></span>
+<span id="cb30-5"><a href="#cb30-5"></a>Engine &#39;ltm&#39; for item parameter estimation </span>
+<span id="cb30-6"><a href="#cb30-6"></a> </span>
+<span id="cb30-7"><a href="#cb30-7"></a>Common discrimination parameter: fixed to 1</span>
+<span id="cb30-8"><a href="#cb30-8"></a></span>
+<span id="cb30-9"><a href="#cb30-9"></a>No set of anchor items was provided </span>
+<span id="cb30-10"><a href="#cb30-10"></a> </span>
+<span id="cb30-11"><a href="#cb30-11"></a>Multiple comparisons made with Benjamini-Hochberg adjustement of p-values </span>
+<span id="cb30-12"><a href="#cb30-12"></a> </span>
+<span id="cb30-13"><a href="#cb30-13"></a>Lord&#39;s chi-square statistic: </span>
+<span id="cb30-14"><a href="#cb30-14"></a> </span>
+<span id="cb30-15"><a href="#cb30-15"></a>       Stat.   P-value Adj. P     </span>
+<span id="cb30-16"><a href="#cb30-16"></a>item1   7.4848  0.0062  0.0104 *  </span>
+<span id="cb30-17"><a href="#cb30-17"></a>item2   6.5039  0.0108  0.0154 *  </span>
+<span id="cb30-18"><a href="#cb30-18"></a>item3   2.2901  0.1302  0.1302    </span>
+<span id="cb30-19"><a href="#cb30-19"></a>item4   5.2515  0.0219  0.0244 *  </span>
+<span id="cb30-20"><a href="#cb30-20"></a>item5  20.0188  0.0000  0.0000 ***</span>
+<span id="cb30-21"><a href="#cb30-21"></a>item6  25.1505  0.0000  0.0000 ***</span>
+<span id="cb30-22"><a href="#cb30-22"></a>item7  13.0309  0.0003  0.0008 ***</span>
+<span id="cb30-23"><a href="#cb30-23"></a>item8   6.0539  0.0139  0.0173 *  </span>
+<span id="cb30-24"><a href="#cb30-24"></a>item9  22.0232  0.0000  0.0000 ***</span>
+<span id="cb30-25"><a href="#cb30-25"></a>item10  8.4941  0.0036  0.0071 ** </span>
+<span id="cb30-26"><a href="#cb30-26"></a></span>
+<span id="cb30-27"><a href="#cb30-27"></a>Signif. codes: 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1  </span>
+<span id="cb30-28"><a href="#cb30-28"></a> </span>
+<span id="cb30-29"><a href="#cb30-29"></a>Items detected as DIF items: </span>
+<span id="cb30-30"><a href="#cb30-30"></a>      </span>
+<span id="cb30-31"><a href="#cb30-31"></a> item5</span>
+<span id="cb30-32"><a href="#cb30-32"></a> item6</span>
+<span id="cb30-33"><a href="#cb30-33"></a> item7</span>
+<span id="cb30-34"><a href="#cb30-34"></a> item9</span>
+<span id="cb30-35"><a href="#cb30-35"></a></span>
+<span id="cb30-36"><a href="#cb30-36"></a>Effect size (ETS Delta scale): </span>
+<span id="cb30-37"><a href="#cb30-37"></a> </span>
+<span id="cb30-38"><a href="#cb30-38"></a>Effect size code: </span>
+<span id="cb30-39"><a href="#cb30-39"></a> &#39;A&#39;: negligible effect </span>
+<span id="cb30-40"><a href="#cb30-40"></a> &#39;B&#39;: moderate effect </span>
+<span id="cb30-41"><a href="#cb30-41"></a> &#39;C&#39;: large effect </span>
+<span id="cb30-42"><a href="#cb30-42"></a> </span>
+<span id="cb30-43"><a href="#cb30-43"></a>       mF-mR   deltaLord  </span>
+<span id="cb30-44"><a href="#cb30-44"></a>item1  -0.4190  0.9846   A</span>
+<span id="cb30-45"><a href="#cb30-45"></a>item2  -0.4244  0.9973   A</span>
+<span id="cb30-46"><a href="#cb30-46"></a>item3  -0.2458  0.5776   A</span>
+<span id="cb30-47"><a href="#cb30-47"></a>item4  -0.3677  0.8641   A</span>
+<span id="cb30-48"><a href="#cb30-48"></a>item5   0.9066 -2.1305   C</span>
+<span id="cb30-49"><a href="#cb30-49"></a>item6   0.8568 -2.0135   C</span>
+<span id="cb30-50"><a href="#cb30-50"></a>item7   0.6592 -1.5491   C</span>
+<span id="cb30-51"><a href="#cb30-51"></a>item8   0.3799 -0.8928   A</span>
+<span id="cb30-52"><a href="#cb30-52"></a>item9  -0.7692  1.8076   C</span>
+<span id="cb30-53"><a href="#cb30-53"></a>item10 -0.5764  1.3545   B</span>
+<span id="cb30-54"><a href="#cb30-54"></a></span>
+<span id="cb30-55"><a href="#cb30-55"></a>Effect size codes: 0 &#39;A&#39; 1.0 &#39;B&#39; 1.5 &#39;C&#39; </span>
+<span id="cb30-56"><a href="#cb30-56"></a> (for absolute values of &#39;deltaLord&#39;) </span>
+<span id="cb30-57"><a href="#cb30-57"></a> </span>
+<span id="cb30-58"><a href="#cb30-58"></a>Output was not captured! </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="details-on-raju-and-lord" class="slide level2">
@@ -1916,7 +1898,7 @@ Show code
 <p>The size of the effect can be interpreted according to the values reported in the <code>R</code> output</p>
 <p>The item parameters can be obtained as:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>lordDif<span class="sc">$</span>itemParInit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>lordDif<span class="sc">$</span>itemParInit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="caution-advised" class="slide level2 scrollable">
@@ -1930,44 +1912,44 @@ Show code
 </blockquote>
 <div class="fragment">
 <div class="panel-tabset">
-<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default href="#tabset-4-1">Item estimates: Reference group</a></li><li><a href="#tabset-4-2">Item estimates: Focus group</a></li></ul>
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default href="#tabset-4-1">Reference group</a></li><li><a href="#tabset-4-2">Focal group</a></li></ul>
 <div class="tab-content">
 <div id="tabset-4-1">
 <p>Rows <span class="math inline">\(i, 1\ldots, I\)</span>: These estimates <strong>are not</strong> rescaled</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>item_par <span class="ot">=</span> lordDif<span class="sc">$</span>itemParInit</span>
-<span id="cb27-2"><a href="#cb27-2"></a>item_par[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>item_par <span class="ot">=</span> lordDif<span class="sc">$</span>itemParInit</span>
+<span id="cb32-2"><a href="#cb32-2"></a>item_par[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource scroll-100 number-lines code-with-copy"><code class="sourceCode"><span id="cb28-1"><a href="#cb28-1"></a>                b     se(b)</span>
-<span id="cb28-2"><a href="#cb28-2"></a>Item1   0.1003314 0.1081049</span>
-<span id="cb28-3"><a href="#cb28-3"></a>Item2  -1.0813481 0.1167024</span>
-<span id="cb28-4"><a href="#cb28-4"></a>Item3   0.9287588 0.1141034</span>
-<span id="cb28-5"><a href="#cb28-5"></a>Item4   0.8852199 0.1135280</span>
-<span id="cb28-6"><a href="#cb28-6"></a>Item5  -2.5345451 0.1625745</span>
-<span id="cb28-7"><a href="#cb28-7"></a>Item6   0.5418750 0.1100347</span>
-<span id="cb28-8"><a href="#cb28-8"></a>Item7   1.0626916 0.1160698</span>
-<span id="cb28-9"><a href="#cb28-9"></a>Item8  -0.4051660 0.1092741</span>
-<span id="cb28-10"><a href="#cb28-10"></a>Item9  -0.7726385 0.1124324</span>
-<span id="cb28-11"><a href="#cb28-11"></a>Item10  2.1299052 0.1442241</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode numberSource scroll-100 number-lines code-with-copy"><code class="sourceCode"><span id="cb33-1"><a href="#cb33-1"></a>                b     se(b)</span>
+<span id="cb33-2"><a href="#cb33-2"></a>Item1   0.1003314 0.1081049</span>
+<span id="cb33-3"><a href="#cb33-3"></a>Item2  -1.0813481 0.1167024</span>
+<span id="cb33-4"><a href="#cb33-4"></a>Item3   0.9287588 0.1141034</span>
+<span id="cb33-5"><a href="#cb33-5"></a>Item4   0.8852199 0.1135280</span>
+<span id="cb33-6"><a href="#cb33-6"></a>Item5  -2.5345451 0.1625745</span>
+<span id="cb33-7"><a href="#cb33-7"></a>Item6   0.5418750 0.1100347</span>
+<span id="cb33-8"><a href="#cb33-8"></a>Item7   1.0626916 0.1160698</span>
+<span id="cb33-9"><a href="#cb33-9"></a>Item8  -0.4051660 0.1092741</span>
+<span id="cb33-10"><a href="#cb33-10"></a>Item9  -0.7726385 0.1124324</span>
+<span id="cb33-11"><a href="#cb33-11"></a>Item10  2.1299052 0.1442241</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 <div id="tabset-4-2">
 <p>Rows <span class="math inline">\(i+1, \ldots 2I\)</span></p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>item_par[<span class="dv">11</span><span class="sc">:</span><span class="fu">nrow</span>(item_par), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>item_par[<span class="dv">11</span><span class="sc">:</span><span class="fu">nrow</span>(item_par), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb30"><pre class="sourceCode numberSource scroll-100 number-lines code-with-copy"><code class="sourceCode"><span id="cb30-1"><a href="#cb30-1"></a>                   b     se(b)</span>
-<span id="cb30-2"><a href="#cb30-2"></a>Item1   1.621222e-06 0.1084637</span>
-<span id="cb30-3"><a href="#cb30-3"></a>Item2  -1.187073e+00 0.1186087</span>
-<span id="cb30-4"><a href="#cb30-4"></a>Item3   1.001565e+00 0.1156194</span>
-<span id="cb30-5"><a href="#cb30-5"></a>Item4   8.361141e-01 0.1134093</span>
-<span id="cb30-6"><a href="#cb30-6"></a>Item5  -1.309367e+00 0.1209242</span>
-<span id="cb30-7"><a href="#cb30-7"></a>Item6   1.717348e+00 0.1307057</span>
-<span id="cb30-8"><a href="#cb30-8"></a>Item7   2.040499e+00 0.1409710</span>
-<span id="cb30-9"><a href="#cb30-9"></a>Item8   2.933326e-01 0.1090660</span>
-<span id="cb30-10"><a href="#cb30-10"></a>Item9  -1.223203e+00 0.1192650</span>
-<span id="cb30-11"><a href="#cb30-11"></a>Item10  1.872148e+00 0.1353199</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode numberSource scroll-100 number-lines code-with-copy"><code class="sourceCode"><span id="cb35-1"><a href="#cb35-1"></a>                   b     se(b)</span>
+<span id="cb35-2"><a href="#cb35-2"></a>Item1   1.621222e-06 0.1084637</span>
+<span id="cb35-3"><a href="#cb35-3"></a>Item2  -1.187073e+00 0.1186087</span>
+<span id="cb35-4"><a href="#cb35-4"></a>Item3   1.001565e+00 0.1156194</span>
+<span id="cb35-5"><a href="#cb35-5"></a>Item4   8.361141e-01 0.1134093</span>
+<span id="cb35-6"><a href="#cb35-6"></a>Item5  -1.309367e+00 0.1209242</span>
+<span id="cb35-7"><a href="#cb35-7"></a>Item6   1.717348e+00 0.1307057</span>
+<span id="cb35-8"><a href="#cb35-8"></a>Item7   2.040499e+00 0.1409710</span>
+<span id="cb35-9"><a href="#cb35-9"></a>Item8   2.933326e-01 0.1090660</span>
+<span id="cb35-10"><a href="#cb35-10"></a>Item9  -1.223203e+00 0.1192650</span>
+<span id="cb35-11"><a href="#cb35-11"></a>Item10  1.872148e+00 0.1353199</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1978,38 +1960,38 @@ Show code
 <section id="rescaling-practice" class="slide level2">
 <h2>Rescaling – Practice</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb31" data-code-line-numbers="|1-2|3|4|5|6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>itemFR <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="fu">cbind</span>(item_par[<span class="dv">11</span><span class="sc">:</span><span class="fu">nrow</span>(item_par), ], item_par[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, ]))</span>
-<span id="cb31-2"><a href="#cb31-2"></a><span class="fu">colnames</span>(itemFR)[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)] <span class="ot">=</span> <span class="fu">paste0</span>(<span class="fu">rep</span>(<span class="st">&quot;b&quot;</span>,<span class="dv">2</span>),  <span class="fu">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;R&quot;</span>))</span>
-<span id="cb31-3"><a href="#cb31-3"></a>itemFR<span class="sc">$</span>constant <span class="ot">=</span> <span class="fu">mean</span>(itemFR<span class="sc">$</span>bR) <span class="sc">-</span> <span class="fu">mean</span>(itemFR<span class="sc">$</span>bF)</span>
-<span id="cb31-4"><a href="#cb31-4"></a>itemFR<span class="sc">$</span>new_bR <span class="ot">=</span> itemFR<span class="sc">$</span>bR <span class="sc">-</span> itemFR<span class="sc">$</span>constant</span>
-<span id="cb31-5"><a href="#cb31-5"></a>itemFR<span class="sc">$</span>DIF_correct <span class="ot">=</span> itemFR<span class="sc">$</span>bF<span class="sc">-</span> itemFR<span class="sc">$</span>new_bR</span>
-<span id="cb31-6"><a href="#cb31-6"></a>itemFR</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36" data-code-line-numbers="|1-2|3|4|5|6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>itemFR <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="fu">cbind</span>(item_par[<span class="dv">11</span><span class="sc">:</span><span class="fu">nrow</span>(item_par), ], item_par[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, ]))</span>
+<span id="cb36-2"><a href="#cb36-2"></a><span class="fu">colnames</span>(itemFR)[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)] <span class="ot">=</span> <span class="fu">paste0</span>(<span class="fu">rep</span>(<span class="st">&quot;b&quot;</span>,<span class="dv">2</span>),  <span class="fu">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;R&quot;</span>))</span>
+<span id="cb36-3"><a href="#cb36-3"></a>itemFR<span class="sc">$</span>constant <span class="ot">=</span> <span class="fu">mean</span>(itemFR<span class="sc">$</span>bR) <span class="sc">-</span> <span class="fu">mean</span>(itemFR<span class="sc">$</span>bF)</span>
+<span id="cb36-4"><a href="#cb36-4"></a>itemFR<span class="sc">$</span>new_bR <span class="ot">=</span> itemFR<span class="sc">$</span>bR <span class="sc">-</span> itemFR<span class="sc">$</span>constant</span>
+<span id="cb36-5"><a href="#cb36-5"></a>itemFR<span class="sc">$</span>DIF_correct <span class="ot">=</span> itemFR<span class="sc">$</span>bF<span class="sc">-</span> itemFR<span class="sc">$</span>new_bR</span>
+<span id="cb36-6"><a href="#cb36-6"></a>itemFR</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <div class="cell" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb32"><pre class="sourceCode numberSource scroll-100 number-lines code-with-copy"><code class="sourceCode"><span id="cb32-1"><a href="#cb32-1"></a>                  bF     se.b.         bR   se.b..1   constant      new_bR</span>
-<span id="cb32-2"><a href="#cb32-2"></a>Item1   1.621222e-06 0.1084637  0.1003314 0.1081049 -0.3186282  0.41895953</span>
-<span id="cb32-3"><a href="#cb32-3"></a>Item2  -1.187073e+00 0.1186087 -1.0813481 0.1167024 -0.3186282 -0.76271998</span>
-<span id="cb32-4"><a href="#cb32-4"></a>Item3   1.001565e+00 0.1156194  0.9287588 0.1141034 -0.3186282  1.24738700</span>
-<span id="cb32-5"><a href="#cb32-5"></a>Item4   8.361141e-01 0.1134093  0.8852199 0.1135280 -0.3186282  1.20384806</span>
-<span id="cb32-6"><a href="#cb32-6"></a>Item5  -1.309367e+00 0.1209242 -2.5345451 0.1625745 -0.3186282 -2.21591698</span>
-<span id="cb32-7"><a href="#cb32-7"></a>Item6   1.717348e+00 0.1307057  0.5418750 0.1100347 -0.3186282  0.86050314</span>
-<span id="cb32-8"><a href="#cb32-8"></a>Item7   2.040499e+00 0.1409710  1.0626916 0.1160698 -0.3186282  1.38131979</span>
-<span id="cb32-9"><a href="#cb32-9"></a>Item8   2.933326e-01 0.1090660 -0.4051660 0.1092741 -0.3186282 -0.08653783</span>
-<span id="cb32-10"><a href="#cb32-10"></a>Item9  -1.223203e+00 0.1192650 -0.7726385 0.1124324 -0.3186282 -0.45401035</span>
-<span id="cb32-11"><a href="#cb32-11"></a>Item10  1.872148e+00 0.1353199  2.1299052 0.1442241 -0.3186282  2.44853338</span>
-<span id="cb32-12"><a href="#cb32-12"></a>       DIF_correct</span>
-<span id="cb32-13"><a href="#cb32-13"></a>Item1   -0.4189579</span>
-<span id="cb32-14"><a href="#cb32-14"></a>Item2   -0.4243530</span>
-<span id="cb32-15"><a href="#cb32-15"></a>Item3   -0.2458222</span>
-<span id="cb32-16"><a href="#cb32-16"></a>Item4   -0.3677340</span>
-<span id="cb32-17"><a href="#cb32-17"></a>Item5    0.9065505</span>
-<span id="cb32-18"><a href="#cb32-18"></a>Item6    0.8568448</span>
-<span id="cb32-19"><a href="#cb32-19"></a>Item7    0.6591791</span>
-<span id="cb32-20"><a href="#cb32-20"></a>Item8    0.3798704</span>
-<span id="cb32-21"><a href="#cb32-21"></a>Item9   -0.7691922</span>
-<span id="cb32-22"><a href="#cb32-22"></a>Item10  -0.5763855</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode numberSource scroll-100 number-lines code-with-copy"><code class="sourceCode"><span id="cb37-1"><a href="#cb37-1"></a>                  bF     se.b.         bR   se.b..1   constant      new_bR</span>
+<span id="cb37-2"><a href="#cb37-2"></a>Item1   1.621222e-06 0.1084637  0.1003314 0.1081049 -0.3186282  0.41895953</span>
+<span id="cb37-3"><a href="#cb37-3"></a>Item2  -1.187073e+00 0.1186087 -1.0813481 0.1167024 -0.3186282 -0.76271998</span>
+<span id="cb37-4"><a href="#cb37-4"></a>Item3   1.001565e+00 0.1156194  0.9287588 0.1141034 -0.3186282  1.24738700</span>
+<span id="cb37-5"><a href="#cb37-5"></a>Item4   8.361141e-01 0.1134093  0.8852199 0.1135280 -0.3186282  1.20384806</span>
+<span id="cb37-6"><a href="#cb37-6"></a>Item5  -1.309367e+00 0.1209242 -2.5345451 0.1625745 -0.3186282 -2.21591698</span>
+<span id="cb37-7"><a href="#cb37-7"></a>Item6   1.717348e+00 0.1307057  0.5418750 0.1100347 -0.3186282  0.86050314</span>
+<span id="cb37-8"><a href="#cb37-8"></a>Item7   2.040499e+00 0.1409710  1.0626916 0.1160698 -0.3186282  1.38131979</span>
+<span id="cb37-9"><a href="#cb37-9"></a>Item8   2.933326e-01 0.1090660 -0.4051660 0.1092741 -0.3186282 -0.08653783</span>
+<span id="cb37-10"><a href="#cb37-10"></a>Item9  -1.223203e+00 0.1192650 -0.7726385 0.1124324 -0.3186282 -0.45401035</span>
+<span id="cb37-11"><a href="#cb37-11"></a>Item10  1.872148e+00 0.1353199  2.1299052 0.1442241 -0.3186282  2.44853338</span>
+<span id="cb37-12"><a href="#cb37-12"></a>       DIF_correct</span>
+<span id="cb37-13"><a href="#cb37-13"></a>Item1   -0.4189579</span>
+<span id="cb37-14"><a href="#cb37-14"></a>Item2   -0.4243530</span>
+<span id="cb37-15"><a href="#cb37-15"></a>Item3   -0.2458222</span>
+<span id="cb37-16"><a href="#cb37-16"></a>Item4   -0.3677340</span>
+<span id="cb37-17"><a href="#cb37-17"></a>Item5    0.9065505</span>
+<span id="cb37-18"><a href="#cb37-18"></a>Item6    0.8568448</span>
+<span id="cb37-19"><a href="#cb37-19"></a>Item7    0.6591791</span>
+<span id="cb37-20"><a href="#cb37-20"></a>Item8    0.3798704</span>
+<span id="cb37-21"><a href="#cb37-21"></a>Item9   -0.7691922</span>
+<span id="cb37-22"><a href="#cb37-22"></a>Item10  -0.5763855</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="footer footer-default">

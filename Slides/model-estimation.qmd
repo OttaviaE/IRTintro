@@ -71,44 +71,31 @@ dataES = sirt::sim.raschtype(true_thetaES, b = bES, fixed.a=aES)
 
 ## Create a new project 
 
-## Create a new project I 
+::: {.panel-tabset}
+
+## New Project
+
 (This is not mandatory by it is strongly suggested)
 
 New file $\rightarrow$ New project
 
-```{r, echo = F}
+```{r, echo = F, out.width="85%"}
 knitr::include_graphics("img/project1.png")
 ```
 
+## Choose the type
 
-## Create a new project II 
-
-:::: {.columns}
-
-
-::: {.column width="50%"}
-```{r echo = F}
+```{r echo = F, out.width="85%"}
 knitr::include_graphics("img/project2.png")
 ```
 
+## Assign a directory
 
-:::
-
-::: {.column width="50%"}
-
-```{r echo = F}
+```{r echo = F, out.width="85%"}
 knitr::include_graphics("img/project3.png")
 ```
 
 :::
-
-::::
-
-
-
-
-
-
 
 
 
@@ -256,7 +243,8 @@ return(info_tot)
 
 ## Import data 
 
-Download the file  `dataClass.csv` from this [shared folder](https://drive.google.com/drive/folders/1EF4cN4yiB3Fft_y2Mh4r0Mclxc6bTRdf?usp=sharing) 
+Download the file  `dataClass.csv` from this [shared folder](https://drive.google.com/drive/folders/1EF4cN4yiB3Fft_y2Mh4r0Mclxc6bTRdf?usp=sharing).
+
 Store the downloaded file in the `data` sub folder of your newly created project and run this code: 
 
 ```{r eval = T}
@@ -364,7 +352,7 @@ There are three main assumptions:
 
 . . . 
 
-If these assumptions are violated, the models can still be fitted but their interpretation if meaningless
+If these assumptions are violated, the models can still be fitted but their interpretation is meaningless
 
 
 
@@ -376,7 +364,7 @@ The probability of responding correctly increases as the the level of the latent
 
 . . .
 
-Monotonicitiy is evaluated at the item level with $H$ coefficient by Mokken (1971): 
+Monotonicitiy is evaluated at the item level with the $H$ coefficient by Mokken (1971): 
 
 > $H \leq .30$ $\rightarrow$ The item is not monotone, should be discarded
 >   
@@ -456,11 +444,11 @@ CFA models that force a one-factor solution to the data:
 **CFA fit indexes**: 
 </div>
 
-> Comparative Fit Index (CFI) $> .90$
+> Comparative Fit Index (CFI) $\geq .90$
 >
-> Standardized Root Mean Square Residual (SRMSR) $<.08$
+> Standardized Root Mean Square Residual (SRMSR) $\leq.08$
 >
-> Root Mean Square Error of Approximation (RMSEA) $<. 08$
+> Root Mean Square Error of Approximation (RMSEA) $\leq. 08$
 
 
 ## Unidimensionality - Practice {.scrollable}
@@ -513,7 +501,7 @@ summary(model, fit.measures = T)
 
 
 
-The probability of the observing certain responses to a set of items is equal to the product of the probabilities associated with each response to each item: 
+The probability of observing a pattern of responses to a set of items is equal to the product of the probabilities associated with each response to each item: 
 
 $$P(x_{p1}, x_{p2}, \ldots, x_{pi}) = P(x_{p1})P(x_{p2}) \ldots P(x_{pi})$$
 
@@ -597,7 +585,7 @@ fit_m2pl$modelfit.test
 ::::
 
 
-## Local dependence
+## Local dependence {.scrollable}
 
 
 :::: {.panel-tabset}

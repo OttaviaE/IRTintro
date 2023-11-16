@@ -117,35 +117,22 @@ IRT.compareModels(m1pl, m2pl, m3pl)
 #  IRT.compareModels(m1pl, m2pl, m3pl)
 #  
 
-## ----r echo = FALSE-----------------------------------------------------------
+## ----r echo = TRUE------------------------------------------------------------
 fit_m1pl = tam.modelfit(m1pl, progress = F)
-
-fit_m1pl$statlist %>% kable(align = "c", 
-                            row.names = FALSE, 
-                            digits = rep(2, 4))
-
-## ----r eval =FALSE, echo = TRUE-----------------------------------------------
-#  fit_m1pl$statlist
+fit_m1pl$statlist 
 
 ## ----r out.lines = 20---------------------------------------------------------
 item_fit_1pl = IRT.itemfit(m1pl)
 str(item_fit_1pl)
 
-## ----r echo = FALSE-----------------------------------------------------------
+## ----r echo = TRUE------------------------------------------------------------
 item_fit_1pl$chisquare_stat
 
 
 
-## ----r eval =FALSE, echo = TRUE-----------------------------------------------
-#  item_fit_1pl$chisquare_stat
-
-## ----r echo = FALSE-----------------------------------------------------------
-item_fit_1pl$RMSD_summary %>% kable(aling = "c", digits = 2)
-item_fit_1pl$RMSD %>% kable(aling = "c", digits = 2)
-
-## ----r eval =FALSE, echo = TRUE-----------------------------------------------
-#  item_fit_1pl$RMSD_summary %>% kable(aling = "c", digits = 2)
-#  item_fit_1pl$RMSD
+## ----r echo = TRUE------------------------------------------------------------
+item_fit_1pl$RMSD_summary 
+item_fit_1pl$RMSD 
 
 ## ----r------------------------------------------------------------------------
 b = c(-0.5616, -0.07)
@@ -297,6 +284,7 @@ lordDif = difLord(data[, !colnames(data) %in% "id"],
                   group = "gender",  focal.name = "f", 
                   model = "1PL", 
                    alpha = .001, p.adjust.method = "BH")
+lordDif
 
 ## ----r eval = FALSE-----------------------------------------------------------
 #  lordDif$itemParInit

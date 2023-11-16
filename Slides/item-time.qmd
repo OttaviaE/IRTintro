@@ -196,20 +196,17 @@ IRT.compareModels(m1pl, m2pl, m3pl)
 ## Fit of the model 
 
 
-```{r echo = FALSE}
+```{r echo = TRUE}
 fit_m1pl = tam.modelfit(m1pl, progress = F)
-
-fit_m1pl$statlist %>% kable(align = "c", 
-                            row.names = FALSE, 
-                            digits = rep(2, 4))
+fit_m1pl$statlist 
 ```
 
 
-<details><summary>Show code</summary>
-```{r eval =FALSE, echo = TRUE}
-fit_m1pl$statlist
-```
-</details>
+<!-- <details><summary>Show code</summary> -->
+<!-- ```{r eval =FALSE, echo = TRUE} -->
+<!-- fit_m1pl$statlist -->
+<!-- ``` -->
+<!-- </details> -->
 
 
 
@@ -231,34 +228,35 @@ str(item_fit_1pl)
 ## $\chi^2$
 
 
-```{r echo = FALSE}
+```{r echo = TRUE}
 item_fit_1pl$chisquare_stat
 
 
 ```
 
 
-<details><summary>Show code</summary>
-```{r eval =FALSE, echo = TRUE}
-item_fit_1pl$chisquare_stat
-```
-</details>
+<!-- <details><summary>Show code</summary> -->
+<!-- ```{r eval =FALSE, echo = TRUE} -->
+<!-- item_fit_1pl$chisquare_stat -->
+<!-- ``` -->
+<!-- </details> -->
 
 ## RMSD
 
 
-```{r echo = FALSE}
-item_fit_1pl$RMSD_summary %>% kable(aling = "c", digits = 2)
-item_fit_1pl$RMSD %>% kable(aling = "c", digits = 2)
-```
-
-
-<details><summary>Show code</summary>
-```{r eval =FALSE, echo = TRUE}
-item_fit_1pl$RMSD_summary %>% kable(aling = "c", digits = 2)
+```{r echo = TRUE}
+#| code-line-numbers: "|1|2"
+item_fit_1pl$RMSD_summary 
 item_fit_1pl$RMSD 
 ```
-</details>
+
+
+<!-- <details><summary>Show code</summary> -->
+<!-- ```{r eval =FALSE, echo = TRUE} -->
+<!-- item_fit_1pl$RMSD_summary %>% kable(aling = "c", digits = 2) -->
+<!-- item_fit_1pl$RMSD  -->
+<!-- ``` -->
+<!-- </details> -->
 
 :::
 
@@ -344,7 +342,6 @@ The comparison to investigate items with DIF is between two groups:
 
 - **Reference group**: It is the "baseline" group. For instance, if the test/questionnaire has been validated in a second language, the reference group is the original group
 
-<br>
 
 - **Focal group**: It is the focus of the DIF investigation, where we suspect the items of the test might be working differently 
 
@@ -443,7 +440,7 @@ Two IRT models:
 
 2. A "DIF" model $\rightarrow$ Parameters are left free to vary between the two groups 
 
-. . .
+
 
 It is like the LRT on a linear model where the group variable (Focal Vs. Reference) is used as a predictor or not
 
@@ -476,6 +473,8 @@ If the area between the ICCs is 0, then the item presents no DIF
 
 
 ## A note on Lord and Raju 
+
+<br>
 
 The parameters estimated in the focal and reference groups cannot be directly compared $\rightarrow$ The parameters in one of the groups **must** be rescaled.
 
@@ -652,6 +651,7 @@ lordDif = difLord(data[, !colnames(data) %in% "id"],
                   group = "gender",  focal.name = "f", 
                   model = "1PL", 
                    alpha = .001, p.adjust.method = "BH")
+lordDif
 ```
 
 
@@ -681,7 +681,7 @@ The object obtained from `lordDif$itemParInit` has a number of rows equal 2 time
 
 ::: {.panel-tabset}
 
-## Item estimates: Reference group 
+## Reference group 
 
 Rows $i, 1\ldots, I$: These estimates **are not** rescaled
 
@@ -691,7 +691,7 @@ item_par[1:10, ]
 ```
 
 
-## Item estimates: Focus group 
+## Focal group 
 
 Rows $i+1, \ldots 2I$
 
