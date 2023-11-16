@@ -262,12 +262,12 @@ $3x - 2y + 4 = ?$
 
 Different IRT models according to:
 
-1. Latent trait: 
+- Latent trait: 
 
   - Unidimensional model
   - Multidimensional model
   
-2. Response categories: 
+- Response categories: 
 
   - Dichotomous items (Two response categories, e.g., true/falso, agree/disagree)
   - Polytomous items (at least 3 response categories, e.g., Likert-type scale)
