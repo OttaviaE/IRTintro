@@ -1,9 +1,8 @@
 ---
-title: "Item Response Theory for beginners"
-subtitle: "Item time!"
-institute: "Rovereto (TN)"
-author: "Dr. Ottavia M. Epifania"
-date: "University of Trento, \\ 17 November 2023"
+title: "First Steps with Item Response Theory"
+institute: "Departmente of Psycholoy and Cognitive Science, UniTN"
+author: "Dr. Ottavia M. Epifania, \\ ottavia.epifania@unitn.it"
+date: "PhD Course @UniPD, \\ February 6-7, 2025 "
 output: 
   beamer_presentation: 
     theme: metropolis

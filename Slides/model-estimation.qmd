@@ -1,9 +1,8 @@
 ---
 title: "First Steps with Item Response Theory"
-author: "Dr. Ottavia M. Epifania"
+author: "Dr. Ottavia M. Epifania, \\ ottavia.epifania@unitn.it"
 subtitle: "Model estimation, model comparison, assumptions check in R"
-institute: "Rovereto (TN)"
-date: "University of Trento, \\ 17 November 2023"
+date: "PhD Course @UniPD, \\ February 6-7, 2025 "
 format: 
   revealjs: 
     theme: serif
@@ -791,6 +790,22 @@ ggplot(info2pl$test_info,
 
 
 
+### Your turn!
 
+Download the data set "dataES_stima.csv" from the [shared folder](https://drive.google.com/drive/folders/1EF4cN4yiB3Fft_y2Mh4r0Mclxc6bTRdf?usp=sharing).
+
+Store the downloaded file in the `data` sub folder: 
+
+- Import the dataset
+
+- Look at the data! (Both items and respondents)
+
+- CHeck the monotonicity and unidimensionality assumptions
+
+- Fit of the IRT models & choose the best model
+
+- Check the local independence assumption
+
+- Obtain the ICCs, IIFs, and TIF of the test
 
 

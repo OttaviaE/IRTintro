@@ -91,18 +91,18 @@ ggplot(prop_item,
 
 
 ## ----r eval =FALSE, echo = TRUE-----------------------------------------------
-#  data = read.csv("data/itemClass.csv", header = T, sep = ",")
-#  prop_item = data.frame(item = names(colMeans(data[, -c(1:2)])),
-#             proportion = colMeans(data[, -c(1:2)]))
-#  
-#  ggplot(prop_item,
-#         aes(x = reorder(item, proportion),
-#             y = proportion), color = item) + geom_bar(stat = "identity") + theme_light() +
-#    ylab("Proportion correct") + ylim(0, 1) +
-#    theme(legend.position = "none",
-#          axis.title = element_text(size = 26),
-#          axis.title.x = element_blank(),
-#          axis.text = element_text(size = 22))
+# data = read.csv("data/itemClass.csv", header = T, sep = ",")
+# prop_item = data.frame(item = names(colMeans(data[, -c(1:2)])),
+#            proportion = colMeans(data[, -c(1:2)]))
+# 
+# ggplot(prop_item,
+#        aes(x = reorder(item, proportion),
+#            y = proportion), color = item) + geom_bar(stat = "identity") + theme_light() +
+#   ylab("Proportion correct") + ylim(0, 1) +
+#   theme(legend.position = "none",
+#         axis.title = element_text(size = 26),
+#         axis.title.x = element_blank(),
+#         axis.text = element_text(size = 22))
 
 ## ----r echo = FALSE-----------------------------------------------------------
 m1pl = tam.mml(data[, grep("item", colnames(data))], verbose = F)
@@ -111,11 +111,11 @@ m3pl = tam.mml.3pl(data[, grep("item", colnames(data))], est.guess = grep("item"
 IRT.compareModels(m1pl, m2pl, m3pl) 
 
 ## ----r eval =FALSE, echo = TRUE-----------------------------------------------
-#  m1pl = tam.mml(data[, grep("item", colnames(data))], verbose = F)
-#  m2pl = tam.mml.2pl(data[, grep("item", colnames(data))], irtmodel = "2PL", verbose = F)
-#  m3pl = tam.mml.3pl(data[, grep("item", colnames(data))], est.guess = grep("item", colnames(data)), verbose = F)
-#  IRT.compareModels(m1pl, m2pl, m3pl)
-#  
+# m1pl = tam.mml(data[, grep("item", colnames(data))], verbose = F)
+# m2pl = tam.mml.2pl(data[, grep("item", colnames(data))], irtmodel = "2PL", verbose = F)
+# m3pl = tam.mml.3pl(data[, grep("item", colnames(data))], est.guess = grep("item", colnames(data)), verbose = F)
+# IRT.compareModels(m1pl, m2pl, m3pl)
+# 
 
 ## ----r echo = TRUE------------------------------------------------------------
 fit_m1pl = tam.modelfit(m1pl, progress = F)
@@ -214,15 +214,15 @@ ggplot(prop_gender,
 
 
 ## ----r eval = F, echo = TRUE--------------------------------------------------
-#  long = pivot_longer(data, !1:2, names_to = "item",
-#               values_to = "correct")
-#  prop_gender = long %>%
-#    group_by(item, gender) %>%
-#    summarise(prop = mean(correct), sd = sd(correct))
-#  
-#  ggplot(prop_gender,
-#         aes( x = item, y= prop, fill = gender)) + geom_bar(stat = "identity", position = position_dodge()) + ylim(0,1)
-#  
+# long = pivot_longer(data, !1:2, names_to = "item",
+#              values_to = "correct")
+# prop_gender = long %>%
+#   group_by(item, gender) %>%
+#   summarise(prop = mean(correct), sd = sd(correct))
+# 
+# ggplot(prop_gender,
+#        aes( x = item, y= prop, fill = gender)) + geom_bar(stat = "identity", position = position_dodge()) + ylim(0,1)
+# 
 
 ## ----r------------------------------------------------------------------------
 m1pl = tam.mml(data[, grep("item", colnames(data))], verbose = F)
@@ -242,13 +242,13 @@ item_fit_1pl$RMSD_summary
  fit_m1pl$Q3_summary
 
 ## ----r eval = FALSE-----------------------------------------------------------
-#  est_theta = IRT.factor.scores(m1pl)$EAP
-#  lrt_dif = difGenLogistic(data[, !colnames(data) %in% c("id", "gender")],
-#                             group = as.factor(data$gender), focal.names = "f",
-#                             type = "udif",
-#                             alpha = .001, p.adjust.method = "BH",
-#                             match = est_theta,
-#                             criterion = "LRT")
+# est_theta = IRT.factor.scores(m1pl)$EAP
+# lrt_dif = difGenLogistic(data[, !colnames(data) %in% c("id", "gender")],
+#                            group = as.factor(data$gender), focal.names = "f",
+#                            type = "udif",
+#                            alpha = .001, p.adjust.method = "BH",
+#                            match = est_theta,
+#                            criterion = "LRT")
 
 ## ----r echo = FALSE-----------------------------------------------------------
 est_theta = IRT.factor.scores(m1pl)$EAP
@@ -287,7 +287,7 @@ lordDif = difLord(data[, !colnames(data) %in% "id"],
 lordDif
 
 ## ----r eval = FALSE-----------------------------------------------------------
-#  lordDif$itemParInit
+# lordDif$itemParInit
 
 ## ----r------------------------------------------------------------------------
 item_par = lordDif$itemParInit
@@ -297,12 +297,12 @@ item_par[1:10, ]
 item_par[11:nrow(item_par), ]
 
 ## ----r eval = FALSE-----------------------------------------------------------
-#  itemFR = data.frame(cbind(item_par[11:nrow(item_par), ], item_par[1:10, ]))
-#  colnames(itemFR)[c(1,3)] = paste0(rep("b",2),  c("F", "R"))
-#  itemFR$constant = mean(itemFR$bR) - mean(itemFR$bF)
-#  itemFR$new_bR = itemFR$bR - itemFR$constant
-#  itemFR$DIF_correct = itemFR$bF- itemFR$new_bR
-#  itemFR
+# itemFR = data.frame(cbind(item_par[11:nrow(item_par), ], item_par[1:10, ]))
+# colnames(itemFR)[c(1,3)] = paste0(rep("b",2),  c("F", "R"))
+# itemFR$constant = mean(itemFR$bR) - mean(itemFR$bF)
+# itemFR$new_bR = itemFR$bR - itemFR$constant
+# itemFR$DIF_correct = itemFR$bF- itemFR$new_bR
+# itemFR
 
 ## ----r eval = TRUE, echo = FALSE----------------------------------------------
 itemFR = data.frame(cbind(item_par[11:nrow(item_par), ], item_par[1:10, ]))
@@ -311,4 +311,61 @@ itemFR$constant = mean(itemFR$bR) - mean(itemFR$bF)
 itemFR$new_bR = itemFR$bR - itemFR$constant
 itemFR$DIF_correct = itemFR$bF- itemFR$new_bR
 itemFR
+
+## ----r------------------------------------------------------------------------
+my_items = data.frame(items = rownames(itemFR), 
+                      focal = itemFR$bF, 
+                      reference = itemFR$bR)
+my_se = data.frame(items = rownames(itemFR), 
+                      focal = itemFR$se.b., 
+                      reference = itemFR$se.b..1)
+my_items = pivot_longer(my_items, 
+             cols = !items, 
+             names_to = "group", 
+             values_to = "estimate")
+
+my_se = pivot_longer(my_se, 
+             cols = !items, 
+             names_to = "group", 
+             values_to = "se")
+
+my_items = merge(my_items, my_se)
+
+ggplot(my_items, 
+       aes(x = estimate, y = reorder(items, estimate), 
+           color = group)) + geom_point() +
+  geom_errorbarh(aes(xmin = estimate -se, xmax = estimate + se)) + theme_light() +
+  theme(legend.position = c(.10, .6), 
+        legend.title = element_blank(), 
+        legend.text = element_text(size = 24), 
+        axis.text = element_text(size = 24), axis.title.y = element_blank())
+
+
+## ----r eval = F, echo = TRUE--------------------------------------------------
+# my_items = data.frame(items = rownames(itemFR),
+#                       focal = itemFR$bF,
+#                       reference = itemFR$bR)
+# my_se = data.frame(items = rownames(itemFR),
+#                       focal = itemFR$se.b.,
+#                       reference = itemFR$se.b..1)
+# my_items = pivot_longer(my_items,
+#              cols = !items,
+#              names_to = "group",
+#              values_to = "estimate")
+# 
+# my_se = pivot_longer(my_se,
+#              cols = !items,
+#              names_to = "group",
+#              values_to = "se")
+# 
+# my_items = merge(my_items, my_se)
+# 
+# ggplot(my_items,
+#        aes(x = estimate, y = reorder(items, estimate),
+#            color = group)) + geom_point() +
+#   geom_errorbarh(aes(xmin = estimate -se, xmax = estimate + se)) + theme_light() +
+#   theme(legend.position = c(.10, .6),
+#         legend.title = element_blank(),
+#         legend.text = element_text(size = 24),
+#         axis.text = element_text(size = 24), axis.title.y = element_blank())
 

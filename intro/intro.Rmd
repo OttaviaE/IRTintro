@@ -1,8 +1,8 @@
 ---
 title: "First Steps with Item Response Theory"
-institute: "Rovereto (TN)"
-author: "Dr. Ottavia M. Epifania, ottavia.epifania@unipd.it"
-date: "University of Trento, \\ 17 November 2023"
+institute: "Departmente of Psycholoy and Cognitive Science, UniTN"
+author: "Dr. Ottavia M. Epifania, \\ ottavia.epifania@unitn.it"
+date: "PhD Course @UniPD, \\ February 6-7, 2025 "
 output: 
   beamer_presentation: 
     theme: metropolis
@@ -33,7 +33,6 @@ header-includes:
     - \definecolor{manifeste}{RGB}{179, 7, 27}
     - \definecolor{background}{RGB}{251, 251, 251}
     - \setbeamercolor{frametitle}{bg=white}
-    # - \setbeamertemplate{frametitle}[default][center]
     - \AtBeginSubsection{\frame{\subsectionpage}}
     - \setbeamercolor{subsection name}{fg=white}
     - \setbeamercolor{section name}{fg=white}
@@ -58,6 +57,8 @@ header-includes:
             \end{beamercolorbox}
           \endgroup
         }
+editor_options: 
+  chunk_output_type: console
 ---
 
 
@@ -320,7 +321,7 @@ par(mar = c(5,7,4,2) + 0.1)
 plot(theta, IRT(theta, b = 1, a = 1),
      cex.lab= 2.5, 
      cex.axis =1.5, cex.main = 3,
-       xlab = expression(theta), ylab = "Probability of \n endorsing the item",
+       xlab = expression(theta),ylab = expression(paste("P(", x[p][i],  "= 1|", theta[p], ", ", b[i], ")")),
        xlim = c(-4, 4), ylim = c(0, 1), 
      type = "l", lwd = 3, 
      col = "royalblue", main = "Item Characteristic Curve (ICC)")
@@ -347,10 +348,9 @@ my_colors <- RColorBrewer::brewer.pal(6, "Blues")[2:6]
 
 par(mar = c(5,7,4,2) + 0.1) 
 plot(theta, IRT(theta, b = b[1], a = a[1]),
-     cex.lab= 2.5, 
-     cex.axis =1.5,cex.main = 3,
-       xlab = expression(theta), ylab = "Probability of \n endorsing the item", 
-     # main = "ICC - Different locations",
+     cex.lab= 2, 
+     cex.axis =1, cex.main = 2,
+       xlab = expression(theta), ylab = expression(paste("P(", x[p][i],  "= 1|", theta[p], ", ", b[i], ")")), 
        xlim = c(-4, 4), ylim = c(0, 1), 
      type = "l", lwd = 3, 
      col = my_colors[1])
@@ -385,8 +385,6 @@ text(x= b[i] +.5,
 }
 
 
-
-
 ```
 
 \vspace{-3mm}
@@ -405,7 +403,7 @@ print(xtable(si), comment = FALSE, include.rownames=T)
 
 Measure of the precision with which the item assesses different levels of the latent trait $\rightarrow$ \emph{Item Information Function}: 
 
-$$I_I = P_i(\theta, b_i)Q_i(\theta, b_i)$$
+$$IIF_i = P_i(\theta, b_i)Q_i(\theta, b_i)$$
 
 $Q_i = 1- P_i(\theta_p, b_i)$ is the probability of choosing the incorrect response
 
@@ -425,10 +423,10 @@ check <- data.frame(Theta,
                     item_info = c[[1]])
 d <- do.call('cbind',c)
 sum_info1 <- rowSums(d)
-
+par(mar = c(5,7,4,2) + 0.1) 
 plot(check$Theta, check$item_info, ylim= c(0, 1), cex.lab= 2, 
      cex.axis =1.5, cex.main = 3,
-       xlab = expression(theta), ylab = "Information", 
+       xlab = expression(theta),ylab = expression(paste("IIF"[i])), 
      type = "l", lwd =2, 
      col = "royalblue", main = "Item Information Function - IIF")
 segments(-7, 0.25, 
@@ -476,7 +474,7 @@ Items should be as homogeneous as possible
 
 ### Items with difference locations: IIFs
 
-\vspace*{-8mm}
+\vspace*{-5mm}
 
 ```{r out.width="85%"}
 
@@ -501,10 +499,10 @@ d <- do.call('cbind',c)
 sum_info <- rowSums(d)
 
 check$theta = NULL
-
+par(mar = c(5,7,4,2) + 0.1) 
 plot(Theta, check[, 1], ylim= c(0, 1), cex.lab= 2, 
      cex.axis =1.5, cex.main =2.5,
-       xlab = expression(theta), ylab = "Information", 
+       xlab = expression(theta), ylab = expression(paste("IIF"[i])), 
      # main = "IIF- Items with different locations",
      type = "l", lwd =2, 
      col = my_colors[1])
@@ -559,7 +557,7 @@ print(xtable(si), comment = FALSE, include.rownames=T)
 
 Measure of the precision with which the test assesses the latent trait:
 
-$$I(\theta) = \sum_{i = 1}^{I} I_i(\theta, b_i)$$
+$$TIF = \sum_{i = 1}^{I} IIF_i$$
 
 
 
@@ -568,9 +566,10 @@ $$I(\theta) = \sum_{i = 1}^{I} I_i(\theta, b_i)$$
 <!-- \vspace*{-5mm} -->
 
 ```{r}
+par(mar = c(5,7,4,2) + 0.1) 
 plot(theta, sum_info, cex.lab= 2, 
      cex.axis =1.5,
-       xlab = expression(theta), ylab = "Information", 
+       xlab = expression(theta), ylab = expression(paste("IIF"[i])), 
      type = "l", lwd =2, 
      col = "black", ylim = c(0,1))
 
@@ -590,7 +589,7 @@ print(xtable(si), comment = FALSE, include.rownames=T)
 ### Standard Error of Measurement (SEM)
 
 
-$$SEM(\theta) = \sqrt{\dfrac{1}{I(\theta)}} = \sqrt{\dfrac{1}{P_i(\theta, b_i)Q_i(\theta, b_i)}} $$
+$$SEM(\theta) = \sqrt{\dfrac{1}{TIF}}$$
 The higher the information, the lower the SEM
 
 The lower the information, the higher the SEM
@@ -603,12 +602,7 @@ Differently from CTT $\rightarrow$ the error of measuremt can vary for different
 <!-- \vspace*{-5mm} -->
 
 ```{r}
-
-
-
-
-
-par(mar = c(5, 4, 4, 4) + 0.3)  # Leave space for z axis
+par(mar = c(5,7,4,2) + 0.1) 
 plot(theta, sqrt(1/sum_info), cex.lab= 2, 
      cex.axis =1.5,
        xlab = expression(theta), ylab = "SEM", 
@@ -656,6 +650,7 @@ $a_i$: Discrimination of the item $\rightarrow$ ability of the item to tell apar
 \onslide<1>
 
 ```{r}
+par(mar = c(5,7,4,2) + 0.1) 
 library(png)
 # lisa = readPNG(paste0(getwd(), "/intro/img/lisa.png"))
 # bart =readPNG(paste0(getwd(), "/intro/img/bart.png"))
@@ -665,7 +660,7 @@ bart = readPNG( "img/bart.png")
 
 plot(theta, IRT(theta, a = 0.5, b = 1), 
      type = "l", 
-     ylab = "P(x = 1)", ylim = c(0,1 ), cex.lab= 2, 
+     ylab = expression(paste("P(", x[p][i],  "= 1|", theta[p], ", ", b[i], ", ", a[i], ")")), ylim = c(0,1 ), cex.lab= 2, 
      cex.axis =1.5, xlab = expression(theta), lwd = 3)
 
 
@@ -700,9 +695,10 @@ $2 + 2= ?$
 \onslide<2>
 
 ```{r}
+par(mar = c(5,7,4,2) + 0.1) 
 plot(theta, IRT(theta, a = 0.5, b = 0), 
      type = "l", 
-     ylab = "P(x = 1)", ylim = c(0,1 ), cex.lab= 2, 
+     ylab = expression(paste("P(", x[p][i],  "= 1|", theta[p], ", ", b[i], ", ", a[i], ")")), ylim = c(0,1 ), cex.lab= 2, 
      cex.axis =1.5, xlab = expression(theta), lwd = 3)
 text(x= 3.2, 
      y = 0.95, expression(paste(a[1], "= 0.50")), 
@@ -746,10 +742,10 @@ $2 + 2= ?$
 \onslide<3>
 
 ```{r}
-
+par(mar = c(5,7,4,2) + 0.1) 
 plot(theta, IRT(theta, a = 0.5, b = 0), 
      type = "l", 
-     ylab = "P(x = 1)", ylim = c(0,1 ), cex.lab= 2, 
+     ylab = expression(paste("P(", x[p][i],  "= 1|", theta[p], ", ", b[i], ", ", a[i], ")")), ylim = c(0,1 ), cex.lab= 2, 
      cex.axis =1.5, xlab = expression(theta), lwd = 3)
 text(x= 3.2, 
      y = 0.95, expression(paste(a[1], "= 0.50")), 
@@ -819,9 +815,10 @@ $5 + 14 = ?$
 \vspace*{-5mm}
 
 ```{r out.width ="70%"}
+par(mar = c(5,7,4,2) + 0.1) 
 plot(theta, IRT(theta, a = -0.5, b = 0), 
      type = "l", cex.main = 3, 
-     ylab = "P(x = 1)", ylim = c(0,1 ), cex.lab= 2, 
+     ylab = expression(paste("P(", x[p][i],  "= 1|", theta[p], ", ", b[i], ", ", a[i], ")")), ylim = c(0,1 ), cex.lab= 2, 
      cex.axis =1.5, xlab = expression(theta), lwd = 3)
 text(x= 3.2, 
      y = 0.95, expression(paste(a[1], "= -0.50")), 
@@ -857,7 +854,7 @@ par(mar = c(5,7,4,2) + 0.1)
 plot(theta, IRT(theta, b = b[1], a = a[1]),
      cex.lab= 2.5, 
      cex.axis =1.5,
-       xlab = expression(theta), ylab = "Probability of \n endorsing the item",
+       xlab = expression(theta),ylab =expression(paste("P(", x[p][i],  "= 1|", theta[p], ", ", b[i], ", ", a[i],  ")")),
        xlim = c(-4, 4), ylim = c(0, 1), 
      type = "l", lwd = 3, 
      col = my_colors[1])
@@ -910,6 +907,20 @@ text(x= b[4] +.7,
 print(xtable(si), comment = FALSE, include.rownames=T)
 ```
 
+### $a \to \infty$ 
+
+```{r}
+par(mar = c(5,7,4,2) + 0.1) 
+theta1 = seq(-4, 4, length.out = 15000)
+plot(theta1, IRT(theta1, a = 200, b = 0), 
+     type = "l", 
+     ylab = expression(paste("P(", x[p][i],  "= 1|", theta[p], ", ", b[i], ", ", a[i],  ")")), 
+     ylim = c(0,1 ), cex.lab= 2, 
+     cex.axis =1.5, xlab = expression(theta), lwd = 3, col = "firebrick")
+
+
+```
+
 ## Item Information Function
 
 
@@ -949,7 +960,7 @@ check$theta = NULL
 
 plot(Theta, check[, 1], ylim= c(0, 1), cex.lab= 2, 
      cex.axis =1.5,
-       xlab = expression(theta), ylab = "Information", 
+       xlab = expression(theta), ylab = expression(paste("IIF"[i])), 
      type = "l", lwd =2, 
      col = my_col[1])
 
@@ -986,7 +997,7 @@ for ( i in 1:length(b)) {
 ::: {.column}
 \small
 
-$I_i(\theta, b_i, a_i) = a_i^2P_i(\theta, b_i, a_i)Q_i(\theta, b_i, a_i)$
+$IIF_i = a_i^2P_i(\theta, b_i, a_i)Q_i(\theta, b_i, a_i)$
 :::
 
 
@@ -1015,7 +1026,7 @@ print(xtable(si), comment = F)
 ```{r out.width="85%"}
 plot(theta, sum_info, cex.lab= 2, 
      cex.axis =1.5,
-       xlab = expression(theta), ylab = "Information", 
+       xlab = expression(theta), ylab = "TIF", 
      type = "l", lwd =2, 
      col = "black", ylim = c(0,1))
 
@@ -1031,7 +1042,7 @@ for ( i in 1:length(b)) {
 
 ::: {.column}
 
-$$I(\theta) = \sum_{i = 1}^{I} I_i(\theta, b_i, a_i)  $$
+$$TIF = \sum_{i = 1}^{I} IIF_i $$
 
 :::
 
@@ -1081,7 +1092,7 @@ mtext("Information", side=4, line=3, cex = 2)
 
 \footnotesize
 
-$$SEM(\theta) = \sqrt{\dfrac{1}{I(\theta)}} = \sqrt{\dfrac{1}{a^2 P_i(\theta, b_i)Q_i(\theta, b_i)}} $$
+$$SEM(\theta) = \sqrt{\dfrac{1}{TIF}} $$
 
 ::: 
 
@@ -1148,7 +1159,8 @@ g = c(0.20, 0.30)
 
 plot(theta, IRT(theta, a = a[1], b = b[1], c= g[1]), 
      type = "l", 
-     ylab = "P(x = 1)", ylim = c(0,1 ), cex.lab= 2, 
+     ylab = expression(paste("P(", x[p][i],  "= 1|", theta[p], ", ", b[i], ", ", a[i], ", ", c[i], ")")), 
+     ylim = c(0,1 ), cex.lab= 2, 
      cex.axis =1.5, 
      xlab = expression(theta), lwd = 3, col = my_colors[1])
 text(x= -0.4, 
@@ -1200,8 +1212,7 @@ text(x= 3.2,
 
 ```
 
-The probability of responding correctly when $\theta_p = b_i$ is higher than $.50$
-($P(x_{pi} = 1) = c + (1 - c)/2$)
+The probability of responding correctly when $\theta_p = b_i$ is higher than $.50$: $P(x_{pi} = 1) = c + (1 - c)/2$
 
 ### 
 
@@ -1221,7 +1232,7 @@ Assumption: All the response options are equally plausible
 
 
 
-$$I_i(\theta, b_i, a_i, c_i) = a^2 \dfrac{P_i(\theta, b_i, a_i, c_i)}{Q_i(\theta, b_i, a_i, c_i)} \left[\dfrac{P_i(\theta, b_i, a_i, c_i) -c_i}{1 -c_i}\right]$$
+$$IIF_i = a^2 \dfrac{P_i(\theta, b_i, a_i, c_i)}{Q_i(\theta, b_i, a_i, c_i)} \left[\dfrac{P_i(\theta, b_i, a_i, c_i) -c_i}{1 -c_i}\right]$$
 
 The higher the guessing, the lower the IIF
 
@@ -1285,7 +1296,7 @@ check$theta = NULL
 
 plot(Theta, check[, 1], ylim= c(0, 1), cex.lab= 2, 
      cex.axis =1.5,
-       xlab = expression(theta), ylab = "Information", 
+       xlab = expression(theta), ylab = expression(paste("IIF"[i])), 
      type = "l", lwd =2, 
      col = my_colors[1])
 
@@ -1341,7 +1352,7 @@ for ( i in 1:length(b)) {
 
 ::: {.column}
 \small
-$$I(\theta) = \sum_{i = 1}^{I} I_i(\theta, b_i, a_i, c_i)  $$
+$$TIF= \sum_{i = 1}^{I} IIF_i $$
 :::
 
 ::: {.column}
@@ -1388,7 +1399,7 @@ mtext("Information", side=4, line=3, cex = 2)
 ::: {.column}
 \footnotesize
 
-$$SEM(\theta) = \sqrt{\dfrac{1}{I(\theta)}} = \sqrt{\dfrac{1}{a^2 P_i(\theta, b_i, a_i, c_i)Q_i(\theta, b_i, a_i, c_i)}}$$
+$$SEM(\theta) = \sqrt{\dfrac{1}{TIF}}$$
 :::
 
 ::: {.column}
@@ -1427,7 +1438,7 @@ The lower the value of $d_i$, the lower the probability that a person with high 
 Item 1: $b_1 = 0$, $a_1 = 1.4$, $c_1=0.20$, $d_1 = .9$
 \end{column}
 \begin{column}{.50\linewidth}
-Item 2: $b_2 = 0$, $a_2 = 1.4$, $c_2=0.30$, $d_2 = .7$
+Item 2: $b_2 = 0$, $a_2 = 1.4$, $c_2=0.30$, $d_2 = .85$
 \end{column}
 \end{columns}
 
@@ -1437,11 +1448,12 @@ Item 2: $b_2 = 0$, $a_2 = 1.4$, $c_2=0.30$, $d_2 = .7$
 b = rep(0, 2)
 a = c(1.4, 1.4)
 g = c(0.20, 0.30)
-d = c(.9, .7)
+d = c(.9, .85)
 
 plot(theta, IRT(theta, a = a[1], b = b[1], c= g[1], e = d[1]), 
      type = "l", 
-     ylab = "P(x = 1)", ylim = c(0,1 ), cex.lab= 2, 
+     ylab = expression(paste("P(", x[p][i],  "= 1|", theta[p], ", ", b[i], ", ", a[i], ")")), 
+     ylim = c(0,1 ), cex.lab= 2, 
      cex.axis =1.5, 
      xlab = expression(theta), lwd = 3, col = my_colors[1])
 text(x= -0.4, 
@@ -1457,6 +1469,90 @@ lines(theta, IRT(theta, a = a[2], b = b[2], c= g[2], e = d[2]),
 text(x= 3.2, 
      y = 0.80, "item2", 
      col = my_colors[5], cex = 2)
+```
+
+
+### Item Information Function
+Given $P(\theta) = P(\theta, b_i, a_i, c_i, d_i)$ and $Q(\theta) = \- P(\theta, b_i, a_i, c_i, d_i)$,
+
+\vspace{3mm}
+
+$$IIF_i = \dfrac{a^2[P(\theta)-c_i]^2[d_i - P(\theta)]^2}{(d_i-c_i)^2 P(\theta)Q(\theta)}$$
+
+### Careless error and $IIF_i$
+
+```{r}
+par(mar = c(5,7,4,2) + 0.1) 
+
+i_info <- function(b, a=1,c=0, e= 1,  theta = seq(-5,5,length.out=1000)){
+  P = IRT(theta, b = b, a = a, e = e, c=c)
+  Q = 1 - P 
+  # Ii = (a^2)*(Q/P)*((P-c)/(e-c))^2
+  # Ii = (a^2)*(Q*P/e^2)
+  num = (a^2)*((P-c)^2)*((e-P)^2)
+  den = ((e-c)^2)*P*Q
+  Ii = num/den
+  return(Ii)
+}
+
+item_info <- function(ipar, theta = seq(-5,5,length.out=1000)){
+  item <- NULL
+    for(i in 1:nrow(ipar)){
+      item[[i]] <- i_info(b = ipar[i, "b"],a = ipar[i, "a"], c = ipar[i, "c"], e = ipar[i, "e"], theta = theta)
+    }
+  item = data.frame(do.call("cbind", item))
+  colnames(item) = rownames(ipar)
+  return(item)
+}
+
+set.seed(666)
+original_q = data.frame(b = runif(5, -3, 3), 
+               a = runif(5, .9, 2), 
+               c = rep(0,5), e= rep(1, 5))
+rownames(original_q) = paste("item", 1:nrow(original_q), sep ="_")
+theta = seq(-4, 4, length.out = 1000)
+
+all_iif = item_info(original_q, theta)
+tif = data.frame(theta, tif = rowSums(all_iif), 
+                 mean_tif = rowMeans(all_iif))
+par(mar = c(5,7,4,2) + 0.1) 
+
+plot(theta, all_iif$item_1, type = "l", lwd = 2, col ="gray58", ylim = c(0, 1),  
+     ylab = expression(paste("IIF"[i])), xlab = expression(theta), cex.lab = 2)
+for (i in 2:ncol(all_iif)) {
+  lines(theta, all_iif[,i], type = "l", lwd = 2, col ="gray58")
+}
+# metto la stanchezza 
+# uso una funzione esponenziale exp(-kn)
+# dove k è il parametro di velocità della stanchezza
+# n è l'n item somministrato 
+tired_q = original_q
+tired_q$e = sample(seq(.92, .98, length.out = nrow(tired_q)))
+tired_iif = item_info(tired_q, theta)
+tired_tif = data.frame(theta, tired_tif = rowSums(tired_iif), 
+                       mean_tired_tif = rowMeans(tired_iif))
+for (i in 1:ncol(tired_iif)) {
+  lines(theta, tired_iif[,i], type = "l", lwd = 2, col ="firebrick")
+}
+legend(x = -1.2, y = .95, cex = 2, 
+       legend = c("Without d", "With d"), 
+       fill = c("gray58", "firebrick"))
+
+
+```
+
+### Careless error and TIF
+
+
+```{r}
+par(mar = c(5,7,4,2) + 0.1) 
+
+plot(theta, tif$tif, type = "l", lwd = 2, col ="gray58", ylim = c(0, 1.8),  
+     ylab = "TIF", xlab = expression(theta), cex.lab = 2)
+lines(theta, tired_tif$tired_tif, lwd = 2, col = "firebrick")
+legend(x = -1, y = 1.75, cex = 2, 
+       legend = c("Without d", "With d"), 
+       fill = c("gray58", "firebrick"))
 ```
 
 

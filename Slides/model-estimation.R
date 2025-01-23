@@ -50,33 +50,33 @@ knitr::include_graphics("img/project2.png")
 knitr::include_graphics("img/project3.png")
 
 ## ----r, eval = F, echo = T----------------------------------------------------
-#  install.packages("lavaan")
-#  
-#  install.packages("TAM")
-#  
-#  install.packages("mokken")
-#  
-#  install.packages("difR")
-#  
-#  install.packages("tidyverse")
-#  
-#  install.packages("ggplot2")
-#  
-#  
+# install.packages("lavaan")
+# 
+# install.packages("TAM")
+# 
+# install.packages("mokken")
+# 
+# install.packages("difR")
+# 
+# install.packages("tidyverse")
+# 
+# install.packages("ggplot2")
+# 
+# 
 
 ## ----r, eval = F, echo = T----------------------------------------------------
-#  library("lavaan")
-#  
-#  library("TAM")
-#  
-#  library("mokken")
-#  
-#  library("difR")
-#  
-#  library("tidyverse")
-#  
-#  library("ggplot2")
-#  
+# library("lavaan")
+# 
+# library("TAM")
+# 
+# library("mokken")
+# 
+# library("difR")
+# 
+# library("tidyverse")
+# 
+# library("ggplot2")
+# 
 
 ## ----r------------------------------------------------------------------------
 # probability of a correct response given theta and item parameters
@@ -176,27 +176,27 @@ ggplot(prop_data,
     axis.text = element_text(size = 22))
 
 ## ----r, eval = FALSE, echo = TRUE---------------------------------------------
-#  vis_data = data
-#  vis_data$id = paste0("s", 1:nrow(data))
-#  
-#  vis_data = vis_data[, c(ncol(vis_data), 1:ncol(data))]
-#  vis_data = pivot_longer(vis_data, names_to = "item", cols = -1)
-#  
-#  prop_data = vis_data %>%
-#    group_by(item) %>%
-#    summarise(proportion = mean(value))
-#  
-#  ggplot(prop_data,
-#         aes(x = reorder(item, proportion), y=proportion,
-#             fill = item)) + geom_bar(stat = "identity") +
-#    theme(axis.text = element_text(angle = 90)) + geom_hline(aes(yintercept=.50), linetype = 2) + ylab("Proportion correct") + xlab("") +
-#    theme_light() + ylim(0, 1) +
-#    theme(
-#      legend.position = "none",
-#      axis.title = element_text(size = 26),
-#      axis.text = element_text(size = 22))
-#  
-#  
+# vis_data = data
+# vis_data$id = paste0("s", 1:nrow(data))
+# 
+# vis_data = vis_data[, c(ncol(vis_data), 1:ncol(data))]
+# vis_data = pivot_longer(vis_data, names_to = "item", cols = -1)
+# 
+# prop_data = vis_data %>%
+#   group_by(item) %>%
+#   summarise(proportion = mean(value))
+# 
+# ggplot(prop_data,
+#        aes(x = reorder(item, proportion), y=proportion,
+#            fill = item)) + geom_bar(stat = "identity") +
+#   theme(axis.text = element_text(angle = 90)) + geom_hline(aes(yintercept=.50), linetype = 2) + ylab("Proportion correct") + xlab("") +
+#   theme_light() + ylim(0, 1) +
+#   theme(
+#     legend.position = "none",
+#     axis.title = element_text(size = 26),
+#     axis.text = element_text(size = 22))
+# 
+# 
 
 ## ----r echo = FALSE-----------------------------------------------------------
 sbj_data = data
@@ -208,13 +208,13 @@ sbj_data$sum = rowSums(sbj_data[,-1])
 boxplot(sbj_data$sum)
 
 ## ----r, eval = F, echo = TRUE-------------------------------------------------
-#  sbj_data = data
-#  sbj_data$id = paste0("s", 1:nrow(data))
-#  sbj_data = sbj_data[, c(ncol(sbj_data), 1:ncol(data))]
-#  
-#  sbj_data$sum = rowSums(sbj_data[,-1])
-#  
-#  boxplot(sbj_data$sum)
+# sbj_data = data
+# sbj_data$id = paste0("s", 1:nrow(data))
+# sbj_data = sbj_data[, c(ncol(sbj_data), 1:ncol(data))]
+# 
+# sbj_data$sum = rowSums(sbj_data[,-1])
+# 
+# boxplot(sbj_data$sum)
 
 ## ----r eval = TRUE, echo = FALSE----------------------------------------------
 library(mokken)
@@ -222,9 +222,9 @@ mono_check = check.monotonicity(data)
 summary(mono_check)
 
 ## ----r eval = FALSE-----------------------------------------------------------
-#  library(mokken)
-#  mono_check = check.monotonicity(data)
-#  summary(mono_check)
+# library(mokken)
+# mono_check = check.monotonicity(data)
+# summary(mono_check)
 
 ## ----r eval=TRUE, echo=FALSE--------------------------------------------------
 item_lab = paste(colnames(data), collapse = " + ")
@@ -234,18 +234,18 @@ form
 
 
 ## ----r eval = F---------------------------------------------------------------
-#  
-#  item_lab = paste(colnames(data), collapse = " + ")
-#  form = paste("latent =~", item_lab)
-#  
+# 
+# item_lab = paste(colnames(data), collapse = " + ")
+# form = paste("latent =~", item_lab)
+# 
 
 ## ----r echo = FALSE-----------------------------------------------------------
 model = cfa(form, data = data,  ordered = colnames(data), std.lv = T)
 summary(model, fit.measures = T)
 
 ## ----r eval = FALSE-----------------------------------------------------------
-#  model = cfa(form, data = data,  ordered = colnames(data), std.lv = T)
-#  summary(model, fit.measures = T)
+# model = cfa(form, data = data,  ordered = colnames(data), std.lv = T)
+# summary(model, fit.measures = T)
 
 ## ----r------------------------------------------------------------------------
 m1pl = tam.mml(data, verbose = F)
@@ -259,9 +259,9 @@ m3pl = tam.mml.3pl(data, est.guess = colnames(data), verbose = F)
 IRT.compareModels(m1pl, m2pl, m3pl)
 
 ## ----r eval = FALSE-----------------------------------------------------------
-#  f.m2pl = tam.modelfit(m2pl, progress = F)
-#  f.m2pl$statlist
-#  f.m2pl$modelfit.test
+# f.m2pl = tam.modelfit(m2pl, progress = F)
+# f.m2pl$statlist
+# f.m2pl$modelfit.test
 
 ## ----r echo=FALSE-------------------------------------------------------------
 fit_m2pl = tam.modelfit(m2pl, progress = F)
@@ -316,23 +316,23 @@ ggplot(icc_2pl,
 
 
 ## ----r eval = FALSE, echo = TRUE, out.width="60%"-----------------------------
-#  icc_2pl = irt_icc(m2pl)$icc_data
-#  item = m2pl$item_irt
-#  icc_2pl = merge(icc_2pl, item)
-#  icc_2pl$item_label = paste0(icc_2pl$item, ", b =",
-#                              round(icc_2pl$beta, 2), ", a = ", round(icc_2pl$alpha, 2))
-#  
-#  ggplot(icc_2pl,
-#         aes(x = theta, y = it_p, group = item_label, color = item_label)) +
-#    geom_line(linewidth = 1.2) + theme_classic() +
-#      ylab(expression(paste("P(", x[ip], " = 1|", theta, ", ", b[i], ", ", a[i], ")"))) + xlab(expression(theta)) +
-#    theme(legend.position = c(.15, .80),
-#          legend.title = element_blank(),
-#          legend.text = element_text(size = 18),
-#          axis.title = element_text(size = 26)) +
-#    geom_hline(yintercept = .50, linetype = 2)
-#  
-#  
+# icc_2pl = irt_icc(m2pl)$icc_data
+# item = m2pl$item_irt
+# icc_2pl = merge(icc_2pl, item)
+# icc_2pl$item_label = paste0(icc_2pl$item, ", b =",
+#                             round(icc_2pl$beta, 2), ", a = ", round(icc_2pl$alpha, 2))
+# 
+# ggplot(icc_2pl,
+#        aes(x = theta, y = it_p, group = item_label, color = item_label)) +
+#   geom_line(linewidth = 1.2) + theme_classic() +
+#     ylab(expression(paste("P(", x[ip], " = 1|", theta, ", ", b[i], ", ", a[i], ")"))) + xlab(expression(theta)) +
+#   theme(legend.position = c(.15, .80),
+#         legend.title = element_blank(),
+#         legend.text = element_text(size = 18),
+#         axis.title = element_text(size = 26)) +
+#   geom_hline(yintercept = .50, linetype = 2)
+# 
+# 
 
 ## ----r echo = FALSE-----------------------------------------------------------
 label_item = icc_2pl[, c("item", "item_label")]
@@ -353,22 +353,22 @@ ggplot(item_info,
 
 
 ## ----r echo = T, eval = FALSE-------------------------------------------------
-#  label_item = icc_2pl[, c("item", "item_label")]
-#  label_item = label_item %>% distinct()
-#  
-#  info2pl = irt_iif(m2pl)
-#  item_info = info2pl$item_info
-#  item_info = merge(item_info, label_item)
-#  
-#  ggplot(item_info,
-#         aes(x = theta, y = ii_item, group = item_label, color = item_label)) + geom_line(lwd = 1) + theme_light()+ xlab(expression(theta)) + ylab("Info")+
-#    theme(legend.position = c(.15, .80),
-#          legend.title = element_blank(),
-#          legend.text = element_text(size = 18),
-#          axis.title = element_text(size = 26)) +
-#    geom_hline(yintercept = .50, linetype = 2)
-#  
-#  
+# label_item = icc_2pl[, c("item", "item_label")]
+# label_item = label_item %>% distinct()
+# 
+# info2pl = irt_iif(m2pl)
+# item_info = info2pl$item_info
+# item_info = merge(item_info, label_item)
+# 
+# ggplot(item_info,
+#        aes(x = theta, y = ii_item, group = item_label, color = item_label)) + geom_line(lwd = 1) + theme_light()+ xlab(expression(theta)) + ylab("Info")+
+#   theme(legend.position = c(.15, .80),
+#         legend.title = element_blank(),
+#         legend.text = element_text(size = 18),
+#         axis.title = element_text(size = 26)) +
+#   geom_hline(yintercept = .50, linetype = 2)
+# 
+# 
 
 ## ----r echo = FALSE-----------------------------------------------------------
 
@@ -381,14 +381,14 @@ ggplot(info2pl$test_info,
 
 
 ## ----r eval = F, echo = T-----------------------------------------------------
-#  
-#  ggplot(info2pl$test_info,
-#         aes(x = theta, y = info)) + geom_line(lwd = 2) + theme_light() +
-#    xlab(expression(theta)) + ylab("Info") +
-#    theme(axis.text = element_text(size = 18),
-#          axis.title = element_text(size = 26))
-#  
-#  
+# 
+# ggplot(info2pl$test_info,
+#        aes(x = theta, y = info)) + geom_line(lwd = 2) + theme_light() +
+#   xlab(expression(theta)) + ylab("Info") +
+#   theme(axis.text = element_text(size = 18),
+#         axis.title = element_text(size = 26))
+# 
+# 
 
 ## ----r echo = FALSE-----------------------------------------------------------
 
@@ -402,13 +402,13 @@ ggplot(info2pl$test_info,
 
 
 ## ----r eval = F, echo = T-----------------------------------------------------
-#  
-#  ggplot(info2pl$test_info,
-#         aes(x = theta, y = se, col = "SE")) + geom_line(lwd = 2) + + theme_light() +
-#    xlab(expression(theta)) + ylab("Info") +
-#    theme(legend.position = "none",
-#          axis.text = element_text(size = 18),
-#          axis.title = element_text(size = 26))
-#  
-#  
+# 
+# ggplot(info2pl$test_info,
+#        aes(x = theta, y = se, col = "SE")) + geom_line(lwd = 2) + + theme_light() +
+#   xlab(expression(theta)) + ylab("Info") +
+#   theme(legend.position = "none",
+#         axis.text = element_text(size = 18),
+#         axis.title = element_text(size = 26))
+# 
+# 
 
