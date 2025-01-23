@@ -2,8 +2,8 @@
 title: "First Steps with Item Response Theory"
 subtitle: "Item time!"
 author: "Dr. Ottavia M. Epifania"
-institute: "Rovereto (TN)"
-date: "University of Trento, \\ 17 November 2023"
+institute: "ottavia.epifania@unitn.it"
+date: "PhD Course @UniPD, \\ February 6-7, 2025 "
 format: 
   revealjs: 
     theme: serif
@@ -22,6 +22,8 @@ execute:
   warning: false
   fig-align: center
   out-width: 80%
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE}
@@ -499,7 +501,7 @@ $$c = \bar{b}_R - \bar{b}_F$$
 
 Then, it is subtracted from the estimates of the items in the **reference group**:
 
-$$b' = b_{Ri} - c$$
+$$b' = b_{i}^{\text{Reference}} - c$$
 
 ## DIF -- Import data {.scrollable}
 
@@ -729,3 +731,80 @@ itemFR$DIF_correct = itemFR$bF- itemFR$new_bR
 itemFR
 ```
 
+### Plot the results
+
+```{r}
+my_items = data.frame(items = rownames(itemFR), 
+                      focal = itemFR$bF, 
+                      reference = itemFR$bR)
+my_se = data.frame(items = rownames(itemFR), 
+                      focal = itemFR$se.b., 
+                      reference = itemFR$se.b..1)
+my_items = pivot_longer(my_items, 
+             cols = !items, 
+             names_to = "group", 
+             values_to = "estimate")
+
+my_se = pivot_longer(my_se, 
+             cols = !items, 
+             names_to = "group", 
+             values_to = "se")
+
+my_items = merge(my_items, my_se)
+
+ggplot(my_items, 
+       aes(x = estimate, y = reorder(items, estimate), 
+           color = group)) + geom_point() +
+  geom_errorbarh(aes(xmin = estimate -se, xmax = estimate + se)) + theme_light() +
+  theme(legend.position = c(.10, .6), 
+        legend.title = element_blank(), 
+        legend.text = element_text(size = 24), 
+        axis.text = element_text(size = 24), axis.title.y = element_blank())
+
+```
+
+<details><summary>Show code</summary>
+```{r eval = F, echo = TRUE}
+my_items = data.frame(items = rownames(itemFR), 
+                      focal = itemFR$bF, 
+                      reference = itemFR$bR)
+my_se = data.frame(items = rownames(itemFR), 
+                      focal = itemFR$se.b., 
+                      reference = itemFR$se.b..1)
+my_items = pivot_longer(my_items, 
+             cols = !items, 
+             names_to = "group", 
+             values_to = "estimate")
+
+my_se = pivot_longer(my_se, 
+             cols = !items, 
+             names_to = "group", 
+             values_to = "se")
+
+my_items = merge(my_items, my_se)
+
+ggplot(my_items, 
+       aes(x = estimate, y = reorder(items, estimate), 
+           color = group)) + geom_point() +
+  geom_errorbarh(aes(xmin = estimate -se, xmax = estimate + se)) + theme_light() +
+  theme(legend.position = c(.10, .6), 
+        legend.title = element_blank(), 
+        legend.text = element_text(size = 24), 
+        axis.text = element_text(size = 24), axis.title.y = element_blank())
+```
+</details>
+
+
+Download the data set "difES.csv" from the [shared folder](https://drive.google.com/drive/folders/1EF4cN4yiB3Fft_y2Mh4r0Mclxc6bTRdf?usp=sharing).
+
+Store the downloaded file in the `data` sub folder: 
+
+- Import the dataset
+
+- Look at the data!
+
+- Check of the assumptions & Models estimation & Model selection
+
+- Item fit 
+
+- DIF investigation with the three methods
