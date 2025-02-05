@@ -1,6 +1,6 @@
 ---
 title: "First Steps with Item Response Theory"
-institute: "Departmente of Psycholoy and Cognitive Science, UniTN"
+institute: "Departmente of Psychology and Cognitive Science, UniTN"
 author: "Dr. Ottavia M. Epifania, \\ ottavia.epifania@unitn.it"
 date: "PhD Course @UniPD, \\ February 6-7, 2025 "
 output: 
@@ -270,7 +270,7 @@ Different IRT models according to:
   
 - Response categories: 
 
-  - Dichotomous items (Two response categories, e.g., true/falso, agree/disagree)
+  - Dichotomous items (Two response categories, e.g., true/false, agree/disagree)
   - Polytomous items (at least 3 response categories, e.g., Likert-type scale)
   
 ### Models for dichotomous items
@@ -291,7 +291,7 @@ These models can be distinguinshed according to the number of parameters describ
 
 - As the distance on the latent trait between the person parameter and the item parameter increases, the probability of a correct response changes 
 
-- When the parameter of the person matches the parameter of the item, then the probability of observing a correct response is 50% 
+- When the parameter of the person matches the parameter of the item and there are no lucky guesses and no careless errors, then the probability of observing a correct response is 50% 
 
 # 1-PL
 
@@ -909,6 +909,8 @@ print(xtable(si), comment = FALSE, include.rownames=T)
 
 ### $a \to \infty$ 
 
+\begin{overprint}
+\onslide<1>
 ```{r}
 par(mar = c(5,7,4,2) + 0.1) 
 theta1 = seq(-4, 4, length.out = 15000)
@@ -920,6 +922,37 @@ plot(theta1, IRT(theta1, a = 200, b = 0),
 
 
 ```
+
+\onslide<2>
+```{r}
+par(mar = c(5,7,4,2) + 0.1) 
+theta1 = seq(-4, 4, length.out = 15000)
+plot(theta1, IRT(theta1, a = 200, b = 0), 
+     type = "l", 
+     ylab = expression(paste("P(", x[p][i],  "= 1|", theta[p], ", ", b[i], ", ", a[i],  ")")), 
+     ylim = c(0,1 ), cex.lab= 2, 
+     cex.axis =1.5, xlab = expression(theta), lwd = 3, col = "firebrick")
+lines(theta1, IRT(theta1, a = 20, b = 0), 
+     type = "l", lwd = 2, lty = 2, col = "firebrick")
+
+```
+
+\onslide<3>
+```{r}
+par(mar = c(5,7,4,2) + 0.1) 
+theta1 = seq(-4, 4, length.out = 15000)
+plot(theta1, IRT(theta1, a = 200, b = 0), 
+     type = "l", 
+     ylab = expression(paste("P(", x[p][i],  "= 1|", theta[p], ", ", b[i], ", ", a[i],  ")")), 
+     ylim = c(0,1 ), cex.lab= 2, 
+     cex.axis =1.5, xlab = expression(theta), lwd = 3, col = "firebrick")
+lines(theta1, IRT(theta1, a = 20, b = 0), 
+     type = "l", lwd = 2, lty = 2, col = "firebrick")
+lines(theta1, IRT(theta1, a = 4, b = 0), 
+     type = "l", lwd = 2, lty = 2, col = "royalblue")
+
+```
+\end{overprint}
 
 ## Item Information Function
 
@@ -1153,10 +1186,11 @@ Item 2: $b_2 = 0$, $a_2 = 1.4$, $c_2 = 0.30$
 ::::
 \vspace{-3mm}
 ```{r, out.width="80%"}
+
 b = c(0, 1)
 a = c(1.4, 1.4)
 g = c(0.20, 0.30)
-
+par(mar = c(5,7,4,2) + 0.1) 
 plot(theta, IRT(theta, a = a[1], b = b[1], c= g[1]), 
      type = "l", 
      ylab = expression(paste("P(", x[p][i],  "= 1|", theta[p], ", ", b[i], ", ", a[i], ", ", c[i], ")")), 
@@ -1185,7 +1219,39 @@ The probability of responding correctly is approximately $c$ (0.20, 0.30) when $
 ###
 
 \small
+\begin{overprint}
+\onslide<1>
+```{r out.width="80%"}
+b = c(0, 1)
+a = c(1.4, 1.4)
+g = c(0.20, 0.30)
 
+plot(theta, IRT(theta, a = a[1], b = b[1], c= g[1]), 
+     type = "l", 
+     ylab = "P(x = 1)", ylim = c(0,1 ), cex.lab= 2, 
+     cex.axis =1.5, 
+     xlab = expression(theta), lwd = 3, col = my_colors[1])
+text(x= -0.4, 
+     y = 0.90, "item1", 
+     col = my_colors[1], cex = 2)
+
+abline(h = .20, lty = 2, lwd = 2, col = "red")
+abline(h = .30, lty = 2, lwd = 2, col = "red")
+lines(theta, IRT(theta, a = a[2], b = b[2], c= g[2]), 
+     col = my_colors[5], lwd = 3)
+
+abline(h = .50, lty = 3, col = "gray78", lwd = 2)
+text(x= 3.2, 
+     y = 0.90, "item2", 
+     col = my_colors[5], cex = 2)
+abline(v = b[1], lty = 2, col = "red", lwd = 2)
+abline(v = b[2], lty = 2, col = "red", lwd = 2)
+abline(h = g[1] + (1-g[1])/2, lty = 3, col = my_colors[1], lwd = 2)
+abline(h = g[2] + (1-g[2])/2, lty = 3, col = my_colors[5], lwd = 2)
+
+```
+
+\onslide<2>
 
 ```{r out.width="80%"}
 b = c(0, 1)
@@ -1205,12 +1271,19 @@ abline(h = .20, lty = 2, lwd = 2, col = "red")
 abline(h = .30, lty = 2, lwd = 2, col = "red")
 lines(theta, IRT(theta, a = a[2], b = b[2], c= g[2]), 
      col = my_colors[5], lwd = 3)
+lines(theta, IRT(theta, a = a[2], b = b[2], c= 0), 
+     col = "gray", lwd = 3)
+lines(theta, IRT(theta, a = a[1], b = b[1], c= 0), 
+     col = "gray", lwd = 3)
+
 text(x= 3.2, 
      y = 0.90, "item2", 
      col = my_colors[5], cex = 2)
-
-
+abline(v = b[1], lty = 2, col = "red", lwd = 2)
+abline(v = b[2], lty = 2, col = "red", lwd = 2)
+abline(h = .50, lty = 3, col = "gray78", lwd = 2)
 ```
+\end{overprint}
 
 The probability of responding correctly when $\theta_p = b_i$ is higher than $.50$: $P(x_{pi} = 1) = c + (1 - c)/2$
 
@@ -1278,33 +1351,45 @@ rownames(si) = c("b", "a", "c")
 
 
 c <- item_info(b,a, g, guessing = T)
+c1 = item_info(b,a,  guessing = F)
 Theta <- matrix(seq(-4,4, length.out=1000))
 check = data.frame(theta = Theta)
+check1 = data.frame(theta = Theta)
 temp = NULL
+temp1 = NULL
 for (i in 1:length(c)) {
   temp = cbind( temp, c[[i]])
+  temp1 = cbind( temp1, c1[[i]])
 }
 
 check = cbind(check, temp)
 colnames(check)[2:ncol(check)] = paste0("item_info", 1:(ncol(check)-1))
 
+check1 = cbind(check1, temp1)
+colnames(check1)[2:ncol(check1)] = paste0("item_info", 1:(ncol(check1)-1))
+check1$item_info2 = unlist(item_info(b[2], a[2], guessing = F))
 d <- do.call('cbind',c)
 sum_info <- rowSums(d)
+d1 <- do.call('cbind',c1)
+
 
 
 check$theta = NULL
-
+check1$theta = NULL
 plot(Theta, check[, 1], ylim= c(0, 1), cex.lab= 2, 
      cex.axis =1.5,
        xlab = expression(theta), ylab = expression(paste("IIF"[i])), 
      type = "l", lwd =2, 
      col = my_colors[1])
-
+lines(theta, check1[, 1], 
+      lty = 3, lwd=3, col = "gray")
 text(x= 0, y = 0.4, colnames(si)[1], col = my_colors[1], cex = 2)
 
 for ( i in 2:length(b)) {
   lines(theta, check[, i], 
       lty = 1, lwd=3, col = my_colors[i])
+   lines(theta, check1[, i], 
+      lty = 3, lwd=3, col = "gray")
 }
 text(x= 2, y = 0.2, colnames(si)[2], col = my_colors[2], cex = 2)
 
@@ -1335,12 +1420,13 @@ print(xtable(si), comment = F)
 \vspace*{-8mm}
 
 ```{r}
+sum_info1 <- rowSums(check1)
 plot(theta, sum_info, cex.lab= 2, 
      cex.axis =1.5,
        xlab = expression(theta), ylab = "Information", 
      type = "l", lwd =2, 
      col = "black", ylim = c(0,1))
-
+lines(theta, sum_info1, lty = 3, lwd = 2, col = "gray")
 for ( i in 1:length(b)) {
   lines(theta, check[, i], 
       lty = 1, lwd=3, col = my_colors[i])
@@ -1383,6 +1469,7 @@ plot(theta, sqrt(1/sum_info), cex.lab= 2,
        xlab = expression(theta), ylab = "SEM", 
      type = "l", lwd =2, 
      col = "firebrick")
+lines(theta, sqrt(1/sum_info1), col ="gray", lty = 3, lwd = 2)
 text("SEM", col = "firebrick", cex =2, x = -2.5, y = 80)
 par(new = TRUE)
 plot(theta, sum_info, type = "l", axes = FALSE,
@@ -1419,7 +1506,7 @@ print(xtable(si), comment = FALSE, include.rownames=T)
 
 Lower the upper asymptote by adding a \textbf{careless error} parameter
 
-$$P(x_{pi} = 1| \theta_p, b_i. a_i) = c_i + (d_i - c_i) \dfrac{\exp[a_i(\theta_p - b_i)]}{1+\exp[a_i(\theta_p - b_i)]}$$
+$$P(x_{pi} = 1| \theta_p, b_i, a_i, c_i, d_i) = c_i + (d_i - c_i) \dfrac{\exp[a_i(\theta_p - b_i)]}{1+\exp[a_i(\theta_p - b_i)]}$$
 
 $\theta_p$: Ability of the person (i.e., latent trait level of the person)
 
@@ -1442,7 +1529,9 @@ Item 2: $b_2 = 0$, $a_2 = 1.4$, $c_2=0.30$, $d_2 = .85$
 \end{column}
 \end{columns}
 
+\begin{overprint}
 
+\onslide<1>
 
 ```{r}
 b = rep(0, 2)
@@ -1471,6 +1560,40 @@ text(x= 3.2,
      col = my_colors[5], cex = 2)
 ```
 
+\onslide<2>
+
+```{r}
+b = rep(0, 2)
+a = c(1.4, 1.4)
+g = c(0.20, 0.30)
+d = c(.9, .85)
+
+plot(theta, IRT(theta, a = a[1], b = b[1], c= g[1], e = d[1]), 
+     type = "l", 
+     ylab = expression(paste("P(", x[p][i],  "= 1|", theta[p], ", ", b[i], ", ", a[i], ")")), 
+     ylim = c(0,1 ), cex.lab= 2, 
+     cex.axis =1.5, 
+     xlab = expression(theta), lwd = 3, col = my_colors[1])
+text(x= -0.4, 
+     y = 0.90,  "item1", 
+     col = my_colors[1], cex = 2)
+
+abline(h = .90, lty = 2, lwd = 2, col = "red")
+abline(h = .70, lty = 2, lwd = 2, col = "red")
+abline(h = .20, lty = 2, lwd = 2, col = "red")
+abline(h = .30, lty = 2, lwd = 2, col = "red")
+lines(theta, IRT(theta, a = a[2], b = b[2], c= g[2], e = d[2]), 
+     col = my_colors[5], lwd = 3)
+text(x= 3.2, 
+     y = 0.80, "item2", 
+     col = my_colors[5], cex = 2)
+lines(theta, IRT(theta, a = a[2], b = b[2]), 
+     col = "gray", lwd = 2, lty = 2)
+lines(theta, IRT(theta, a = a[1], b = b[]), 
+     col = "gray", lwd = 2, lty = 2)
+```
+
+\end{overprint}
 
 ### Item Information Function
 Given $P(\theta) = P(\theta, b_i, a_i, c_i, d_i)$ and $Q(\theta) = \- P(\theta, b_i, a_i, c_i, d_i)$,
@@ -1541,6 +1664,15 @@ legend(x = -1.2, y = .95, cex = 2,
 
 ```
 
+\footnotesize
+```{r, results='asis'}
+items = data.frame(tired_q$e[1], 
+                   tired_q$e[2],
+                   tired_q$e[3])
+print(xtable(items), comment = FALSE, include.rownames=T)
+```
+
+
 ### Careless error and TIF
 
 
@@ -1554,6 +1686,7 @@ legend(x = -1, y = 1.75, cex = 2,
        legend = c("Without d", "With d"), 
        fill = c("gray58", "firebrick"))
 ```
+
 
 
 # Relationship between models

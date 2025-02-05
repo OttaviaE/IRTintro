@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.30)  22 JAN 2025 15:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.30)  5 FEB 2025 17:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1895,10 +1895,10 @@ Package pdftex.def Info: img/bart.png  used on input line 320.
 File: intro_files/figure-beamer/unnamed-chunk-3-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-3-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-3-1.pdf  used 
-on input line 409.
+on input line 410.
 (pdftex.def)             Requested size: 335.74263pt x 235.02026pt.
 
-Overfull \vbox (15.05608pt too high) detected at line 409
+Overfull \vbox (15.05608pt too high) detected at line 410
  []
 
 
@@ -1910,14 +1910,14 @@ Overfull \vbox (15.05608pt too high) detected at line 409
 File: intro_files/figure-beamer/unnamed-chunk-4-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-4-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-4-1.pdf  used 
-on input line 431.
+on input line 432.
 (pdftex.def)             Requested size: 285.38327pt x 199.76645pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 431.
+(Font)              <9> on input line 432.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <9> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 431.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 432.
 
-Overfull \vbox (7.71892pt too high) detected at line 431
+Overfull \vbox (7.71892pt too high) detected at line 432
  []
 
 
@@ -1937,10 +1937,10 @@ Overfull \vbox (7.71892pt too high) detected at line 431
 File: intro_files/figure-beamer/prova-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/prova-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/prova-1.pdf  used on input l
-ine 454.
+ine 455.
 (pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
 
-Overfull \vbox (25.58276pt too high) detected at line 454
+Overfull \vbox (25.58276pt too high) detected at line 455
  []
 
 
@@ -1956,10 +1956,10 @@ Overfull \vbox (25.58276pt too high) detected at line 454
 File: intro_files/figure-beamer/unnamed-chunk-6-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-6-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-6-1.pdf  used 
-on input line 506.
+on input line 507.
 (pdftex.def)             Requested size: 285.38327pt x 199.76645pt.
 
-Overfull \vbox (16.25475pt too high) detected at line 506
+Overfull \vbox (16.25475pt too high) detected at line 507
  []
 
 
@@ -1980,10 +1980,10 @@ c}]
 File: intro_files/figure-beamer/unnamed-chunk-8-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-8-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-8-1.pdf  used 
-on input line 533.
+on input line 534.
 (pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
 
-Overfull \vbox (19.61496pt too high) detected at line 533
+Overfull \vbox (19.61496pt too high) detected at line 534
  []
 
 
@@ -2000,10 +2000,10 @@ Overfull \vbox (19.61496pt too high) detected at line 533
 File: intro_files/figure-beamer/unnamed-chunk-10-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-10-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-10-1.pdf  used
- on input line 564.
+ on input line 565.
 (pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
 
-Overfull \vbox (17.31497pt too high) detected at line 564
+Overfull \vbox (17.31497pt too high) detected at line 565
  []
 
 
@@ -2028,24 +2028,24 @@ Overfull \vbox (17.31497pt too high) detected at line 564
 File: intro_files/figure-beamer/unnamed-chunk-12-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-12-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-12-1.pdf  used
- on input line 663.
+ on input line 664.
 (pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
 <intro_files/figure-beamer/unnamed-chunk-13-1.pdf, id=6025, 722.7pt x 505.89pt>
 
 File: intro_files/figure-beamer/unnamed-chunk-13-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-13-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-13-1.pdf  used
- on input line 663.
+ on input line 664.
 (pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
 <intro_files/figure-beamer/unnamed-chunk-14-1.pdf, id=6026, 722.7pt x 505.89pt>
 
 File: intro_files/figure-beamer/unnamed-chunk-14-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-14-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-14-1.pdf  used
- on input line 663.
+ on input line 664.
 (pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
 
-Overfull \vbox (22.29024pt too high) detected at line 663
+Overfull \vbox (22.29024pt too high) detected at line 664
  []
 
 
@@ -2056,20 +2056,20 @@ Overfull \vbox (22.29024pt too high) detected at line 663
 File: intro_files/figure-beamer/unnamed-chunk-12-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-12-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-12-1.pdf  used
- on input line 663.
+ on input line 664.
 (pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
 File: intro_files/figure-beamer/unnamed-chunk-13-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-13-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-13-1.pdf  used
- on input line 663.
+ on input line 664.
 (pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
 File: intro_files/figure-beamer/unnamed-chunk-14-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-14-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-14-1.pdf  used
- on input line 663.
+ on input line 664.
 (pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
 
-Overfull \vbox (22.29024pt too high) detected at line 663
+Overfull \vbox (22.29024pt too high) detected at line 664
  []
 
 
@@ -2080,20 +2080,20 @@ Overfull \vbox (22.29024pt too high) detected at line 663
 File: intro_files/figure-beamer/unnamed-chunk-12-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-12-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-12-1.pdf  used
- on input line 663.
+ on input line 664.
 (pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
 File: intro_files/figure-beamer/unnamed-chunk-13-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-13-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-13-1.pdf  used
- on input line 663.
+ on input line 664.
 (pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
 File: intro_files/figure-beamer/unnamed-chunk-14-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-14-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-14-1.pdf  used
- on input line 663.
+ on input line 664.
 (pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
 
-Overfull \vbox (22.29024pt too high) detected at line 663
+Overfull \vbox (22.29024pt too high) detected at line 664
  []
 
 
@@ -2106,7 +2106,7 @@ Overfull \vbox (22.29024pt too high) detected at line 663
 File: intro_files/figure-beamer/unnamed-chunk-15-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-15-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-15-1.pdf  used
- on input line 675.
+ on input line 676.
 (pdftex.def)             Requested size: 235.01881pt x 164.51265pt.
 
 
@@ -2118,10 +2118,10 @@ Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-15-1.pdf  used
 File: intro_files/figure-beamer/unnamed-chunk-16-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-16-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-16-1.pdf  used
- on input line 698.
+ on input line 699.
 (pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
 
-Overfull \vbox (19.1885pt too high) detected at line 698
+Overfull \vbox (19.1885pt too high) detected at line 699
  []
 
 
@@ -2134,14 +2134,28 @@ Overfull \vbox (19.1885pt too high) detected at line 698
 File: intro_files/figure-beamer/unnamed-chunk-18-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-18-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-18-1.pdf  used
- on input line 703.
+ on input line 716.
+(pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
+<intro_files/figure-beamer/unnamed-chunk-19-1.pdf, id=6716, 722.7pt x 505.89pt>
+
+File: intro_files/figure-beamer/unnamed-chunk-19-1.pdf Graphic file (type pdf)
+<use intro_files/figure-beamer/unnamed-chunk-19-1.pdf>
+Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-19-1.pdf  used
+ on input line 716.
+(pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
+<intro_files/figure-beamer/unnamed-chunk-20-1.pdf, id=6717, 722.7pt x 505.89pt>
+
+File: intro_files/figure-beamer/unnamed-chunk-20-1.pdf Graphic file (type pdf)
+<use intro_files/figure-beamer/unnamed-chunk-20-1.pdf>
+Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-20-1.pdf  used
+ on input line 716.
 (pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 703.
+(Font)              <12> on input line 716.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <12> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 703.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 716.
 
-Overfull \vbox (16.4658pt too high) detected at line 703
+Overfull \vbox (9.6658pt too high) detected at line 716
  []
 
 
@@ -2149,39 +2163,67 @@ Overfull \vbox (16.4658pt too high) detected at line 703
 [43
 
  <./intro_files/figure-beamer/unnamed-chunk-18-1.pdf>]
-
-[44
-
-]
-<intro_files/figure-beamer/unnamed-chunk-19-1.pdf, id=7044, 722.7pt x 505.89pt>
-
+File: intro_files/figure-beamer/unnamed-chunk-18-1.pdf Graphic file (type pdf)
+<use intro_files/figure-beamer/unnamed-chunk-18-1.pdf>
+Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-18-1.pdf  used
+ on input line 716.
+(pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
 File: intro_files/figure-beamer/unnamed-chunk-19-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-19-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-19-1.pdf  used
- on input line 740.
+ on input line 716.
+(pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
+File: intro_files/figure-beamer/unnamed-chunk-20-1.pdf Graphic file (type pdf)
+<use intro_files/figure-beamer/unnamed-chunk-20-1.pdf>
+Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-20-1.pdf  used
+ on input line 716.
 (pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
 
-Overfull \vbox (22.1617pt too high) detected at line 740
+Overfull \vbox (9.6658pt too high) detected at line 716
+ []
+
+
+
+[44
+
+ <./intro_files/figure-beamer/unnamed-chunk-19-1.pdf>]
+File: intro_files/figure-beamer/unnamed-chunk-18-1.pdf Graphic file (type pdf)
+<use intro_files/figure-beamer/unnamed-chunk-18-1.pdf>
+Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-18-1.pdf  used
+ on input line 716.
+(pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
+File: intro_files/figure-beamer/unnamed-chunk-19-1.pdf Graphic file (type pdf)
+<use intro_files/figure-beamer/unnamed-chunk-19-1.pdf>
+Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-19-1.pdf  used
+ on input line 716.
+(pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
+File: intro_files/figure-beamer/unnamed-chunk-20-1.pdf Graphic file (type pdf)
+<use intro_files/figure-beamer/unnamed-chunk-20-1.pdf>
+Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-20-1.pdf  used
+ on input line 716.
+(pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
+
+Overfull \vbox (9.6658pt too high) detected at line 716
  []
 
 
 
 [45
 
- <./intro_files/figure-beamer/unnamed-chunk-19-1.pdf>]
+ <./intro_files/figure-beamer/unnamed-chunk-20-1.pdf>]
 
 [46
 
 ]
-<intro_files/figure-beamer/unnamed-chunk-21-1.pdf, id=7371, 722.7pt x 505.89pt>
+<intro_files/figure-beamer/unnamed-chunk-21-1.pdf, id=7222, 722.7pt x 505.89pt>
 
 File: intro_files/figure-beamer/unnamed-chunk-21-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-21-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-21-1.pdf  used
- on input line 775.
-(pdftex.def)             Requested size: 285.38327pt x 199.76645pt.
+ on input line 753.
+(pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
 
-Overfull \vbox (10.413pt too high) detected at line 775
+Overfull \vbox (22.1617pt too high) detected at line 753
  []
 
 
@@ -2189,212 +2231,254 @@ Overfull \vbox (10.413pt too high) detected at line 775
 [47
 
  <./intro_files/figure-beamer/unnamed-chunk-21-1.pdf>]
-<intro_files/figure-beamer/unnamed-chunk-23-1.pdf, id=7537, 722.7pt x 505.89pt>
+
+[48
+
+]
+<intro_files/figure-beamer/unnamed-chunk-23-1.pdf, id=7549, 722.7pt x 505.89pt>
 
 File: intro_files/figure-beamer/unnamed-chunk-23-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-23-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-23-1.pdf  used
- on input line 809.
-(pdftex.def)             Requested size: 251.80696pt x 176.26134pt.
+ on input line 788.
+(pdftex.def)             Requested size: 285.38327pt x 199.76645pt.
+
+Overfull \vbox (10.413pt too high) detected at line 788
+ []
 
 
-[48
-
- <./intro_files/figure-beamer/unnamed-chunk-23-1.pdf>]
 
 [49
 
-]
-
-[50
-
-]
-
-[51
-
-]
-<intro_files/figure-beamer/unnamed-chunk-25-1.pdf, id=8109, 722.7pt x 505.89pt>
+ <./intro_files/figure-beamer/unnamed-chunk-23-1.pdf>]
+<intro_files/figure-beamer/unnamed-chunk-25-1.pdf, id=7716, 722.7pt x 505.89pt>
 
 File: intro_files/figure-beamer/unnamed-chunk-25-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-25-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-25-1.pdf  used
- on input line 861.
-(pdftex.def)             Requested size: 268.59512pt x 188.01776pt.
-
-Overfull \vbox (5.43282pt too high) detected at line 861
- []
+ on input line 822.
+(pdftex.def)             Requested size: 251.80696pt x 176.26134pt.
 
 
+[50
+
+ <./intro_files/figure-beamer/unnamed-chunk-25-1.pdf>]
+
+[51
+
+]
 
 [52
 
- <./intro_files/figure-beamer/unnamed-chunk-25-1.pdf>]
-<intro_files/figure-beamer/unnamed-chunk-26-1.pdf, id=8275, 722.7pt x 505.89pt>
-
-File: intro_files/figure-beamer/unnamed-chunk-26-1.pdf Graphic file (type pdf)
-<use intro_files/figure-beamer/unnamed-chunk-26-1.pdf>
-Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-26-1.pdf  used
- on input line 871.
-(pdftex.def)             Requested size: 268.59512pt x 188.01776pt.
-
-Overfull \vbox (5.31447pt too high) detected at line 871
- []
-
-
+]
 
 [53
 
- <./intro_files/figure-beamer/unnamed-chunk-26-1.pdf>]
-
-[54
-
 ]
-
-[55
-
-]
-
-[56
-
-]
-<intro_files/figure-beamer/unnamed-chunk-27-1.pdf, id=8923, 722.7pt x 505.89pt>
+<intro_files/figure-beamer/unnamed-chunk-27-1.pdf, id=8287, 722.7pt x 505.89pt>
 
 File: intro_files/figure-beamer/unnamed-chunk-27-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-27-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-27-1.pdf  used
- on input line 919.
-(pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
+ on input line 874.
+(pdftex.def)             Requested size: 268.59512pt x 188.01776pt.
 
-Overfull \vbox (22.69789pt too high) detected at line 919
+Overfull \vbox (5.43282pt too high) detected at line 874
  []
 
 
 
-[57
+[54
 
  <./intro_files/figure-beamer/unnamed-chunk-27-1.pdf>]
+<intro_files/figure-beamer/unnamed-chunk-28-1.pdf, id=8453, 722.7pt x 505.89pt>
 
-[58
-
-]
-<intro_files/figure-beamer/unnamed-chunk-29-1.pdf, id=9250, 722.7pt x 505.89pt>
+File: intro_files/figure-beamer/unnamed-chunk-28-1.pdf Graphic file (type pdf)
+<use intro_files/figure-beamer/unnamed-chunk-28-1.pdf>
+Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-28-1.pdf  used
+ on input line 892.
+(pdftex.def)             Requested size: 268.59512pt x 188.01776pt.
+<intro_files/figure-beamer/unnamed-chunk-29-1.pdf, id=8454, 722.7pt x 505.89pt>
 
 File: intro_files/figure-beamer/unnamed-chunk-29-1.pdf Graphic file (type pdf)
 <use intro_files/figure-beamer/unnamed-chunk-29-1.pdf>
 Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-29-1.pdf  used
- on input line 955.
-(pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
-
-Overfull \vbox (19.98053pt too high) detected at line 955
- []
+ on input line 892.
+(pdftex.def)             Requested size: 268.59512pt x 188.01776pt.
 
 
+[55
+
+ <./intro_files/figure-beamer/unnamed-chunk-28-1.pdf>]
+File: intro_files/figure-beamer/unnamed-chunk-28-1.pdf Graphic file (type pdf)
+<use intro_files/figure-beamer/unnamed-chunk-28-1.pdf>
+Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-28-1.pdf  used
+ on input line 892.
+(pdftex.def)             Requested size: 268.59512pt x 188.01776pt.
+File: intro_files/figure-beamer/unnamed-chunk-29-1.pdf Graphic file (type pdf)
+<use intro_files/figure-beamer/unnamed-chunk-29-1.pdf>
+Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-29-1.pdf  used
+ on input line 892.
+(pdftex.def)             Requested size: 268.59512pt x 188.01776pt.
+
+
+[56
+
+ <./intro_files/figure-beamer/unnamed-chunk-29-1.pdf>]
+
+[57
+
+]
+
+[58
+
+]
 
 [59
 
- <./intro_files/figure-beamer/unnamed-chunk-29-1.pdf>]
-<intro_files/figure-beamer/unnamed-chunk-31-1.pdf, id=9416, 722.7pt x 505.89pt>
+]
+<intro_files/figure-beamer/unnamed-chunk-30-1.pdf, id=9190, 722.7pt x 505.89pt>
 
-File: intro_files/figure-beamer/unnamed-chunk-31-1.pdf Graphic file (type pdf)
-<use intro_files/figure-beamer/unnamed-chunk-31-1.pdf>
-Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-31-1.pdf  used
- on input line 988.
+File: intro_files/figure-beamer/unnamed-chunk-30-1.pdf Graphic file (type pdf)
+<use intro_files/figure-beamer/unnamed-chunk-30-1.pdf>
+Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-30-1.pdf  used
+ on input line 940.
 (pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
 
-Overfull \vbox (29.45958pt too high) detected at line 988
+Overfull \vbox (22.69789pt too high) detected at line 940
  []
 
 
 
 [60
 
- <./intro_files/figure-beamer/unnamed-chunk-31-1.pdf>]
+ <./intro_files/figure-beamer/unnamed-chunk-30-1.pdf>]
 
 [61
 
 ]
+<intro_files/figure-beamer/unnamed-chunk-32-1.pdf, id=9518, 722.7pt x 505.89pt>
 
-[62
-
-]
-
-[63
-
-]
-<intro_files/figure-beamer/unnamed-chunk-33-1.pdf, id=9985, 722.7pt x 505.89pt>
-
-File: intro_files/figure-beamer/unnamed-chunk-33-1.pdf Graphic file (type pdf)
-<use intro_files/figure-beamer/unnamed-chunk-33-1.pdf>
-Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-33-1.pdf  used
- on input line 1026.
+File: intro_files/figure-beamer/unnamed-chunk-32-1.pdf Graphic file (type pdf)
+<use intro_files/figure-beamer/unnamed-chunk-32-1.pdf>
+Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-32-1.pdf  used
+ on input line 976.
 (pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
 
-Overfull \vbox (27.21078pt too high) detected at line 1026
+Overfull \vbox (19.98053pt too high) detected at line 976
  []
 
 
 
+[62
+
+ <./intro_files/figure-beamer/unnamed-chunk-32-1.pdf>]
+<intro_files/figure-beamer/unnamed-chunk-34-1.pdf, id=9684, 722.7pt x 505.89pt>
+
+File: intro_files/figure-beamer/unnamed-chunk-34-1.pdf Graphic file (type pdf)
+<use intro_files/figure-beamer/unnamed-chunk-34-1.pdf>
+Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-34-1.pdf  used
+ on input line 1009.
+(pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
+
+Overfull \vbox (29.45958pt too high) detected at line 1009
+ []
+
+
+
+[63
+
+ <./intro_files/figure-beamer/unnamed-chunk-34-1.pdf>]
+
 [64
 
- <./intro_files/figure-beamer/unnamed-chunk-33-1.pdf>]
+]
 
 [65
 
 ]
-<intro_files/figure-beamer/unnamed-chunk-34-1.pdf, id=10310, 722.7pt x 505.89pt
->
-File: intro_files/figure-beamer/unnamed-chunk-34-1.pdf Graphic file (type pdf)
-<use intro_files/figure-beamer/unnamed-chunk-34-1.pdf>
-Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-34-1.pdf  used
- on input line 1041.
-(pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
-
-Overfull \vbox (16.4658pt too high) detected at line 1041
- []
-
-
 
 [66
 
- <./intro_files/figure-beamer/unnamed-chunk-34-1.pdf>]
-<intro_files/figure-beamer/unnamed-chunk-35-1.pdf, id=10476, 722.7pt x 505.89pt
+]
+<intro_files/figure-beamer/unnamed-chunk-36-1.pdf, id=10252, 722.7pt x 505.89pt
 >
-File: intro_files/figure-beamer/unnamed-chunk-35-1.pdf Graphic file (type pdf)
-<use intro_files/figure-beamer/unnamed-chunk-35-1.pdf>
-Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-35-1.pdf  used
- on input line 1046.
+File: intro_files/figure-beamer/unnamed-chunk-36-1.pdf Graphic file (type pdf)
+<use intro_files/figure-beamer/unnamed-chunk-36-1.pdf>
+Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-36-1.pdf  used
+ on input line 1059.
+(pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
+<intro_files/figure-beamer/unnamed-chunk-37-1.pdf, id=10253, 722.7pt x 505.89pt
+>
+File: intro_files/figure-beamer/unnamed-chunk-37-1.pdf Graphic file (type pdf)
+<use intro_files/figure-beamer/unnamed-chunk-37-1.pdf>
+Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-37-1.pdf  used
+ on input line 1059.
 (pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
 
-Overfull \vbox (16.4658pt too high) detected at line 1046
+Overfull \vbox (20.41078pt too high) detected at line 1059
  []
 
 
 
 [67
 
- <./intro_files/figure-beamer/unnamed-chunk-35-1.pdf>]
+ <./intro_files/figure-beamer/unnamed-chunk-36-1.pdf>]
+File: intro_files/figure-beamer/unnamed-chunk-36-1.pdf Graphic file (type pdf)
+<use intro_files/figure-beamer/unnamed-chunk-36-1.pdf>
+Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-36-1.pdf  used
+ on input line 1059.
+(pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
+File: intro_files/figure-beamer/unnamed-chunk-37-1.pdf Graphic file (type pdf)
+<use intro_files/figure-beamer/unnamed-chunk-37-1.pdf>
+Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-37-1.pdf  used
+ on input line 1059.
+(pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
+
+Overfull \vbox (20.41078pt too high) detected at line 1059
+ []
+
+
 
 [68
 
-]
+ <./intro_files/figure-beamer/unnamed-chunk-37-1.pdf>]
 
 [69
 
 ]
-<img/procuste.jpg, id=10881, 271.0125pt x 187.70125pt>
-File: img/procuste.jpg Graphic file (type jpg)
-<use img/procuste.jpg>
-Package pdftex.def Info: img/procuste.jpg  used on input line 1095.
-(pdftex.def)             Requested size: 80.5775pt x 55.80672pt.
+<intro_files/figure-beamer/unnamed-chunk-38-1.pdf, id=10667, 722.7pt x 505.89pt
+>
+File: intro_files/figure-beamer/unnamed-chunk-38-1.pdf Graphic file (type pdf)
+<use intro_files/figure-beamer/unnamed-chunk-38-1.pdf>
+Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-38-1.pdf  used
+ on input line 1086.
+(pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
+
+Overfull \vbox (50.76563pt too high) detected at line 1086
+ []
+
 
 
 [70
 
- <./img/procuste.jpg>]
+ <./intro_files/figure-beamer/unnamed-chunk-38-1.pdf>]
+<intro_files/figure-beamer/unnamed-chunk-40-1.pdf, id=10833, 722.7pt x 505.89pt
+>
+File: intro_files/figure-beamer/unnamed-chunk-40-1.pdf Graphic file (type pdf)
+<use intro_files/figure-beamer/unnamed-chunk-40-1.pdf>
+Package pdftex.def Info: intro_files/figure-beamer/unnamed-chunk-40-1.pdf  used
+ on input line 1091.
+(pdftex.def)             Requested size: 302.1663pt x 211.51515pt.
+
+Overfull \vbox (16.4658pt too high) detected at line 1091
+ []
+
+
 
 [71
 
-]
+ <./intro_files/figure-beamer/unnamed-chunk-40-1.pdf>]
 
 [72
 
@@ -2403,16 +2487,38 @@ Package pdftex.def Info: img/procuste.jpg  used on input line 1095.
 [73
 
 ]
-LaTeX Font Info:    Font shape `T1/lmss/bx/it' in size <12> not available
-(Font)              Font shape `T1/lmss/bx/sl' tried instead on input line 1157
-.
+<img/procuste.jpg, id=11238, 271.0125pt x 187.70125pt>
+File: img/procuste.jpg Graphic file (type jpg)
+<use img/procuste.jpg>
+Package pdftex.def Info: img/procuste.jpg  used on input line 1140.
+(pdftex.def)             Requested size: 80.5775pt x 55.80672pt.
 
 
 [74
 
-]
+ <./img/procuste.jpg>]
 
 [75
+
+]
+
+[76
+
+]
+
+[77
+
+]
+LaTeX Font Info:    Font shape `T1/lmss/bx/it' in size <12> not available
+(Font)              Font shape `T1/lmss/bx/sl' tried instead on input line 1202
+.
+
+
+[78
+
+]
+
+[79
 
 ]
 \tf@nav=\write5
@@ -2431,10 +2537,10 @@ L3 programming layer <2024-11-02>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 35690 strings out of 473650
- 754190 string characters out of 5716970
- 1243179 words of memory out of 5000000
- 57700 multiletter control sequences out of 15000+600000
+ 35734 strings out of 473650
+ 756298 string characters out of 5716970
+ 1243181 words of memory out of 5000000
+ 57736 multiletter control sequences out of 15000+600000
  665065 words of font info for 176 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,20n,123p,1876b,774s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2453,9 +2559,9 @@ ype1/public/lm/lmsso12.pfb><C:/Users/Ottavia/AppData/Local/Programs/MiKTeX/font
 s/type1/public/lm/lmsso8.pfb><C:/Users/Ottavia/AppData/Local/Programs/MiKTeX/fo
 nts/type1/public/lm/lmsso9.pfb><C:/Users/Ottavia/AppData/Local/Programs/MiKTeX/
 fonts/type1/public/lm/lmsy10.pfb>
-Output written on intro.pdf (75 pages, 3004309 bytes).
+Output written on intro.pdf (79 pages, 3356821 bytes).
 PDF statistics:
- 11948 PDF objects out of 12825 (max. 8388607)
- 222 named destinations out of 1000 (max. 500000)
- 66057 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 12307 PDF objects out of 12825 (max. 8388607)
+ 230 named destinations out of 1000 (max. 500000)
+ 66077 words of extra memory for PDF output out of 74296 (max. 10000000)
 
