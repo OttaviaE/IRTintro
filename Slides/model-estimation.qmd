@@ -522,7 +522,7 @@ Under the assumption of local independence, the residuals are expected not to be
 
 The usual statistics for interpreting the correlation between the residuals is the $Q3$ statistics (Yen, 1984) 
 
-This statistics is computed for every pair of items
+This statistics is computed between the residuls of every pair of items
 
 > $Q3 > .20$ suggests an high correlation between the residuals of two items, indicating local dependence $\rightarrow$ one of the item should be deleted 
 
@@ -790,7 +790,7 @@ ggplot(info2pl$test_info,
 
 
 
-### Your turn!
+## Your turn!
 
 Download the data set "dataES_stima.csv" from the [shared folder](https://drive.google.com/drive/folders/1EF4cN4yiB3Fft_y2Mh4r0Mclxc6bTRdf?usp=sharing).
 
@@ -800,7 +800,7 @@ Store the downloaded file in the `data` sub folder:
 
 - Look at the data! (Both items and respondents)
 
-- CHeck the monotonicity and unidimensionality assumptions
+- Check the monotonicity and unidimensionality assumptions
 
 - Fit of the IRT models & choose the best model
 
