@@ -475,7 +475,7 @@ If the area between the ICCs is 0, then the item presents no DIF
 
 <br>
 
-It is based on a $Z$ statistic under the hypothesis that the area between the ICCs of the item in the two groups is 0
+It is based on a $Z$ statistic under the null hypothesis that the area between the ICCs of the item in the two groups is 0
 
 
 ## A note on Lord and Raju 
@@ -679,9 +679,9 @@ lordDif$itemParInit
 
 The object obtained from `lordDif$itemParInit` has a number of rows equal 2 times the number of items: 
 
-> Rows $i, 1\ldots, I$: Estimates of the items in the **REFERENCE GROUP**
+> Rows $1, \ldots, I$: Estimates of the items in the **REFERENCE GROUP**
 
-> Rows $i+1, \ldots 2I$: Estimates of the items in the **FOCAL GROUP**
+> Rows $I, \ldots, 2I$: Estimates of the items in the **FOCAL GROUP**
 
 . . .
 
@@ -689,7 +689,7 @@ The object obtained from `lordDif$itemParInit` has a number of rows equal 2 time
 
 ## Reference group 
 
-Rows $i, 1\ldots, I$: These estimates **are not** rescaled
+Rows $1, \ldots, I$: These estimates **are not** rescaled
 
 ```{r}
 item_par = lordDif$itemParInit
@@ -699,7 +699,7 @@ item_par[1:10, ]
 
 ## Focal group 
 
-Rows $i+1, \ldots 2I$
+Rows $I, \ldots, 2I$
 
 ```{r}
 item_par[11:nrow(item_par), ]
@@ -731,9 +731,12 @@ itemFR$DIF_correct = itemFR$bF- itemFR$new_bR
 itemFR
 ```
 
-### Plot the results
+## Plot the results
 
 ```{r}
+#| echo: false
+#| eval: true
+#| out-width: 80%
 my_items = data.frame(items = rownames(itemFR), 
                       focal = itemFR$bF, 
                       reference = itemFR$bR)
@@ -794,6 +797,7 @@ ggplot(my_items,
 ```
 </details>
 
+## Your turn
 
 Download the data set "difES.csv" from the [shared folder](https://drive.google.com/drive/folders/1EF4cN4yiB3Fft_y2Mh4r0Mclxc6bTRdf?usp=sharing).
 
